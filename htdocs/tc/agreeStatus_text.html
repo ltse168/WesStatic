@@ -1,0 +1,59 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+</head>
+
+<script language="javascript">
+var newwindow;
+	function poptastic(url)
+	{
+//	  newwindow = window.showModalDialog(url, "", "dialogWidth=810px;dialogHeight=600px;scrollbars=yes;center=yes;border=thin;help=no;status=yes;");  
+	  newwindow = window.open(url,'webapp','height=1200,width=1100,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=yes');
+	  if (window.focus) {newwindow.focus()}
+	}
+	
+	function cbxdisclaimer_change(cbx){
+		if (cbx.checked){
+			var link = document.getElementById("aAgree");
+			link.href = "javascript:poptastic('appStatusFrame_text.html');";
+			link.style.color = "blue";
+		} else {
+			//document.getElementById("aAgree").href = "javascript:void(0);";
+			var link = document.getElementById("aAgree");
+			link.href = "javascript:void(0);";
+			link.style.color = "grey";
+		}
+	}
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+
+<body>
+
+	<br/>
+	
+	<div style="display:table;padding=0;margin=0;">
+		<input type="checkbox" style="display:table-cell;" onchange="cbxdisclaimer_change(this)"/>
+		<p style="display:table-cell;">我已閱讀及明白上述規例，並得悉我在本網站獲得的信息不得用作商業用途或與選舉無關的其他用途。</p>
+	</div>
+	
+	<p>如此告示的英文版本與中文版本有任何歧異，一概以英文版本為準。</p>
+
+	<table align="center" height="50" width="500" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center" width="200">
+			<a onClick="cookieCurPage('intro.html');" href="intro_text.html" target="_parent">返回主頁</a>
+		</td>
+		<td align="center" width="200">
+			<a id="aAgree" href="javascript:void(0);" style="color:grey">下一步</a>
+		</td>
+	</tr>
+	</table>
+</body>
+</html>

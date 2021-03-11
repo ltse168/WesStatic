@@ -1,0 +1,31 @@
+<html>
+
+<head>
+<title>Search on Voter Registration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script language="javascript">
+  function initForm() {
+	document.bannerForm.target='banner';
+	document.bannerForm.action='remisBanner.html?title=2';
+	document.bannerForm.submit();
+alert("b");        
+  }
+//window.onload=initForm;
+</script>
+</head>
+
+<form Name="bannerForm" method="post">
+  </form>
+
+<frameset rows="*,80" framespacing="0" border="0" frameborder="0" onload="initForm();">
+  <frame name="disclaimer" noresize target="top" src="disclaimer.html">
+  <frame name="agree" scrolling="no" noresize target="_self" src="agree.html">
+  <noframes>
+  <body>
+<p>This page uses frames, but your browser doesn't support them.</p>
+
+  </body>
+  </noframes>
+</frameset>
+
+</html>

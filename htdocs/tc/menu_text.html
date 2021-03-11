@@ -1,0 +1,36 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<LINK REL="stylesheet" type="text/css" href="../css/common_text.css" />
+<base target="contents">
+</head>
+<script language="javascript">
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+
+<body leftMargin="0" topMargin="0" marginwidth="0" marginheight="0" >
+	<table height="50" width="780" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td >
+		 <br>&nbsp;&nbsp;[<a onClick="cookieCurPage('intro.html');" href="intro_text.html" target="main">簡介</a>] 
+		 &nbsp;&nbsp;[<a onClick="cookieCurPage('searchFrame.html');" href="searchFrame_text.html" target="main">查詢選民登記資料</a>]      
+		 &nbsp;&nbsp;[<a onClick="cookieCurPage('disclaimer.html');" href="disclaimer_text.html" target="main">免責聲明</a>] 
+		 &nbsp;&nbsp;[<a onClick="cookieCurPage('private.html');" href="private_text.html" target="main">私隱政策</a>] 
+		 &nbsp;&nbsp;[<a onClick="cookieCurPage('techconfig.html');" href="techconfig_text.html" target="main">技術設定</a>] 
+		 <br><br>&nbsp;&nbsp;[<a onClick="cookieCurPage('personcollect.html');" href="personcollect_text.html" target="main">收集個人資料聲明</a>]      
+		 &nbsp;&nbsp;[<a href="http://www.had.gov.hk/rre/text/chi/electors/qualifications.html" target="_blank">選民資格</a>]      
+		 &nbsp;&nbsp;[<a href="http://www.had.gov.hk/rre/text/chi/electors/index.html" target="_blank">選民登記</a>]      
+		 <br><br>&nbsp;&nbsp;[<a href="../remis/ESubmissionPlatform.jsp?lang=tc" target="_blank">選民登記表格</a>]      
+		 &nbsp;&nbsp;[<a onClick="cookieCurPage('contact.html');" href="contact_text.html" target="main">聯絡我們</a>]     
+		</td>
+	  </tr>
+	</table>
+</body>
+</html>

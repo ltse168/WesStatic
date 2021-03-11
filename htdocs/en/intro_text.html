@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+ol.parenthesized-roman-counter {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+	display: table;
+}
+
+ol.parenthesized-roman-counter li{
+    counter-increment: step-counter;
+	display: table-row;
+}
+
+ol.parenthesized-roman-counter li::before {
+    content: "(" counter(step-counter,lower-roman) ")";
+	margin-right: 5px;
+    width: 2em;
+    text-align: left;
+    display: table-cell;
+}
+</style>
+</head>
+<script language="javascript">
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+<body>
+    <p align="center" style="text-align:center"><b><u><font face="Arial" size="3">Introduction</font></u></b></p>
+    
+	<p>
+    The Final Register of Electors for Rural Representative Election is published in October every year.  If you are eligible for registration as an elector and wish to have your registration particulars included in this year’s Register, you should submit your application for registration on or before 16 July of this year.  If the application form reaches the Home Affairs Department (HAD)/Electoral Registration Officer (ERO) after 16 July of this year, information provided therein will be processed when the provisional registers of the following year are compiled.
+	</p>
+
+	<p>
+	You may perform a search on this “Rural Representative Election Voter Registration Information Enquiry System” (the System) to see if you have been registered as an elector.
+	<!--PR Period Only-->
+	<!--The 2020 Provisional Register of Electors was published on 21 August 2020, you may check whether your registration particulars are included in the Register of Electors from 21 August 2020 to 9 September 2020.-->
+	<!--PR Period Only-->
+	</p>
+
+	<p>
+	If you are a registered elector, you may perform a search on the System to enquire about the Rural Committee and Village/Market Town for which you have been registered as an elector in the 2020 Final Register of Electors.
+	</p>
+
+	<p>
+	If you have submitted the Application for New Voter Registration, you may also perform a search on the System to enquire about the status of your application.
+	</p>
+
+	<p>
+	Please be reminded that the System is provided for electors to check their own registered particulars only.  Anyone who checks another elector’s registered particulars through the System without the latter’s prior written consent may contravene the relevant provisions of the Personal Data (Privacy) Ordinance (Cap. 486).
+	</p>
+
+	<p>
+	A registered elector of Indigenous Inhabitant Representative Election who wishes to report on change of his/her principal particulars (i.e. name) contained in the Final Register of Electors should submit his/her application on or before 16 June of this year.  As for the request for change of other particulars (including principal residential address, correspondence address and the Indigenous Village/Composite Indigenous Village as registered), the application should be submitted on or before 16 July of this year.
+	</p>
+
+	<p>
+	A registered elector of Resident Representative Election/Kaifong Representative Election who wishes to report on change of his/her principal particulars (i.e. name or principal residential address) contained in the Final Register of Electors should submit his/her application on or before 16 June of this year.  Please note that a registered elector of Resident Representative Election/Kaifong Representative Election applying for change of principal residential address (regardless of whether the principal residential address is still within the boundary of the Existing Village/Market Town as registered) must submit together with the application form the required proof of principal residential address.  For details, please refer to the Guidance Notes attached to the application form.
+	</p>
+	
+	<p>
+	An elector who wishes to report on change of his or her registered particulars should complete and sign the <a href="../remis/ESubmissionPlatform.jsp" target="_blank">Application for Change of Registered Particulars</a> and submit the form to the HAD/ERO by the following means:
+	<ol class="parenthesized-roman-counter">
+		<li>by post (Address: Home Affairs Department, 30/F, Southorn Centre, 130 Hennessy Road, Wan Chai, Hong Kong);</li>
+		<li>by fax (Fax no.: 2591 6392);</li>
+		<li>in person or by a representative to the HAD Headquarters or Home Affairs Enquiry Centres of District Offices;</li>
+		<li>by email (Email address: rre@had.gov.hk), with the signed application form scanned and attached as an email attachment; or</li>
+		<li>by using the <a href="../remis/ESubmissionPlatform.jsp" target="_blank">electronic form</a> and uploading the completed and signed form to the dedicated website of HAD.</li>
+	</ol>
+	</p>
+
+	<p>
+	Applications received by the HAD/ERO after the above deadlines will be processed when the provisional registers of the following year are compiled.
+	</p>
+	
+    <p align="center">
+		<font face="Arial" size="3"><br>
+		<a onClick="cookieCurPage('searchStatusFrame.html');" href="searchStatusFrame_text.html">Enquiry on Application Status of New Voter Registration</a></font>
+	</p>
+	
+    <p align="center">
+		<font face="Arial" size="3"><br>
+		<a onClick="cookieCurPage('searchFrame.html');" href="searchFrame_text.html">Search for Voter Registration Information</a></font>
+	</p>
+</body>
+</html>

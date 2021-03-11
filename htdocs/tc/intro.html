@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<LINK REL="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+<script language="javascript">
+  function initForm() {
+	document.bannerForm.target='banner';
+//	document.bannerForm.action='remisBanner.html?title=簡介';
+	document.bannerForm.action='remisBanner.html?title=1';
+	document.bannerForm.submit();
+  }
+  
+  function btnSearch_Click(){
+		window.location="../tc/searchFrame.html";
+  }
+  
+  function btnSearchStatus_Click(){
+		window.location="../tc/searchStatusFrame.html";
+  }
+  
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+<script language="JavaScript" src="../js/fontSize.js"></script>
+<style>
+ol.parenthesized-roman-counter {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+	display: table;
+}
+
+ol.parenthesized-roman-counter li{
+    counter-increment: step-counter;
+	display: table-row;
+}
+
+ol.parenthesized-roman-counter li::before {
+    content: "(" counter(step-counter,lower-roman) ")";
+	margin-right: 5px;
+    width: 2em;
+    text-align: left;
+    display: table-cell;
+}
+
+li { font-size: 0.9em; }
+</style>
+<body onload="initfontsize();">
+<form name="bannerForm" method="post">
+</form>
+    <p><font class="bannerHeader1">簡介</font></p>
+    <p class="autosize" style="text-align:justify;text-justify:inter-ideograph">	鄉郊代表選舉的正式選民登記冊在每年10月發表。如果你符合選民登記資格，並希望你的資料獲納入本年度的選民登記冊，請在本年7月16日或之前登記為選民。如你在本年7月16日後才遞交申請，你的資料會在編製下年度的臨時選民登記冊時處理。
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">	你可透過“鄉郊代表選舉選民登記資料查閱系統”(“系統”)查閱是否已登記為鄉郊代表選舉的選民。
+	<!--PR Period Only-->
+	<!--而2020年臨時選民登記冊已於2020年8月21日發表，你可於2020年8月21日至9月9日期間同時查閱你的登記資料是否已被納入在該臨時選民登記冊。-->
+	<!--PR Period Only-->
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">	
+	如你是已登記選民，你可透過“系統”查閱刊載於本年度的正式選民登記冊上有關你所屬鄉事委員會及鄉村或墟鎮的登記資料。
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">	
+	如你已遞交選民新登記申請表，你亦可透過“系統”查閱選民新登記申請狀況。
+	</p>
+	
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">	請注意，“系統”只供選民查閱自己的登記資料。任何人透過“系統”查閱另一名選民的登記資料而未事先徵得當事人的書面同意，即有可能違反《個人資料(私隱)條例》(第486章)的有關規定。
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">原居民代表選舉的已登記選民，如欲更改其載於正式選民登記冊上的主要詳情(即姓名)，須於本年6月16日或之前提出申請；至於更改其他詳情(包括主要住址、通訊地址和所登記的原居鄉村／共有代表鄉村)的申請，則須於本年7月16日或之前提出。
+	</p>
+	
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">	居民代表選舉或街坊代表選舉的已登記選民，如欲更改其載於正式選民登記冊上的主要詳情(即姓名或主要住址)，須於本年6月16日或之前提出申請。請注意，居民代表選舉或街坊代表選舉的已登記選民提交更改主要住址的申請時(不論該主要住址是否仍在已登記的現有鄉村／墟鎮範圍內)，必須隨表格夾附所需的住址證明。詳情請參閱隨申請表夾附的填表須知。
+	</p>
+	
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">
+	選民如欲更改登記資料，必須填妥及簽署更改登記資料<a href="../remis/ESubmissionPlatform.jsp?lang=tc" target="_blank">申請表</a>，並透過以下方式送交民政事務總署／選舉登記主任：
+	<ol class="parenthesized-roman-counter">
+		<li><font class="autosize">郵寄(地址：香港灣仔軒尼詩道130號修頓中心30樓民政事務總署)；</font></li>
+		<li><font class="autosize">傳真(傳真號碼：2591 6392)；</font></li>
+		<li><font class="autosize">親自或由專人遞交民政事務總署總部或各區民政事務處的民政諮詢中心；</font></li>
+		<li><font class="autosize">將已簽署的申請表格掃描為電郵附件，然後以電郵傳送(電郵地址：rre@had.gov.hk)；或</font></li>
+		<li><font class="autosize">將已填妥並簽署的<a href="../remis/ESubmissionPlatform.jsp?lang=tc" target="_blank">電子申請表格</a>上傳至民政事務總署的專用網站。</font></li>
+	</ol>
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">
+	民政事務總署／選舉登記主任會在編製下年度的臨時選民登記冊時，處理在上述截止日期後所收到的申請。
+	</p>
+	
+	<table align="center" height="0" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="center" width="360">
+				<input id="btnSearch" type="button" value="查詢選民新登記申請狀況" onclick="cookieCurPage('searchStatusFrame.html');btnSearchStatus_Click();" style="width:220px;" class="autosize"></disabled>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" width="360">
+			&nbsp;
+			</td>
+		</tr>
+	</table>
+	
+	<table align="center" height="0" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="center" width="360">
+				<input id="btnSearch" type="button" value="查詢選民登記資料" onclick="cookieCurPage('searchFrame.html');btnSearch_Click();" style="width:220px;" class="autosize"></disabled>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<LINK REL="stylesheet" type="text/css" href="../css/common_chi.css" />
+
+<base target="contents">
+</head>
+<script language="JavaScript" src="../js/swapimage.js"></script>
+<script language="JavaScript" src="../js/jquery-1.12.4.min.js"></script>
+<script language="JavaScript" src="../js/fontSize.js"></script>
+<SCRIPT type=text/javascript>
+function getURLParam(strParamName){
+  var strReturn = "";
+  var strHref = window.location.href;
+  if ( strHref.indexOf("?") > -1 ){
+    var strQueryString = strHref.substr(strHref.indexOf("?"));
+    var aQueryString = strQueryString.split("&");
+    for ( var iParam = 0; iParam < aQueryString.length; iParam++ ){
+      if ( 
+		aQueryString[iParam].indexOf(strParamName + "=") > -1 ){
+        var aParam = aQueryString[iParam].split("=");
+        strReturn = aParam[1];
+if (strReturn==1) document.write(unescape('簡介'));
+if (strReturn==2) document.write(unescape('選民登記資料查閱系統'));
+if (strReturn==3) document.write(unescape('免責聲明'));
+if (strReturn==4) document.write(unescape('技術設定'));
+if (strReturn==5) document.write(unescape('收集個人資料聲明'));
+if (strReturn==6) document.write(unescape('聯絡我們'));
+if (strReturn==22) document.write(unescape('test'));
+        break;
+		}
+	  }
+	}
+//  return strReturn;
+// Fanny 25082009 - Cannot shown the correct chinese in FireFox 
+//  document.write(unescape(strReturn));
+} 
+</script>
+
+
+<body leftMargin="0" topMargin="0" marginwidth="0" marginheight="0" >
+	<table height="50" width="760" background="../img/bkgdtexture.gif" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td>  
+		  <a href="http://www.had.gov.hk/rre/" target="_parent"><img src="../img/branding_tc.gif" border="0"></a>
+		</td>  
+		<td align="right">  
+		  <a href="https://www.brandhk.gov.hk/html/tc/index.html" target="_parent"><img src="../img/brandhk_tc.gif" border="0"></a>
+		</td>  
+	  </tr>
+	  <tr>
+		<td colspan="2">
+		  <a onMouseOver="MM_swapImage('mainbar1','','../img/mainbar1_f2.gif',1)" onMouseOut=MM_swapImgRestore() href="https://www.gov.hk/tc/residents/" target="_parent"><IMG src="../img/mainbar1.gif" name="mainbar1" height="20" border="0"></a><a onMouseOver="MM_swapImage('mainbar2','','../img/tc_textonly_f2.gif',1)" onMouseOut=MM_swapImgRestore() href="../index_tc_text.html" target="_parent"><IMG src="../img/tc_textonly.gif" name="mainbar2" height="20" border="0"></a><a onMouseOver="MM_swapImage('mainbar3','','../img/sc_f2.gif',1)" onMouseOut=MM_swapImgRestore() href="../index_sc.html" target="_parent"><IMG src="../img/sc.gif" name="mainbar3" height="20" border="0"></a><a onMouseOver="MM_swapImage('mainbar4','','../img/eng_f2.gif',1)" onMouseOut=MM_swapImgRestore() href="../index.html" target="_parent"><IMG src="../img/eng.gif" name="mainbar4" height="20" border="0"></a><IMG src="../img/last.gif" border="0">
+			<div style="float: right;">
+				<a style="font-size:12px;text-decoration:none;" id="fontSizeM" onclick="javascript:changeFontSize('0');parent.window.frames['main'].location.reload();"><div id="smallfont">A</div></a> 
+				<a style="font-size:16px;text-decoration:none;" id="fontSizeL" onclick="javascript:changeFontSize('1');parent.window.frames['main'].location.reload();"><div id="middlefont">A</div></a>
+				<a style="font-size:20px;text-decoration:none;" id="fontSizeXL" onclick="javascript:changeFontSize('2');parent.window.frames['main'].location.reload();"><div id="largestfont">A</div></a>
+			</div>
+		</td>
+	  </tr>
+	</table>
+	<table height="50" width="780" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td width="90" valign=top>  
+		  <img src="../img/pic1.jpg" border="0">
+		</td>
+		<td width="750" valign=top>
+		  <img src="../img/pic2.jpg" border="0">
+		  <!-- <br>&nbsp&nbsp<font class="bannerHeader1"><SCRIPT type=text/javascript>getURLParam('title')</script></font> -->
+		</td>
+		<td align="right">
+	  
+		</td>
+	  </tr>
+	</table>
+</body>
+</html>

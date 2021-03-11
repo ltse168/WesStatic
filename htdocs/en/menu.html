@@ -1,0 +1,78 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<LINK REL="stylesheet" type="text/css" href="../css/common.css" />
+<title>Menu</title>
+<base target="main">
+
+<script language="javascript">
+var newwindow;
+	function poptastic(url)
+	{
+//		newwindow=window.open(url,'name','height=600,width=800');
+//		if (window.focus) {newwindow.focus()}
+		window.close();
+	}
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+
+</head>
+<body background="../img/wp.gif" leftMargin="0" topMargin="0" marginwidth="0" marginheight="0" >
+	<table width="155" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td valign=top>  
+			<a onClick="cookieCurPage('intro.html');" href="intro.html" onmouseover="document.introlink.src='../img/intro_over.gif'" onmouseout="document.introlink.src='../img/intro.gif'"><IMG src="../img/intro.gif" name="introlink" border="0"></a><a href="">
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a onClick="cookieCurPage('searchFrame.html');" href="../en/searchFrame.html" onmouseover="document.searchvoterlink.src='../img/searchvoter_over.gif'" onmouseout="document.searchvoterlink.src='../img/searchvoter.gif'"><IMG src="../img/searchvoter.gif" name="searchvoterlink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a onClick="cookieCurPage('disclaimer.html');" href="disclaimer.html" target="main" onmouseover="document.disclaimerlink.src='../img/disclaimer_over.gif'" onmouseout="document.disclaimerlink.src='../img/disclaimer.gif'"><IMG src="../img/disclaimer.gif" name="disclaimerlink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a onClick="cookieCurPage('techconfig.html');" href="techconfig.html" target="main" onmouseover="document.techconfiglink.src='../img/techconfig_over.gif'" onmouseout="document.techconfiglink.src='../img/techconfig.gif'"><IMG src="../img/techconfig.gif" name="techconfiglink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a onClick="cookieCurPage('personcollect.html');" href="personcollect.html" target="main" onmouseover="document.personinfolink.src='../img/personinfo_over.gif'" onmouseout="document.personinfolink.src='../img/personinfo.gif'"><IMG src="../img/personinfo.gif" name="personinfolink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="http://www.had.gov.hk/rre/eng/electors/qualifications.html" target="_blank" onmouseover="document.eligreqlink.src='../img/eligreq_over.gif'" onmouseout="document.eligreqlink.src='../img/eligreq.gif'"><IMG src="../img/eligreq.gif" name="eligreqlink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="http://www.had.gov.hk/rre/eng/electors/index.html" target="_blank" onmouseover="document.voterreglink.src='../img/voterreg_over.gif'" onmouseout="document.voterreglink.src='../img/voterreg.gif'"><IMG src="../img/voterreg.gif" name="voterreglink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="../remis/ESubmissionPlatform.jsp" target="_blank" onmouseover="document.formlink.src='../img/form_over.gif'" onmouseout="document.formlink.src='../img/form.gif'"><IMG src="../img/form.gif" name="formlink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a onClick="cookieCurPage('contact.html');" href="contact.html" target="main" onmouseover="document.contactuslink.src='../img/contactus_over.gif'" onmouseout="document.contactuslink.src='../img/contactus.gif'"><IMG src="../img/contactus.gif" name="contactuslink" border="0"></a>
+		</td>
+	  </tr>
+	</table>
+
+</body>
+
+</html>

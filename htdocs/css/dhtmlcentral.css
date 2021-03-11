@@ -1,0 +1,17 @@
+TD,P,B,INPUT,DIV{font-family:Arial; font-size:12px}
+.clCMEvent{position:absolute; z-index:300; width:100%; height:100%; clip:rect(0,100%,100%,0); left:0; top:0; visibility:hidden}
+.clCMAbs{position:absolute; z-index:300; width:10; height:10; left:0; top:0; visibility:hidden}
+
+.clT,.clTover,.clS,.clSover,.clS2,.clS2over{position:absolute; overflow:hidden; width:200; height:10; z-index:300; cursor:pointer; cursor:hand}
+.clT,.clTover{padding:1px;color:#000000;font-size:12px;text-decoration:none;font-family:Tahoma,Arial;}
+.clTover{font-weight:bold;}
+.clS2,.clS2over,.clS,.clSover{padding:1px; font-size:12px;font-family:Arial,Tahoma;}
+.clS,.clS2{color:#000000; background-color:#F0F0F0; layer-background-color:white;}
+.clSover,.clS2over{color:#FF00FF;}
+.clSover,.clS2over,.clTover{layer-background-color:white; background-color:#F0F0F0;}
+.clBar{layer-background-color:#F0F0F0; background-color:#F0F0F0;}
+.clB{layer-background-color:white; background-color:#F0F0F0;}
+.clB{position:absolute; visibility:hidden; z-index:300}
+.clB1{layer-background-color:white; background-color:white;}
+.clB1{position:absolute; visibility:hidden; z-index:300;}
+.clBar{position:absolute; width:10; height:10; z-index:300; visibility:hidden;}

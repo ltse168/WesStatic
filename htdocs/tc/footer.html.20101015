@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="JavaScript">
+var langNo = 2;
+//if (lang=="eng"){langNo=1}else{langNo=2}	// 1= Eng, 2 = TC or SC
+var revisionDate='27/08/2010';
+var upOneLevelLink='../';
+var imagePath='img';
+/********************* Variable defined for generate footer menu*********************/
+var arFooter = new Array()
+	arFooter[1] = new Array()
+	arFooter[1][1] = "Important Notices";
+	arFooter[1][2] = "Last revision date: ";
+//	arFooter[1][3] = " ";
+//	arFooter[1][4] = " ";
+//	arFooter[1][5] = " ";
+	arFooter[1][3] = "Back To Top";
+	arFooter[1][4] = "Privacy Policy";
+
+	arFooter[2] = new Array()
+	arFooter[2][1] = "?重 要 告 示";
+	arFooter[2][2] = "最 近 修 訂 日 期 : ";
+//	arFooter[2][3] = "年";
+//	arFooter[2][4] = "月";
+//	arFooter[2][5] = "日";
+	arFooter[2][3] = "返 回 首 頁";
+	arFooter[2][4] = "私 隱 政 策";
+/********************* End of Variable defined for generate footer menu*********************/
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+
+/********************* Function for generate the footer*********************/
+function footer()
+{
+
+	if (revisionDate==''||revisionDate=='MM/DD/YYYY') revisionDate='06/11/2004';
+
+	var monthArray=new Array();
+	monthArray[0]='January';
+	monthArray[1]='February';
+	monthArray[2]='March';
+	monthArray[3]='April';
+	monthArray[4]='May';
+	monthArray[5]='June';
+	monthArray[6]='July';
+	monthArray[7]='August';
+	monthArray[8]='September';
+	monthArray[9]='October';
+	monthArray[10]='November';
+	monthArray[11]='December';
+
+	var cMonthArray=new Array();
+	cMonthArray[0]='1';
+	cMonthArray[1]='2';
+	cMonthArray[2]='3';
+	cMonthArray[3]='4';
+	cMonthArray[4]='5';
+	cMonthArray[5]='6';
+	cMonthArray[6]='7';
+	cMonthArray[7]='8';
+	cMonthArray[8]='9';
+	cMonthArray[9]='10';
+	cMonthArray[10]='11';
+	cMonthArray[11]='12';
+
+	var reDate=new Date(Date.parse(revisionDate))
+	var showDate1=reDate.getDate()+' '+monthArray[reDate.getMonth()]+' '+reDate.getFullYear();
+	var showDate2=reDate.getFullYear()+' 年 '+cMonthArray[reDate.getMonth()]+' 月 '+reDate.getDate()+' 日';
+
+	document.writeln('<font face="新細明體" size=0>');
+	document.writeln('	  <table width="100%" border="0" cellspacing="0" cellpadding="0">');
+	document.writeln('        <tr align="left" valign="top"> ');
+//	document.writeln('          <td><img src="'+upOneLevelLink+imagePath+'/spacer.gif" width="20" height="20" alt=""></td>');
+	document.writeln('          <td width="100%">');
+	document.writeln('		  <table border=0 cellpadding=0 celspacing=0 width="100%">');
+	document.writeln('			<tr>');
+//	document.writeln('				<td colspan=2><img src="'+upOneLevelLink+imagePath+'/spacer.gif" width="20" height="20" alt=""></td>');
+	document.writeln('			</tr>');
+/*	document.writeln('			<tr>');
+	document.writeln('				<td colspan=2><p align="right"><img src="'+upOneLevelLink+imagePath+'/spacer.gif" alt="'+arFooter[langNo][3]+'" border="0" name="backtotopspacer" height="26" width="26"></p></td>');
+	document.writeln('			</tr>');
+	document.writeln('			<tr>');
+	document.writeln('				<td colspan=2><img src="'+upOneLevelLink+imagePath+'/spacer.gif" width="20" height="20" alt=""></td>');
+	document.writeln('			</tr>');*/
+	document.writeln('			<tr>');
+	document.writeln('				<td colspan=2 background="'+upOneLevelLink+imagePath+'/botdot.jpg"><img src="'+upOneLevelLink+imagePath+'/botdot.jpg" alt="" border=0></td>');
+	document.writeln('			</tr>');
+	document.writeln('			<tr>');
+	document.writeln('				<td class="footer">2006<img src="'+upOneLevelLink+imagePath+'/copy.gif" alt="" border=0> | <a href="javascript:MM_openBrWindow(\'disclaimer.html\', \'popup1\', \'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300\')" class="notices">'+arFooter[langNo][1]+'</a> | <a href="javascript:MM_openBrWindow(\'private.html\', \'popup1\', \'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300\')" class="notices">'+arFooter[langNo][4]+'</a></td>');
+	if (langNo==1)
+		document.writeln('				<td align=right class="reDate">'+arFooter[1][2]+showDate1+'</td>');
+	else
+		document.writeln('				<td align=right class="reDate">'+arFooter[2][2]+showDate2+'</td>');
+//	document.writeln('				<td align=right class="reDate">'+arFooter[langNo][2]+showDate1+'</td>');
+	document.writeln('			</tr>');
+	document.writeln('			</table>');
+	document.writeln('		  </td>');
+	document.writeln('		  <td><img src="'+upOneLevelLink+imagePath+'/spacer.gif" width="10" height="1" alt=""></td>');
+	document.writeln('        </tr>');
+	document.writeln('      </table>');
+	document.writeln('</font>');
+}
+/********************* End of Function for generate the footer*********************/
+
+</script>
+<title>Notice</title>
+</head>
+
+<body>
+		<script language="JavaScript">
+		<!--
+			footer();
+		//-->
+		</script>
+</body>
+
+</html>

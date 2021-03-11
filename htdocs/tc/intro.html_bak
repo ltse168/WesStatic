@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<LINK REL="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+<script language="javascript">
+  function initForm() {
+	document.bannerForm.target='banner';
+//	document.bannerForm.action='remisBanner.html?title=簡介';
+	document.bannerForm.action='remisBanner.html?title=1';
+	document.bannerForm.submit();
+  }
+</script>
+<script language="JavaScript" src="../js/fontSize.js"></script>
+<style>
+ol.parenthesized-roman-counter {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+	display: table;
+}
+
+ol.parenthesized-roman-counter li{
+    counter-increment: step-counter;
+	display: table-row;
+}
+
+ol.parenthesized-roman-counter li::before {
+    content: "(" counter(step-counter,lower-roman) ")";
+	margin-right: 5px;
+    width: 2em;
+    text-align: left;
+    display: table-cell;
+}
+</style>
+<body onload="initForm();initfontsize();">
+<p><span style="color:windowtext"><font face="Arial" size="3">&nbsp;<o:p></o:p> </p>
+
+    <p class="autosize">	鄉郊代表選舉的正式選民登記冊每年在10月發表。如果你符合資格登記為選民，並希望你的資料被納入本年的選民登記冊內，請在7月16日或之前登記為選民。而在7月16日後才遞交的申請，會在編製下年度的臨時選民登記冊時處理。
+	</p>
+
+	<p class="autosize">	你可透過「鄉郊代表選舉選民登記資料查閱系統」(「系統」)查閱是否已登記為鄉郊代表選舉的選民，以及刊載於2016年正式選民登記冊上所屬鄉事委員會及鄉村或墟鎮的登記資料。
+	<!--而2016年臨時選民登記冊已於8月26日發表，你可於本年8月26日至9月9日期間同時查閱你的登記資料是否已被納入在該臨時選民登記冊。-->
+	</p>
+
+	<p class="autosize">	本「系統」只供選民查閱自己的登記資料。任何人士透過「系統」查閱另一名選民的登記資料而未事先徴得當事人的書面同意，即有可能違反《個人資料(私隠)條例》(第486章)的有關條款。
+	</p>
+
+	<p class="autosize">
+	已登記選民如欲更新登記資料，例如主要地址、通訊地址、電話號碼，請填妥及簽署有關的選民登記<a href="http://www.had.gov.hk/rre/chi/forms/index.html">申請表格</a>，並透過以下方式送交民政事務總署：
+	<ol class="parenthesized-roman-counter">
+		<li><font class="autosize">以郵寄方式寄回香港灣仔軒尼詩道130號修頓中心30樓；或</font></li>
+		<li><font class="autosize">傳真至 2591 6392；或</font></li>
+		<li><font class="autosize">掃描表格後電郵至 rre@had.gov,hk；或</font></li>
+		<li><font class="autosize">以<a href="http://www.had.gov.hk/rre/chi/forms/index.html">電子表格</a>方式，將已填妥及簽署的申請表格上傳至民政事務總署。</font></li>
+	</ol>
+	</p>
+
+	<p class="autosize">
+	此外，你若持有有效的個人數碼證書，可經<a href="http://www.gov.hk/en/residents/housing/moving/coa.htm">香港政府一站通網頁</a>更改住址資料。
+	</p>
+	
+    <p align="center">
+	<font class="autosize"><br><br>
+	<a href="searchFrame.html">查詢選民登記資料</a></font>
+	</p>
+  <form name="bannerForm" method="post">
+  </form>
+</body>
+</html>

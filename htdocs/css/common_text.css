@@ -1,0 +1,465 @@
+body {
+  color: black;
+	font-family: Arial, PMingLiU;
+  font-size: 10pt;
+  background-color: white;
+}
+
+.bannerHeader1{
+  FONT-WEIGHT: bold;
+  FONT-SIZE: 14pt;
+  COLOR: black;
+  FONT-FAMILY: Arial, PMingLiU;
+}
+
+.bannerHeader2{
+  FONT-SIZE: 9pt;
+  COLOR: black;
+  FONT-FAMILY: Arial, PMingLiU;
+}
+
+.title{
+  FONT-SIZE: 11pt;
+  FONT-FAMILY: Arial, PMingLiU;
+  height: 35pt;
+  FONT-WEIGHT: bold;
+}
+
+.boundary{
+  background-color: #8FBC8F;
+  height: 8px;
+}
+
+.boundary_small{
+  background-color: #000000;
+  height: 1px;
+}
+
+.remarks{
+  COLOR: red;
+  FONT-FAMILY: Arial, PMingLiU;
+}
+
+.menu
+{
+    BACKGROUND-COLOR: #FFCC00;
+    color: #0000FF;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+/*input: for the label of the page header*/
+.pageLabel
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: black;
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+/*table: for listing */
+.listTable
+{
+    FONT-SIZE: 8pt;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: none;
+    table-layout: fixed;
+    overflow:hidden
+}
+
+.listTableHeader
+{
+    BACKGROUND-COLOR: white;
+    color: #993300;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.listTableCell
+{
+    BACKGROUND-COLOR: #EAEAEA;
+    font-family: Arial;
+    font-size: 10pt;
+}
+
+.listTableCellSmall
+{
+    BACKGROUND-COLOR: #EAEAEA;
+    font-family: Arial;
+    font-size: 8pt;
+}
+
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+.scrollableTable_noScrollHeader
+{
+	position:relative;
+	top:expression(this.offsetParent.scrollTop);
+	background-color: white;
+	color: white;
+	font-size: 9pt;
+	font-family: Arial;
+	font-weight: bold;
+	vertical-align: bottom;
+/* lok modify
+	text-align: center;
+*/
+	text-align: left;
+	display: block;
+	width: 100%;
+}
+
+/* tr: tableHeader for listTable*/
+.tableHeader
+{
+    BACKGROUND-COLOR: lightsteelblue;
+}
+
+
+/* td: tableHeadercell for listTable*/
+.tableHeaderCell
+{
+    font-size: 8pt;
+    BACKGROUND-COLOR: lightsteelblue;
+    VERTICAL-ALIGN: BOTTOM;
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+/* td: tableHeadercell for listTable with center align*/
+.tableHeaderCellCenter
+{
+    font-size:8pt;
+    BACKGROUND-COLOR: lightsteelblue;
+    VERTICAL-ALIGN: BOTTOM;
+    TEXT-ALIGN: CENTER;
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+/*td: for tableCell of the content of listTable*/
+.tableCell
+{
+    BACKGROUND: white;
+    VERTICAL-ALIGN: TOP;
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+/*td: for tableCell of the content of listTable*/
+.tableCellMiddle
+{
+    BACKGROUND: white;
+    VERTICAL-ALIGN: MIDDLE;
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+/*td: for tableCell of the content of listTable with center align*/
+.tableCellCenter
+{
+    BACKGROUND: white;
+    TEXT-ALIGN: CENTER;
+    VERTICAL-ALIGN: TOP;
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+/*input: for the label of the input fields*/
+.detailLabel
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: black;
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+.label
+{
+	color: black;
+	font-family: Arial, PMingLiU;
+	font-size: 10pt;
+}
+
+.boldLabel
+{
+  font-weight: bold;
+	color: black;
+	font-family: Arial, PMingLiU;
+	font-size: 10pt;
+}
+
+/* for questionnaire */
+.bold-underline-label
+{
+	color: black;
+	font-family: Arial, PMingLiU;
+	font-weight: bold;
+  text-decoration:underline;
+	font-size: 10pt;
+}
+
+/*    FONT-FAMILY: Unbold, Arial;*/
+
+.unboldlabel
+{
+	color: black;
+	font-family: Arial;
+	font-size: 10pt;
+}
+
+/*    FONT-FAMILY: Blue, Arial;*/
+
+.bluelabel
+{
+	color: blue;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 10pt;
+}
+
+/*    FONT-FAMILY: Blue, Unbold, Arial;*/
+
+.blueunboldlabel
+{
+	color: blue;
+	font-family: Arial;
+	font-size: 10pt;
+}
+
+/*    Chinese Font: PMingLiU, Arial;*/
+.chilabel
+{
+	color: black;
+	font-family: PMingLiU, Arial;
+  font-weight: bold;
+	font-size: 12pt;
+}
+
+/*    Chinese Font: Unbold, PMingLiU, Arial;*/
+.unboldchilabel
+{
+	color: black;
+	font-family: PMingLiU, Arial;
+	font-size: 12pt;
+}
+
+/*    Chinese Font: Blue, PMingLiU, Arial;*/
+.bluechilabel
+{
+	color: blue;
+	font-family: PMingLiU, Arial;
+  font-weight: bold;
+	font-size: 12pt;
+}
+
+/*    Chinese Font: Blue, Unbold, PMingLiU, Arial;*/
+.blueunboldchilabel
+{
+	color: blue;
+	font-family: PMingLiU, Arial;
+	font-size: 12pt;
+}
+
+/*for editable field*/
+.textFd
+{
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial;
+}
+
+/*for editable field*/
+.chitextFd
+{
+    FONT-SIZE: 12pt;
+    
+    FONT-FAMILY: PMingLiU;
+}
+
+/*
+disabled due to Win98 HKSCS problem
+    FONT-FAMILY: Verdana, Arial
+    FONT-FAMILY: Verdana, Arial, MingLiU
+*/
+
+/* for readonly field*/
+.readonlyTxt
+{
+    FONT-SIZE: 10pt;
+  	FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #CCCCCC;
+    COLOR:  Black;
+    BORDER-COLOR : InactiveBorder;
+    BORDER-TOP-WIDTH: 1px;
+    BORDER-LEFT-WIDTH: 1px;
+    BORDER-BOTTOM-WIDTH: 1px;
+    BORDER-RIGHT-WIDTH: 1px
+}
+
+/* for readonly field*/
+.readonlyChiTxt
+{
+    FONT-SIZE: 12pt;
+  	FONT-FAMILY: PMingLiU;
+    BACKGROUND-COLOR: #CCCCCC;
+    COLOR:  Black;
+    BORDER-COLOR : InactiveBorder;
+    BORDER-TOP-WIDTH: 1px;
+    BORDER-LEFT-WIDTH: 1px;
+    BORDER-BOTTOM-WIDTH: 1px;
+    BORDER-RIGHT-WIDTH: 1px
+}
+
+/* for questionnaire */
+.questionnaire
+{
+  BACKGROUND-COLOR: #EEEEEE; 
+	color: blue;
+	font-family: PMingLiU, Arial;
+	font-size: 12pt;
+}
+
+/* for questionnaire small font row */
+.questionnaire-small
+{
+  BACKGROUND-COLOR: #CCCCCC; 
+	color: blue;
+	font-family: Arial, PMingLiU;
+	font-size: 10pt;
+}
+
+
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+/* for skipped activity row - grey color*/
+.skipRow
+{
+  BACKGROUND-COLOR: #999999;
+}
+
+/* for unskipped activity row - white color */
+.unskipRow
+{
+  BACKGROUND-COLOR: #FFFFFF;
+}
+
+.paging{
+	FONT-SIZE: 7pt; 
+  TEXT-ALIGN: center
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+.loginInfo{
+	FONT-SIZE: 10pt; 
+  COLOR: blue
+}
+
+.loginInfo-small{
+	FONT-SIZE: 8pt; 
+  COLOR: blue
+}
+
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+A:link
+{
+    COLOR: blue;
+}
+
+A:visited
+{
+    COLOR: blue
+}
+
+p, td, ul, li
+{color: #000000; font-family:  Verdana, Arial; font-size: 8pt;}
+
+.TSheetCalendarHeader {
+	FONT-SIZE: 12pt; COLOR: black; FONT-WEIGHT:bold; VERTICAL-ALIGN:middle; TEXT-ALIGN:CENTER
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+.TSheetCalendarCell {
+	FONT-SIZE: 11pt; COLOR: black; FONT-WEIGHT:bold; VERTICAL-ALIGN:top; TEXT-ALIGN:CENTER
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+.detailLabelBold {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: black;
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+.tableListReadonlyTxt  {
+	BORDER-TOP-WIDTH: 2px; BORDER-LEFT-WIDTH: 2px; FONT-SIZE: 8pt; BORDER-BOTTOM-WIDTH: 2px; BACKGROUND-COLOR: #dddddd; BORDER-RIGHT-WIDTH: 2px
+}
+/*    FONT-FAMILY: Verdana, Arial;*/
+
+/* td: calendar td with different background color*/
+.CalendarHeaderCell
+{
+    FONT-FAMILY:Comic Sans MS, Arial, Helvetica, Sans Serif;
+    BACKGROUND-COLOR: lightsteelblue;
+    FONT-SIZE: 14;
+    TEXT-ALIGN: CENTER;
+}
+
+.CalendarSunCell
+{
+    FONT-FAMILY:Comic Sans MS, Arial, Helvetica, Sans Serif;
+    BACKGROUND-COLOR: #ffbfdf;
+    FONT-SIZE: 14;
+    TEXT-ALIGN: CENTER;
+}
+
+.CalendarSatCell
+{
+    FONT-FAMILY:Comic Sans MS, Arial, Helvetica, Sans Serif;
+    BACKGROUND-COLOR: #f0f0ff;
+    FONT-SIZE: 14;
+    TEXT-ALIGN: CENTER;
+}
+
+.CalendarCurCell
+{
+    FONT-FAMILY:Comic Sans MS, Arial, Helvetica, Sans Serif;
+    BACKGROUND-COLOR: #ffffc0;
+    FONT-SIZE: 14;
+    TEXT-ALIGN: CENTER;
+}
+
+.CalendarCell
+{
+    FONT-FAMILY:Comic Sans MS, Arial, Helvetica, Sans Serif;
+    BACKGROUND-COLOR: white;
+    FONT-SIZE: 14;
+    TEXT-ALIGN: CENTER;
+}
+
+.CalendarBlkCell
+{
+    FONT-FAMILY:Comic Sans MS, Arial, Helvetica, Sans Serif;
+    BACKGROUND-COLOR: #c0c0c0;
+    FONT-SIZE: 14;
+    TEXT-ALIGN: CENTER;
+}
+
+/* Used for the navigation text ver. 2, (Page 1,2,3 etc)  */
+a.nav2:link,a.nav2:active,a.nav2:visited { text-decoration: none; color : BLUE }
+a.nav2:hover		{ text-decoration: underline; color : #FF3030; }
+/* This is for search table */
+.searchtableHeader	{ background-color: #FFE1FF; }
+.searchtableRowOdd	{ background-color: #FFEFDB; border-color: #CCCCCC}
+.searchtableRowEven	{ background-color: #FFFFCC; border-color: #CCCCCC}
+
+.dateFormat {FONT-SIZE: 10; color:#186EA6; FONT-FAMILY: Arial, PMingLiU;}
+
+.button1{
+  width: 65pt;
+}
+
+.button2{
+  width: 130pt;
+}
+
+.textonlyLink{
+  font-size: 12;  
+}

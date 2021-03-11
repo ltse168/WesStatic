@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<LINK REL="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+<script language="javascript">
+  function initForm() {
+	document.bannerForm.target='banner';
+//	document.bannerForm.action='remisBanner.html?title=简介';
+	document.bannerForm.action='remisBanner.html?title=1';
+	document.bannerForm.submit();        
+  }  
+
+  function btnSearch_Click(){
+		window.location="../sc/searchFrame.html";
+  }  
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+<script language="JavaScript" src="../js/fontSize.js"></script>
+
+<style>
+ol.parenthesized-roman-counter {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+	display: table;
+}
+
+ol.parenthesized-roman-counter li{
+    counter-increment: step-counter;
+	display: table-row;
+}
+
+ol.parenthesized-roman-counter li::before {
+    content: "(" counter(step-counter,lower-roman) ")";
+	margin-right: 5px;
+    width: 2em;
+    text-align: left;
+    display: table-cell;
+}
+
+li { font-size: 0.9em; }
+</style>
+<body onload="initfontsize();">
+	<form name="bannerForm" method="post">
+	</form>
+	
+    <p><font class="bannerHeader1">简介</font></p>
+    <p class="autosize" style="text-align:justify;text-justify:inter-ideograph"> 乡郊代表选举的正式选民登记册每年在10月发表。如果你符合资格登记为选民，并希望你的资料被纳入本年的选民登记册内，请在7月16日或之前登记为选民。而在7月16日后才递交的申请，会在编制下年度的临时选民登记册时处理。
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph"> 你可透过「乡郊代表选举选民登记资料查阅系统」(「系统」)查阅是否已登记为乡郊代表选举的选民，以及刊载于2018年正式选民登记册上所属乡事委员会及乡村或墟镇的登记资料。
+	<!--PR Period Only-->
+	而2019年临时选民登记册已于2019年8月23日发表，你可于2019年8月23日至9月9日期间同时查阅你的登记资料是否已被纳入在该临时选民登记册。
+	<!--PR Period Only-->
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph"> 本「系统」只供选民查阅自己的登记资料。任何人士透过「系统」查阅另一名选民的登记资料而未事先徵得当事人的书面同意，即有可能违反《个人资料(私隠)条例》(第486章)的有关条款。
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph"> <b>已登记为原居民代表选举的选民，</b>如欲更改其载于正式选民登记册上的主要详情(即姓名)须于6月16日或之前提出申请；至于请求更改其他详情(包括主要住址、通讯地址或所登记的原居乡村／共有代表乡村)的申请则须于7月16日或之前提出。
+	</p>
+	
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph"> <b>已登记为居民代表选举或街坊代表选举的选民，</b>如欲更改其载于正式选民登记册上的主要详情(包括姓名或主要住址)须于6月16日或之前提出申请。<b>	请注意，已登记居民代表选举或街坊代表选举的选民提出更改主要住址申请时(不论该主要住址是否仍在已登记的现有乡村／墟镇范围内)，必须随表格夹附所需的相关住址证明。</b>详情请参阅随申请表夹附的填表须知。
+	</p>
+	
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">
+	选民如欲更改登记资料必须填妥及签署更改登记资料<a href="../remis/ESubmissionPlatform.jsp?lang=sc" target="_blank">申请表</a>，并透过以下方式送交民政事务总署／选举登记主任：
+	<ol class="parenthesized-roman-counter">
+		<li><font class="autosize">邮寄(地址：香港湾仔轩尼诗道130号修顿中心30楼民政事务总署)；或</font></li>
+		<li><font class="autosize">传真(号码： 2591 6392)；或</font></li>
+		<li><font class="autosize">亲自或由专人递交民政事务总署或各区民政事务处的民政咨询中心；或</font></li>
+		<li><font class="autosize">将已签署的申请表格扫描为电邮附件，然后以电邮传送(电邮地址： rre@had.gov.hk)；或</font></li>
+		<li><font class="autosize">以<a href="../remis/ESubmissionPlatform.jsp?lang=sc" target="_blank">电子表格</a>方式，将已填妥及签署的申请表格上传至民政事务总署。</font></li>
+	</ol>
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph">
+	在上述截止日期後所收到的申請，民政事務總署／選舉登記主任會在編製下年度的臨時選民登記冊時處理。
+	</p>
+
+	<table align="center" height="0" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td align="center" width="360">
+				<input id="btnSearch" type="button" value="查询选民登记资料" onclick="cookieCurPage('searchFrame.html');btnSearch_Click();" style="width:180px;" class="autosize"></disabled>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

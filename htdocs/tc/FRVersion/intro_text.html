@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+ol.parenthesized-roman-counter {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+	display: table;
+}
+
+ol.parenthesized-roman-counter li{
+    counter-increment: step-counter;
+	display: table-row;
+}
+
+ol.parenthesized-roman-counter li::before {
+    content: "(" counter(step-counter,lower-roman) ")";
+	margin-right: 5px;
+    width: 2em;
+    text-align: left;
+    display: table-cell;
+}
+</style>
+</head>
+<script language="javascript">
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+<body>
+    <p align="center"><u><font size="3"><b>簡介</b></font></u>
+    
+	<p>	鄉郊代表選舉的正式選民登記冊每年在10月發表。如果你符合資格登記為選民，並希望你的資料被納入本年的選民登記冊內，請在7月16日或之前登記為選民。而在7月16日後才遞交的申請，會在編製下年度的臨時選民登記冊時處理。
+	</p>
+
+	<p>	你可透過「鄉郊代表選舉選民登記資料查閱系統」(「系統」)查閱是否已登記為鄉郊代表選舉的選民，以及刊載於2018年正式選民登記冊上所屬鄉事委員會及鄉村或墟鎮的登記資料。
+	<!--PR Period Only-->
+	<!--而2019年臨時選民登記冊已於2019年8月23日發表，你可於2019年8月23日至9月9日期間同時查閱你的登記資料是否已被納入在該臨時選民登記冊。-->
+	<!--PR Period Only-->
+	</p>
+
+	<p>	本「系統」只供選民查閱自己的登記資料。任何人士透過「系統」查閱另一名選民的登記資料而未事先徴得當事人的書面同意，即有可能違反《個人資料(私隠)條例》(第486章)的有關條款。
+	</p>
+
+	<p>	
+	<b>已登記為原居民代表選舉的選民，</b>如欲更改其載於正式選民登記冊上的主要詳情(即姓名)須於6月16日或之前提出申請；至於請求更改其他詳情(包括主要住址、通訊地址或所登記的原居鄉村／共有代表鄉村)的申請則須於7月16日或之前提出。
+	</p>
+	
+	<p>	<b>已登記為居民代表選舉或街坊代表選舉的選民，</b>如欲更改其載於正式選民登記冊上的主要詳情(包括姓名或主要住址)須於6月16日或之前提出申請。<b>請注意，已登記居民代表選舉或街坊代表選舉的選民提出更改主要住址申請時(不論該主要住址是否仍在已登記的現有鄉村／墟鎮範圍內)，必須隨表格夾附所需的相關住址證明。</b>詳情請參閱隨申請表夾附的填表須知。
+	</p>
+	
+	<p>
+	選民如欲更改登記資料必須填妥及簽署更改登記資料<a href="../remis/ESubmissionPlatform.jsp?lang=tc" target="_blank">申請表</a>，並透過以下方式送交民政事務總署／選舉登記主任：
+	<ol class="parenthesized-roman-counter">
+		<li>郵寄(地址：香港灣仔軒尼詩道130號修頓中心30樓民政事務總署)；或</li>
+		<li>傳真(號碼： 2591 6392)；或</li>
+		<li>親自或由專人遞交民政事務總署或各區民政事務處的民政諮詢中心；或</li>
+		<li>將已簽署的申請表格掃描為電郵附件，然後以電郵傳送(電郵地址： rre@had.gov.hk)；或</li>
+		<li>以<a href="../remis/ESubmissionPlatform.jsp?lang=tc" target="_blank">電子表格</a>方式，將已填妥及簽署的申請表格上傳至民政事務總署。</li>
+	</ol>
+	</p>
+
+	<p>
+	在上述截止日期後所收到的申請，民政事務總署／選舉登記主任會在編製下年度的臨時選民登記冊時處理。
+	</p>
+	
+    <p align="center"><font size="3">
+	<br><br>
+ <a onClick="cookieCurPage('searchFrame.html');" href="searchFrame_text.html">查詢選民登記資料</a> </font></p>
+</body>
+</html>

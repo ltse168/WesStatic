@@ -1,0 +1,73 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<base target="_self">
+</head>
+
+<script language="JavaScript" src="../js/fontSize.js"></script>
+<script language="javascript">
+var newwindow;
+	function poptastic(url)
+	{
+//	  newwindow = window.showModalDialog(url, "", "dialogWidth=810px;dialogHeight=600px;scrollbars=yes;center=yes;border=thin;help=no;status=yes;");  
+	  newwindow = window.open(url,'webapp','height=1200,width=1100,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=yes');
+	  if (window.focus) {newwindow.focus()}
+	}
+	
+	function cbxdisclaimer_change(cbx){
+		if (cbx.checked){
+			//var link = document.getElementById("aAgree");
+			//link.href = "javascript:poptastic('appFrame.html');";
+			//link.style.color = "blue";
+			document.getElementById("btnAgree").disabled = false;
+		} else {
+			//document.getElementById("aAgree").href = "javascript:void(0);";
+			//var link = document.getElementById("aAgree");
+			//link.href = "javascript:void(0);";
+			//link.style.color = "grey";
+			document.getElementById("btnAgree").disabled = true;
+		}
+	}
+	
+	function btnAgree_Click(){
+		poptastic('../sc/appFrame.html');
+	}
+	
+	function btnDisagree_Click(){
+		window.parent.location="intro.html";
+	}
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+
+<body leftMargin="0" topMargin="0" marginwidth="0" marginheight="0" onload="initfontsize();" >
+	
+	<br/>
+
+	<div style="display:table;padding=0;margin=0;">
+	<input type="checkbox" style="display:table-cell;" onchange="cbxdisclaimer_change(this)"/>
+	<p style="display:table-cell;" class="autosize">我已阅读及明白上述规例，并得悉我在本网站获得的信息不得用作商业用途或与选举无关的其他用途。 </p>
+	</div>
+
+	<p class="autosize">如此告示的英文版本与中文版本有任何歧异，一概以英文版本为准。 </p>
+
+	<table align="center" height="50" width="500" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center" width="200">
+			<!-- <a href="intro.html" target="_parent">不同意</a> -->
+			<input id="btnDisagree" type="button" value="返回主页" onclick="cookieCurPage('intro.html');btnDisagree_Click();" style="width:100px;" class="autosize"></disabled>
+		</td>
+		<td align="center" width="200">
+			<!-- <a id="aAgree" href="javascript:void(0);" style="color:grey">同意</a> -->
+			<input id="btnAgree" type="button" value="下一步" onclick="btnAgree_Click();" style="width:100px;" disabled class="autosize"></disabled>
+		</td>
+	</tr>
+	</table>
+</body>
+</html>

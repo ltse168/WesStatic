@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script language="javascript">
+  function initForm() {
+	document.bannerForm.target='banner';
+	document.bannerForm.action='remisBanner.html?title=Introduction';
+	document.bannerForm.submit();        
+  }      
+</script>
+
+<body onload="initForm();">
+    <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font face="Arial" size="3"><span style="mso-font-kerning: 0pt; layout-grid-mode: line">The 
+    Final Register of Electors for Village Representative Elections is 
+    published in October every year. If you are eligible to be registered as an 
+    elector and want to have your name on this year's Register, please register 
+    on or before 30 July. <o:p>
+    </o:p>
+    </span></font><font face="Arial" size="3"><span style="mso-font-kerning: 0pt; layout-grid-mode: line">&nbsp;<o:p>
+    </o:p>
+    </span></font></p>
+    <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font face="Arial" size="3"><span style="mso-font-kerning: 0pt; layout-grid-mode: line">The 
+    2007 Provisional Register for Village Representative Elections is available 
+    for public inspection. You  
+    may search on this website to see if you have been registered and find out  
+    for which Rural Committee and village you have been registered as an elector 
+    in the 2007 Provisional Register.<o:p>
+    </o:p> 
+    </span></font></p>
+    <p align="center"><font face="Arial" size="3"><br>
+ <a href="searchFrame.html">Search for Voter Registration Information</a></font></p> 
+  <form name="bannerForm" method="post">
+  </form>
+</body>
+</html>

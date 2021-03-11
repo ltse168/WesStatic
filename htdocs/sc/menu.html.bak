@@ -1,0 +1,70 @@
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<LINK REL="stylesheet" type="text/css" href="../css/common.css" />
+<title>Menu</title>
+<base target="main">
+
+<script language="javascript">
+var newwindow;
+	function poptastic(url)
+	{
+//		newwindow=window.open(url,'name','height=600,width=800');
+//		if (window.focus) {newwindow.focus()}
+		window.close();
+	}
+</script>
+
+</head>
+<body background="../img/wp.gif" leftMargin="0" topMargin="0" marginwidth="0" marginheight="0" >
+	<table width="155" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+		<td valign=top>  
+			<a href="intro.html" onmouseover="document.introlink.src='../img/intro_sc_over.gif'" onmouseout="document.introlink.src='../img/intro_sc.gif'"><IMG src="../img/intro_sc.gif" name="introlink" border="0"></a><a href="">
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="searchFrame.html" onmouseover="document.searchvoterlink.src='../img/searchvoter_sc_over.gif'" onmouseout="document.searchvoterlink.src='../img/searchvoter_sc.gif'"><IMG src="../img/searchvoter_sc.gif" name="searchvoterlink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="disclaimer.html" target="main" onmouseover="document.disclaimerlink.src='../img/disclaimer_sc_over.gif'" onmouseout="document.disclaimerlink.src='../img/disclaimer_sc.gif'"><IMG src="../img/disclaimer_sc.gif" name="disclaimerlink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="techconfig.html" target="main" onmouseover="document.techconfiglink.src='../img/techconfig_sc_over.gif'" onmouseout="document.techconfiglink.src='../img/techconfig_sc.gif'"><IMG src="../img/techconfig_sc.gif" name="techconfiglink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="personcollect.html" target="main" onmouseover="document.personinfolink.src='../img/personinfo_sc_over.gif'" onmouseout="document.personinfolink.src='../img/personinfo_sc.gif'"><IMG src="../img/personinfo_sc.gif" name="personinfolink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="http://sc.info.gov.hk/gb/www.had.gov.hk/vre/chi/electors/index.html" target="_blank" onmouseover="document.eligreqlink.src='../img/eligreq_sc_over.gif'" onmouseout="document.eligreqlink.src='../img/eligreq_sc.gif'"><IMG src="../img/eligreq_sc.gif" name="eligreqlink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="http://sc.info.gov.hk/gb/www.had.gov.hk/vre/chi/voter/index.html" target="_blank" onmouseover="document.voterreglink.src='../img/voterreg_sc_over.gif'" onmouseout="document.voterreglink.src='../img/voterreg_sc.gif'"><IMG src="../img/voterreg_sc.gif" name="voterreglink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="http://sc.info.gov.hk/gb/www.had.gov.hk/vre/chi/forms/index.html" target="_blank" onmouseover="document.formlink.src='../img/form_sc_over.gif'" onmouseout="document.formlink.src='../img/form_sc.gif'"><IMG src="../img/form_sc.gif" name="formlink" border="0"></a>
+		</td>
+	  </tr>
+	  <tr>
+		<td valign=top>  
+			<a href="contact.html" target="main" onmouseover="document.contactuslink.src='../img/contactus_sc_over.gif'" onmouseout="document.contactuslink.src='../img/contactus_sc.gif'"><IMG src="../img/contactus_sc.gif" name="contactuslink" border="0"></a>
+		</td>
+	  </tr>
+	</table>
+
+</body>
+
+</html>

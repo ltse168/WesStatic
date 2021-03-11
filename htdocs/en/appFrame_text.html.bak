@@ -1,0 +1,19 @@
+<html>
+
+<head>
+<title>Search on Voter Registration</title>
+</head>
+
+<frameset rows="*,208" framespacing="0" border="0" frameborder="0">
+  <frame name="application" noresize target="top" src="https://vrevoter1.had.gov.hk/remis/enquireVoter.jsp?lang=en&textonly=Y">
+  <frame name="staticpage" noresize target="_self" src="../empty.html">
+  <noframes>
+  <body>
+
+  <p>This page uses frames, but your browser doesn't support them.</p>
+
+  </body>
+  </noframes>
+</frameset>
+
+</html>

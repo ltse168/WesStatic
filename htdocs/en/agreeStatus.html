@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<base target="_self">
+</head>
+
+<script language="JavaScript" src="../js/fontSize.js"></script>
+<script language="javascript">
+var newwindow;
+	function poptastic(url)
+	{
+//	  newwindow = window.showModalDialog(url, "", "dialogWidth=810px;dialogHeight=600px;scrollbars=yes;center=yes;border=thin;help=no;status=yes;");  
+	  newwindow = window.open(url,'webapp','height=1200,width=1100,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=yes');
+	  if (window.focus) {newwindow.focus()}
+	}
+	
+	function cbxdisclaimer_change(cbx){
+		if (cbx.checked){
+			//var link = document.getElementById("aAgree");
+			//link.href = "javascript:poptastic('appFrame.html');";
+			//link.style.color = "blue";
+			document.getElementById("btnAgree").disabled = false;
+		} else {
+			//var link = document.getElementById("aAgree");
+			//link.href = "javascript:void(0);";
+			//link.style.color = "grey";
+			document.getElementById("btnAgree").disabled = true;
+		}
+	}
+	
+	function btnAgree_Click(){
+		poptastic('../en/appStatusFrame.html');
+	}
+	
+	function btnDisagree_Click(){
+		window.parent.location="intro.html";
+	}
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+
+<body leftMargin="0" topMargin="0" marginwidth="0" marginheight="0" onload="initfontsize();">
+	
+	<br/>
+	
+	<div style="display:table;padding=0;margin=0;">
+		<input type="checkbox" style="display:table-cell;" onchange="cbxdisclaimer_change(this)"/>
+		<p style="display:table-cell;text-align:justify;text-justify:inter-ideograph" class="autosize"><font face="Arial" class="autosize">I have read and understood the above regulation(s) and realize that the information obtained by me through this website must not be used for commercial purposes or any other purposes not related to an election.</font></p>
+	</div>
+	
+	<p class="autosize"><font face="Arial" class="autosize">In the event of any inconsistency between the English version and the Chinese version of this Notice, the English version shall prevail.</font></p>
+	
+	<table align="center" height="0" width="500" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center" width="30">
+			<!-- <a href="intro.html" target="_parent">Disagree</a> -->
+			<input id="btnDisagree" type="button" value="Back to Main Page" onclick="cookieCurPage('intro.html');btnDisagree_Click();" style="width:210px;" class="autosize"></disabled>
+		</td>
+		<td align="center" width="200">
+			<!-- <a id="aAgree" href="javascript:poptastic('appFrame.html');">Agree</a> -->
+			<!-- <a id="aAgree" href="javascript:void(0);" style="color:grey">Agree</a> -->
+			<input id="btnAgree" type="button" value="Next" onclick="btnAgree_Click();" style="width:90px;" disabled class="autosize"></disabled>
+		</td>
+	</tr>
+	</table>
+</body>
+</html>

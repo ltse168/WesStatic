@@ -1,0 +1,64 @@
+﻿<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Disclaimer</title>
+<LINK REL="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+<script language="javascript">
+  function initForm() {
+	document.bannerForm.target='banner';
+//	document.bannerForm.action='remisBanner.html?title=免責聲明';
+	document.bannerForm.action='remisBanner.html?title=2';
+	document.bannerForm.submit();        
+  }      
+</script>
+<script language="JavaScript" src="../js/fontSize.js"></script>
+
+<style>
+ol.parenthesized-counter {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+	display: table;
+}
+
+ol.parenthesized-counter li{
+    counter-increment: step-counter;
+	display: table-row;
+}
+
+ol.parenthesized-counter li::before {
+    content: "(" counter(step-counter,lower-latin) ")";
+	margin-right: 5px;
+    width: 2em;
+    text-align: left;
+    display: table-cell;
+}
+
+li { font-size: 1em; }
+</style>
+<body onload="initfontsize();">
+<form name="bannerForm" method="post">
+</form>
+<p><font class="bannerHeader1">選民登記資料查閱系統</font></p>
+<p class="autosize">使用者須遵守的相關規例：</p>
+
+<p class="autosize">
+根據《選舉管理委員會(選民登記)(鄉郊代表選舉)規例》(第541K章)第32(3)條，任何人為與選舉有關的目的以外的目的—
+
+<ol class="parenthesized-counter">
+<li><font face="Arial" class="autosize">以任何形式重現或複製或准許另一人以任何形式重現或複製載錄於選民登記冊內的任何記項中的任何詳情或載錄於選民登記冊的任何摘錄中的任何詳情；</font></li>
+<li><font face="Arial" class="autosize">使用或准許另一人使用任何載錄於選民登記冊內或其摘錄中並與任何人有關的資料；或</font></li>
+<li><font face="Arial" class="autosize">將(a)及(b)段提述的任何資料傳給任何其他人，</font></li>
+</ol>
+
+</p>
+
+<p class="autosize">
+即屬犯罪，可處第2級罰款及監禁6個月。<br /><br />
+「選民登記資料查閱系統」(「系統」)只供選民查閱自己的登記資料。任何人士透過「系統」查閱另一名選民的登記資料而未事先徵得當事人書面同意，即有可能違反《個人資料(私隱)條例》(第486章) 的有關條款。
+</p>
+</body>
+
+</html>

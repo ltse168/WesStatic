@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+ol.parenthesized-roman-counter {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+	display: table;
+}
+
+ol.parenthesized-roman-counter li{
+    counter-increment: step-counter;
+	display: table-row;
+}
+
+ol.parenthesized-roman-counter li::before {
+    content: "(" counter(step-counter,lower-roman) ")";
+	margin-right: 5px;
+    width: 2em;
+    text-align: left;
+    display: table-cell;
+}
+</style>
+</head>
+<script language="javascript">
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+<body>
+    <p align="center"><u><b><font size="3" face="細明體"> 简介</font></b></u>
+	
+	<p> 乡郊代表选举的正式选民登记册在每年10月发表。如果你符合选民登记资格，并希望你的资料获纳入本年度的选民登记册，请在本年7月16日或之前登记为选民。如你在本年7月16日后才递交申请，你的资料会在编制下年度的临时选民登记册时处理。
+	</p>
+
+	<p> 你可透过“乡郊代表选举选民登记资料查阅系统”(“系统”)查阅是否已登记为乡郊代表选举的选民。
+	<!--PR Period Only-->
+	<!--而2020年临时选民登记册已于2020年8月21日发表，你可于2020年8月21日至9月9日期间同时查阅你的登记资料是否已被纳入在该临时选民登记册。-->
+	<!--PR Period Only-->
+	</p>
+
+	<p> 
+	如你是已登记选民，你可透过“系统”查阅刊载于本年度的正式选民登记册上有关你所属乡事委员会及乡村或墟镇的登记资料。
+	</p>
+
+	<p class="autosize" style="text-align:justify;text-justify:inter-ideograph"> 
+	如你已递交选民新登记申请表，你亦可透过“系统”查阅选民新登记申请状况。
+	</p>
+
+	<p> 请注意，“系统”只供选民查阅自己的登记资料。任何人透过“系统”查阅另一名选民的登记资料而未事先征得当事人的书面同意，即有可能违反《个人资料(私隐)条例》(第486章)的有关规定。
+	</p>
+
+	<p> 原居民代表选举的已登记选民，如欲更改其载于正式选民登记册上的主要详情(即姓名)，须于本年6月16日或之前提出申请；至于更改其他详情(包括主要住址、通讯地址和所登记的原居乡村／共有代表乡村)的申请，则须于本年7月16日或之前提出。
+	</p>
+	
+	<p>	居民代表选举或街坊代表选举的已登记选民，如欲更改其载于正式选民登记册上的主要详情(即姓名或主要住址)，须于本年6月16日或之前提出申请。请注意，居民代表选举或街坊代表选举的已登记选民提交更改主要住址的申请时(不论该主要住址是否仍在已登记的现有乡村／墟镇范围内)，必须随表格夹附所需的住址证明。详情请参阅随申请表夹附的填表须知。
+	</p>
+	
+	<p>
+	选民如欲更改登记资料，必须填妥及签署更改登记资料<a href="../remis/ESubmissionPlatform.jsp?lang=sc" target="_blank">申请表</a>，并透过以下方式送交民政事务总署／选举登记主任：
+	<ol class="parenthesized-roman-counter">
+		<li>邮寄(地址：香港湾仔轩尼诗道130号修顿中心30楼民政事务总署)；</li>
+		<li>传真(传真号码：2591 6392)；</li>
+		<li>亲自或由专人递交民政事务总署总部或各区民政事务处的民政咨询中心；</li>
+		<li>将已签署的申请表格扫描为电邮附件，然后以电邮传送(电邮地址：rre@had.gov.hk)；或</li>
+		<li>将已填妥并签署的<a href="../remis/ESubmissionPlatform.jsp?lang=sc" target="_blank">电子申请表格</a>上传至民政事务总署的专用网站。</li>
+	</ol>
+	</p>
+
+	<p>
+	民政事务总署／选举登记主任会在编制下年度的临时选民登记册时，处理在上述截止日期后所收到的申请。
+	</p>
+
+    <p align="center"><a onClick="cookieCurPage('searchStatusFrame.html');" href="searchStatusFrame_text.html"><font size="3" face="細明體">
+    查询选民新登记申请状况</font></a> </p>
+	
+    <p align="center"><a onClick="cookieCurPage('searchFrame.html');" href="searchFrame_text.html"><font size="3" face="細明體">
+    查询选民登记资料</font></a> </p> 
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script language="javascript">
+  function initForm() {
+	document.bannerForm.target='banner';
+//	document.bannerForm.action='remisBanner.html?title=簡介';
+	document.bannerForm.action='remisBanner.html?title=1';
+	document.bannerForm.submit();
+  }
+</script>
+
+<body onload="initForm();">
+    <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line">村代表選舉的正式選民登記冊每年都會在十月發表。如果你符合資格登記為選民，並希望你的姓名獲列入本年的選民登記冊內，請在七月十六日或之前登記為選民。</span><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+    </o:p>
+    </span><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+    </o:p>
+    </span></font></p>
+    <p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line"><span lang="ZH-TW" style="font-size:12.0pt;font-family:
+新細明體;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-font-kerning:1.0pt;mso-ansi-language:
+EN-US;mso-fareast-language:ZH-TW;mso-bidi-language:AR-SA;mso-bidi-font-weight:
+bold">村代表選舉</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:新細明體;mso-font-kerning:1.0pt;mso-ansi-language:EN-US;
+mso-fareast-language:ZH-TW;mso-bidi-language:AR-SA;mso-bidi-font-weight:bold">2010</span><span lang="ZH-TW" style="font-size:12.0pt;font-family:新細明體;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-font-kerning:1.0pt;mso-ansi-language:EN-US;mso-fareast-language:ZH-TW;
+mso-bidi-language:AR-SA;mso-bidi-font-weight:bold">年臨時選民登記冊已經發表，讓公眾人士查閱。 你可通過本網站查詢是否已登記為村代表選舉的選民，以及刊載於</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+新細明體;mso-font-kerning:1.0pt;mso-ansi-language:EN-US;mso-fareast-language:ZH-TW;
+mso-bidi-language:AR-SA;mso-bidi-font-weight:bold">2010</span><span lang="ZH-TW" style="font-size:12.0pt;font-family:新細明體;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-font-kerning:1.0pt;mso-ansi-language:EN-US;mso-fareast-language:ZH-TW;
+mso-bidi-language:AR-SA;mso-bidi-font-weight:bold">年臨時選民登記冊上所屬鄉事委員會及鄉村的資料。</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+新細明體;mso-font-kerning:1.0pt;mso-ansi-language:EN-US;mso-fareast-language:ZH-TW;
+mso-bidi-language:AR-SA;mso-bidi-font-weight:bold"> </span><span lang="ZH-TW" style="font-size:12.0pt;font-family:新細明體;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-font-kerning:1.0pt;mso-ansi-language:EN-US;mso-fareast-language:ZH-TW;
+mso-bidi-language:AR-SA;mso-bidi-font-weight:bold"> </span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+新細明體;mso-font-kerning:1.0pt;mso-ansi-language:EN-US;mso-fareast-language:ZH-TW;
+mso-bidi-language:AR-SA;mso-bidi-font-weight:bold"> </span><span lang="ZH-TW" style="font-size:12.0pt;font-family:新細明體;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-font-kerning:1.0pt;mso-ansi-language:EN-US;mso-fareast-language:ZH-TW;
+mso-bidi-language:AR-SA;mso-bidi-font-weight:bold"> </span> </span><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+    </o:p>
+    </span></font></p>
+    <p align="center"><font size="3">
+	<br><br>
+ <a href="searchFrame.html">查詢選民登記資料</a> </font></p>
+  <form name="bannerForm" method="post">
+  </form>
+</body>
+</html>

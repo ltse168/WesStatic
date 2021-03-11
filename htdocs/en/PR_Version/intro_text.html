@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+ol.parenthesized-roman-counter {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+	display: table;
+}
+
+ol.parenthesized-roman-counter li{
+    counter-increment: step-counter;
+	display: table-row;
+}
+
+ol.parenthesized-roman-counter li::before {
+    content: "(" counter(step-counter,lower-roman) ")";
+	margin-right: 5px;
+    width: 2em;
+    text-align: left;
+    display: table-cell;
+}
+</style>
+</head>
+<script language="javascript">
+  function cookieCurPage(pageName) {
+	var d = new Date();
+	d.setTime(d.getTime() + (2*24*60*60*1000));
+	var expires = "expires=" + d.toUTCString();
+	//document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+	document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+	//alert("en cookie saved:"+document.cookie);
+  }
+</script>
+<body>
+    <p align="center" style="text-align:center"><b><u><font face="Arial" size="3">Introduction</font></u></b></p>
+    
+	<p>
+    The Final Register of Electors for Rural Representative Election is published in October every year. If you are eligible to be registered as an elector and want to have your registration particulars to be included in this year's Register, please register on or before 16 July. If the registration form reaches the Electoral Registration Officer after 16 July, information provided therein will be included in the provisional registers of the following year.
+	</p>
+
+	<p>
+	You may search on this "Rural Representative Election Voter Registration Information Enquiry System" (the System) to see if you have been registered and find out for which Rural Committee and Village/Market Town you have been registered as an elector in the 2018 Final Register of Electors. 
+	<!--PR Period Only-->
+	The 2019 Provisional Register of Electors was published on 23 August 2019, you may check whether your registration particulars are included in the Register of Electors from 23 August 2019 to 9 September 2019.
+	<!--PR Period Only-->
+	</p>
+
+	<p>
+	The System only allows an elector to check his or her own registered particulars. Anyone who checks another elector's registered particulars through the System without the latter's prior written consent may contravene the relevant provisions of the Personal Data (Privacy) Ordinance (Cap. 486).
+	</p>
+
+	<p>
+	<b>If registered elector of Indigenous Inhabitant Representative Election</b> want to report on change of his/her principal particulars (i.e. name), he/she should submit his/her application on or before <b>16 June</b>; for request for change of other particulars (including principal residential address, correspondence address or the Indigenous Village / Composite Indigenous Village to be registered), the application should be submitted on or before <b>16 July</b>.
+	</p>
+
+	<p>
+	<b>If registered elector of Resident Representative Election / Kaifong Representative Election</b> wants to report on change of his/her principal particulars (including name or principal residential address), he /she should submit his/her application on or before <b>16 June.  Please note that a registered elector of Resident Representative Election / Kaifong Representative Election applying for change of principal residential address (regardless of whether the principal residential address is still in the Existing Village/Market Town as registered) must attach with the application form the relevant required proof of principal residential address.</b>  For details, please refer to the Guidance Notes attached to the application form.
+	</p>
+	
+	<p>
+	If elector wishes to report on change of his or her registered particulars he/she should complete and sign the <a href="../remis/ESubmissionPlatform.jsp" target="_blank">application form</a> for Change of Registered Particulars and submit the form to the Home Affairs Department (HAD) / Electoral Registration Officer (ERO) by the following means:
+	<ol class="parenthesized-roman-counter">
+		<li>by post (Address: Home Affairs Department, 30/F, Southorn Centre, 130 Hennessy Road, Wan Chai, Hong Kong); or</li>
+		<li>by fax (No.: 2591 6392); or</li>
+		<li>in person or by a representative to the HAD Headquarters or Home Affairs Enquiry Centres of any District Offices of the HAD; or</li>
+		<li>by email (email address: rre@had.gov.hk), with the signed application form scanned and attached as an email attachment; or</li>
+		<li>by using the <a href="../remis/ESubmissionPlatform.jsp" target="_blank">electronic form</a> and uploading the completed and signed form to the HAD.</li>
+	</ol>
+	</p>
+
+	<p>
+	If application reach the HAD / ERO after the above deadline, it will be processed for the purpose of compiling the provisional registers of the following year.
+	</p>
+	
+    <p align="center">
+		<font face="Arial" size="3"><br>
+		<a onClick="cookieCurPage('searchFrame.html');" href="searchFrame_text.html">Search for Voter Registration Information</a></font>
+	</p>
+</body>
+</html>
