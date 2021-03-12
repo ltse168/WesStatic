@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HAD RRE Web-based Enquiry System</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="bootstrap-5.0.0-beta2-dist/css/bootstrap.css"
+    />
+    <script
+      type="text/javascript"
+      src="bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script language="JavaScript" src="js/swapimage.js"></script>
+    <script language="JavaScript" src="js/jquery-1.12.4.min.js"></script>
+    <script language="JavaScript" src="js/fontSize.js"></script>
+    <style>
+      .nav-pills .nav-link {
+        background: #d7e9e8;
+        color: #000;
+        border: 1px solid transparent;
+        border-color: #20c997;
+        border-radius: 0.25rem;
+      }
+      .nav-pills .nav-link.active,
+      .nav-pills .show > .nav-link,
+      .navbar-toggler {
+        color: #fff;
+        background-color: #20c997;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <script language="JavaScript">
+    var langNo = 1;
+    var revisionDate = "10/11/2021";
+    var upOneLevelLink = "../";
+    var imagePath = "img";
+    /********************* Variable defined for generate footer menu*********************/
+    var arFooter = new Array();
+    arFooter[1] = new Array();
+    arFooter[1][1] = "Important Notices";
+    arFooter[1][2] = "Last revision date: ";
+    arFooter[1][3] = "Back To Top";
+    arFooter[1][4] = "Privacy Policy";
+
+    arFooter[2] = new Array();
+    arFooter[2][1] = "?重 要 告 示";
+    arFooter[2][2] = "最 近 修 訂 日 期 : ";
+    arFooter[2][3] = "返 回 首 頁";
+    arFooter[2][4] = "私 隱 政 策";
+    /********************* End of Variable defined for generate footer menu*********************/
+
+    function MM_openBrWindow(theURL, winName, features) {
+      //v2.0
+      window.open(theURL, winName, features);
+    }
+
+    /********************* Function for generate the footer*********************/
+    function footer() {
+      if (revisionDate == "" || revisionDate == "MM/DD/YYYY")
+        revisionDate = "06/11/2004";
+
+      var monthArray = new Array();
+      monthArray[0] = "January";
+      monthArray[1] = "February";
+      monthArray[2] = "March";
+      monthArray[3] = "April";
+      monthArray[4] = "May";
+      monthArray[5] = "June";
+      monthArray[6] = "July";
+      monthArray[7] = "August";
+      monthArray[8] = "September";
+      monthArray[9] = "October";
+      monthArray[10] = "November";
+      monthArray[11] = "December";
+
+      var cMonthArray = new Array();
+      cMonthArray[0] = "1";
+      cMonthArray[1] = "2";
+      cMonthArray[2] = "3";
+      cMonthArray[3] = "4";
+      cMonthArray[4] = "5";
+      cMonthArray[5] = "6";
+      cMonthArray[6] = "7";
+      cMonthArray[7] = "8";
+      cMonthArray[8] = "9";
+      cMonthArray[9] = "10";
+      cMonthArray[10] = "11";
+      cMonthArray[11] = "12";
+
+      var reDate = new Date(Date.parse(revisionDate));
+      var showDate1 =
+        reDate.getDate() +
+        " " +
+        monthArray[reDate.getMonth()] +
+        " " +
+        reDate.getFullYear();
+      var showDate2 =
+        reDate.getFullYear() +
+        " 年 " +
+        cMonthArray[reDate.getMonth()] +
+        " 月 " +
+        reDate.getDate() +
+        " 日";
+
+      document.writeln(
+        '	  <table width="100%" border="0" cellspacing="0" cellpadding="0">'
+      );
+      document.writeln('        <tr align="left" valign="top"> ');
+      document.writeln('          <td width="100%">');
+      document.writeln(
+        '		  <table border=0 cellpadding=0 celspacing=0 width="100%">'
+      );
+      document.writeln("			<tr>");
+      document.writeln("			</tr>");
+      document.writeln("			<tr>");
+      document.writeln(
+        '				<td class="footer">2021<img src="' +
+          upOneLevelLink +
+          imagePath +
+          '/copy.gif" alt="" border=0> | <a href="javascript:MM_openBrWindow(\'disclaimer.html\', \'popup1\', \'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300\')" class="notices">' +
+          arFooter[langNo][1] +
+          "</a> | <a href=\"javascript:MM_openBrWindow('private.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
+          arFooter[langNo][4] +
+          "</a></td>"
+      );
+      if (langNo == 1)
+        document.writeln(
+          '				<td align=right class="reDate">' +
+            arFooter[1][2] +
+            showDate1 +
+            "</td>"
+        );
+      else
+        document.writeln(
+          '				<td align=right class="reDate">' +
+            arFooter[2][2] +
+            showDate2 +
+            "</td>"
+        );
+      document.writeln("			</tr>");
+      document.writeln("			</table>");
+      document.writeln("		  </td>");
+      document.writeln(
+        '		  <td><img src="' +
+          upOneLevelLink +
+          imagePath +
+          '/spacer.gif" width="10" height="1" alt=""></td>'
+      );
+      document.writeln("        </tr>");
+      document.writeln("      </table>");
+    }
+    /********************* End of Function for generate the footer*********************/
+  </script>
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0 mb-3">
+      <header>
+        <!-- Banner -->
+        <div class="row" style="background: url('img/bkgdtexture.gif')">
+          <div class="col-auto me-auto">
+            <a href="http://www.had.gov.hk/rre/" target="_parent"
+              ><img src="img/branding.gif" border="0" width="484" height="66"
+            /></a>
+          </div>
+          <div class="col-auto">
+            <a
+              href="https://www.brandhk.gov.hk/brandhk/eindex.htm"
+              target="_parent"
+              ><img src="img/brandhk.gif" border="0"
+            /></a>
+          </div>
+        </div>
+        <!-- Language Switcher -->
+        <div class="row" style="background: url('img/bkgdtexture.gif')">
+          <div class="col-auto me-auto">
+            <a
+              onMouseOver="MM_swapImage('mainbar1','','img/mainbar1_f2.gif',1)"
+              onMouseOut="MM_swapImgRestore()"
+              href="https://www.gov.hk/en/residents/"
+              target="_parent"
+              ><img
+                src="img/mainbar1.gif"
+                name="mainbar1"
+                height="20"
+                border="0" /></a
+            ><a
+              onMouseOver="MM_swapImage('mainbar2','','img/eng_textonly_f2.gif',1)"
+              onMouseOut="MM_swapImgRestore()"
+              href="index_text.html"
+              target="_parent"
+              ><img
+                src="img/eng_textonly.gif"
+                name="mainbar2"
+                height="20"
+                border="0" /></a
+            ><a
+              onMouseOver="MM_swapImage('mainbar3','','img/tc_f2.gif',1)"
+              onMouseOut="MM_swapImgRestore()"
+              href="index_tc.html"
+              target="_parent"
+              ><img
+                src="img/tc.gif"
+                name="mainbar3"
+                height="20"
+                border="0" /></a
+            ><a
+              onMouseOver="MM_swapImage('mainbar4','','img/sc_f2.gif',1)"
+              onMouseOut="MM_swapImgRestore()"
+              href="index_sc.html"
+              target="_parent"
+              ><img
+                src="img/sc.gif"
+                border="0"
+                name="mainbar4"
+                height="20" /></a
+            ><img src="img/last.gif" border="0" />
+          </div>
+          <div class="col-auto">
+            <a
+              style="font-size: 12px; text-decoration: none"
+              id="fontSizeM"
+              onclick="javascript:changeFontSize('0');window.location.reload();"
+              ><div id="smallfont">A</div></a
+            >
+            <!-- <a
+              style="font-size: 16px; text-decoration: none"
+              id="fontSizeL"
+              onclick="javascript:changeFontSize('1');window.location.reload();"
+              ><div id="middlefont">A</div></a
+            >
+            <a
+              style="font-size: 20px; text-decoration: none"
+              id="fontSizeXL"
+              onclick="javascript:changeFontSize('2');window.location.reload();"
+              ><div id="largestfont">A</div></a
+            > -->
+          </div>
+        </div>
+      </header>
+
+      <nav
+        class="navbar navbar-expand-lg navbar-light m-0"
+        style="background-color: #e5f9ed"
+      >
+        <button
+          class="navbar-toggler collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarsExample10"
+          aria-controls="navbarsExample10"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarsExample10">
+          <ul class="nav navbar-nav nav-pills">
+            <li class="nav-item p-1">
+              <a class="nav-link p-2 active" data-bs-toggle="pill" href="#home"
+                >Introduction</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu1"
+                >Search for Voter Registration Information</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu2"
+                >Disclaimer</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu3"
+                >Technical Configuration</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu4"
+                >Personal Information Collection Statement</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu5"
+                >Eligibility Requirements for Electors</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu6"
+                >Voter Registration</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu7"
+                >Forms for Voter Registration</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu8"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade active show">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">Introduction</h1>
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    The Final Register of Electors for Rural Representative
+                    Election is published in October every year. If you are
+                    eligible for registration as an elector and wish to have
+                    your registration particulars included in this year’s
+                    Register, you should submit your application for
+                    registration on or before 16 July of this year. If the
+                    application form reaches the Home Affairs Department
+                    (HAD)/Electoral Registration Officer (ERO) after 16 July of
+                    this year, information provided therein will be processed
+                    when the provisional registers of the following year are
+                    compiled.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    You may perform a search on this “Rural Representative
+                    Election Voter Registration Information Enquiry System” (the
+                    System) to see if you have been registered as an elector.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    If you are a registered elector, you may perform a search on
+                    the System to enquire about the Rural Committee and
+                    Village/Market Town for which you have been registered as an
+                    elector in the 2020 Final Register of Electors.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    If you have submitted the Application for New Voter
+                    Registration, you may also perform a search on the System to
+                    enquire about the status of your application.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    Please be reminded that the System is provided for electors
+                    to check their own registered particulars only. Anyone who
+                    checks another elector’s registered particulars through the
+                    System without the latter’s prior written consent may
+                    contravene the relevant provisions of the Personal Data
+                    (Privacy) Ordinance (Cap. 486).
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    A registered elector of Indigenous Inhabitant Representative
+                    Election who wishes to report on change of his/her principal
+                    particulars (i.e. name) contained in the Final Register of
+                    Electors should submit his/her application on or before 16
+                    June of this year. As for the request for change of other
+                    particulars (including principal residential address,
+                    correspondence address and the Indigenous Village/Composite
+                    Indigenous Village as registered), the application should be
+                    submitted on or before 16 July of this year.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    A registered elector of Resident Representative
+                    Election/Kaifong Representative Election who wishes to
+                    report on change of his/her principal particulars (i.e. name
+                    or principal residential address) contained in the Final
+                    Register of Electors should submit his/her application on or
+                    before 16 June of this year. Please note that a registered
+                    elector of Resident Representative Election/Kaifong
+                    Representative Election applying for change of principal
+                    residential address (regardless of whether the principal
+                    residential address is still within the boundary of the
+                    Existing Village/Market Town as registered) must submit
+                    together with the application form the required proof of
+                    principal residential address. For details, please refer to
+                    the Guidance Notes attached to the application form.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    An elector who wishes to report on change of his or her
+                    registered particulars should complete and sign the
+                    <a href="../remis/ESubmissionPlatform.jsp" target="_blank"
+                      >Application for Change of Registered Particulars</a
+                    >
+                    and submit the form to the HAD/ERO by the following means:
+                    <ol class="parenthesized-roman-counter">
+                      <li>
+                        <font face="Arial" class="card-text"
+                          >by post (Address: Home Affairs Department, 30/F,
+                          Southorn Centre, 130 Hennessy Road, Wan Chai, Hong
+                          Kong);</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="card-text"
+                          >by fax (Fax no.: 2591 6392);</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="card-text"
+                          >in person or by a representative to the HAD
+                          Headquarters or Home Affairs Enquiry Centres of
+                          District Offices;</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="card-text"
+                          >by email (Email address: rre@had.gov.hk), with the
+                          signed application form scanned and attached as an
+                          email attachment; or</font
+                        >
+                      </li>
+                      <!-- <li><font face="Arial" class="autosize">by using the <a href="../remis/ESubmissionPlatform.jsp" target="_blank">electronic form</a> and uploading the completed and signed form to the dedicated website of HAD.</font></li> -->
+                    </ol></font
+                  >
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    Applications received by the HAD/ERO after the above
+                    deadlines will be processed when the provisional registers
+                    of the following year are compiled.
+                  </font>
+                </p>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button class="btn btn-secondary" type="button">
+                    Enquiry on Application Status of New Voter Registration
+                  </button>
+                  <button class="btn btn-secondary" type="button">
+                    Search for Voter Registration Information
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam.
+            </p>
+          </div>
+          <div id="menu3" class="tab-pane fade">
+            <h3>Menu 3</h3>
+            <p>
+              Eaque ipsa quae ab illo inventore veritatis et quasi architecto
+              beatae vitae dicta sunt explicabo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <script language="JavaScript">
+          footer();
+        </script>
+      </div>
+    </footer>
+  </body>
+</html>
