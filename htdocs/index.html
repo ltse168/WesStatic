@@ -1,13 +1,1066 @@
 <!DOCTYPE html>
-<html>
-<body>
-<script type="text/javascript">
-   	// Javascript URL redirection
-    window.location.replace("https://rrevotertt.had.gov.hk/index_en.html");
-    //window.location.replace("https://rrevoter1.had.gov.hk/index_en.html");
-	//window.location.replace("https://rrevoter2.had.gov.hk/index_en.html");
-	
-    //window.location.replace("https://rrevoter2.had.gov.hk/maintenance.html");
-</script>
-</body>
+<html class="h-100" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HAD RRE Web-based Enquiry System</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="bootstrap-5.0.0-beta2-dist/css/bootstrap.css"
+    />
+    <script
+      type="text/javascript"
+      src="bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script language="JavaScript" src="js/swapimage.js"></script>
+    <script language="JavaScript" src="js/jquery-1.12.4.min.js"></script>
+    <script language="JavaScript" src="js/fontSize.js"></script>
+    <style>
+      .nav-pills .nav-link {
+        background: #d7e9e8;
+        color: #000;
+        border: 1px solid transparent;
+        border-color: #20c997;
+        border-radius: 0.25rem;
+      }
+      .nav-pills .nav-link.active,
+      .nav-pills .show > .nav-link,
+      .navbar-toggler {
+        color: #fff;
+        background-color: #20c997;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <script language="javascript">
+    function initForm() {
+      document.bannerForm.target = "banner";
+      document.bannerForm.action = "remisBanner.html?title=Introduction";
+      document.bannerForm.submit();
+    }
+
+    function btnSearch_Click(tab) {
+      // window.location = "../en/searchFrame.html";
+      $('.nav-pills a[href="#' + tab + '"]').tab("show");
+    }
+
+    function btnSearchStatus_Click() {
+      window.location = "../en/searchStatusFrame.html";
+    }
+
+    function cookieCurPage(pageName) {
+      var d = new Date();
+      d.setTime(d.getTime() + 2 * 24 * 60 * 60 * 1000);
+      var expires = "expires=" + d.toUTCString();
+      //document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+      document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+      //alert("en cookie saved:"+document.cookie);
+    }
+
+    function cbxdisclaimer_change(cbx) {
+      if (cbx.checked) {
+        document.getElementById("btnAgree").disabled = false;
+      } else {
+        document.getElementById("btnAgree").disabled = true;
+      }
+    }
+  </script>
+  <script language="JavaScript">
+    var langNo = 1;
+    var revisionDate = "10/11/2021";
+    var upOneLevelLink = "../";
+    var imagePath = "img";
+    /********************* Variable defined for generate footer menu*********************/
+    var arFooter = new Array();
+    arFooter[1] = new Array();
+    arFooter[1][1] = "Important Notices";
+    arFooter[1][2] = "Last revision date: ";
+    arFooter[1][3] = "Back To Top";
+    arFooter[1][4] = "Privacy Policy";
+
+    arFooter[2] = new Array();
+    arFooter[2][1] = "?重 要 告 示";
+    arFooter[2][2] = "最 近 修 訂 日 期 : ";
+    arFooter[2][3] = "返 回 首 頁";
+    arFooter[2][4] = "私 隱 政 策";
+    /********************* End of Variable defined for generate footer menu*********************/
+
+    function MM_openBrWindow(theURL, winName, features) {
+      //v2.0
+      window.open(theURL, winName, features);
+    }
+
+    /********************* Function for generate the footer*********************/
+    function footer() {
+      if (revisionDate == "" || revisionDate == "MM/DD/YYYY")
+        revisionDate = "06/11/2004";
+
+      var monthArray = new Array();
+      monthArray[0] = "January";
+      monthArray[1] = "February";
+      monthArray[2] = "March";
+      monthArray[3] = "April";
+      monthArray[4] = "May";
+      monthArray[5] = "June";
+      monthArray[6] = "July";
+      monthArray[7] = "August";
+      monthArray[8] = "September";
+      monthArray[9] = "October";
+      monthArray[10] = "November";
+      monthArray[11] = "December";
+
+      var cMonthArray = new Array();
+      cMonthArray[0] = "1";
+      cMonthArray[1] = "2";
+      cMonthArray[2] = "3";
+      cMonthArray[3] = "4";
+      cMonthArray[4] = "5";
+      cMonthArray[5] = "6";
+      cMonthArray[6] = "7";
+      cMonthArray[7] = "8";
+      cMonthArray[8] = "9";
+      cMonthArray[9] = "10";
+      cMonthArray[10] = "11";
+      cMonthArray[11] = "12";
+
+      var reDate = new Date(Date.parse(revisionDate));
+      var showDate1 =
+        reDate.getDate() +
+        " " +
+        monthArray[reDate.getMonth()] +
+        " " +
+        reDate.getFullYear();
+      var showDate2 =
+        reDate.getFullYear() +
+        " 年 " +
+        cMonthArray[reDate.getMonth()] +
+        " 月 " +
+        reDate.getDate() +
+        " 日";
+
+      document.writeln(
+        '	  <table width="100%" border="0" cellspacing="0" cellpadding="0">'
+      );
+      document.writeln('        <tr align="left" valign="top"> ');
+      document.writeln('          <td width="100%">');
+      document.writeln(
+        '		  <table border=0 cellpadding=0 celspacing=0 width="100%">'
+      );
+      document.writeln("			<tr>");
+      document.writeln("			</tr>");
+      document.writeln("			<tr>");
+      document.writeln(
+        '				<td class="footer">2021©' +
+          ' | <a href="javascript:MM_openBrWindow(\'disclaimer.html\', \'popup1\', \'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300\')" class="notices">' +
+          arFooter[langNo][1] +
+          "</a> | <a href=\"javascript:MM_openBrWindow('private.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
+          arFooter[langNo][4] +
+          "</a></td>"
+      );
+      if (langNo == 1)
+        document.writeln(
+          '				<td align=right class="reDate">' +
+            arFooter[1][2] +
+            showDate1 +
+            "</td>"
+        );
+      else
+        document.writeln(
+          '				<td align=right class="reDate">' +
+            arFooter[2][2] +
+            showDate2 +
+            "</td>"
+        );
+      document.writeln("			</tr>");
+      document.writeln("			</table>");
+      document.writeln("		  </td>");
+      document.writeln(
+        '		  <td><img src="' +
+          upOneLevelLink +
+          imagePath +
+          '/spacer.gif" width="10" height="1" alt=""></td>'
+      );
+      document.writeln("        </tr>");
+      document.writeln("      </table>");
+    }
+    /********************* End of Function for generate the footer*********************/
+  </script>
+
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0 mb-3">
+      <!-- Header -->
+      <header>
+        <!-- Banner -->
+        <div class="row" style="background: url('img/bkgdtexture.gif')">
+          <div class="col-auto me-auto">
+            <a href="http://www.had.gov.hk/rre/" target="_parent"
+              ><img src="img/branding.gif" border="0" width="484" height="66"
+            /></a>
+          </div>
+          <div class="col-auto">
+            <a
+              href="https://www.brandhk.gov.hk/brandhk/eindex.htm"
+              target="_parent"
+              ><img src="img/brandhk.gif" border="0"
+            /></a>
+          </div>
+        </div>
+        <!-- Language Switcher -->
+        <div class="row" style="background: url('img/bkgdtexture.gif')">
+          <div class="col-auto me-auto">
+            <a
+              onMouseOver="MM_swapImage('mainbar1','','img/mainbar1_f2.gif',1)"
+              onMouseOut="MM_swapImgRestore()"
+              href="https://www.gov.hk/en/residents/"
+              target="_parent"
+              ><img
+                src="img/mainbar1.gif"
+                name="mainbar1"
+                height="20"
+                border="0" /></a
+            ><a
+              onMouseOver="MM_swapImage('mainbar2','','img/eng_textonly_f2.gif',1)"
+              onMouseOut="MM_swapImgRestore()"
+              href="index_text.html"
+              target="_parent"
+              ><img
+                src="img/eng_textonly.gif"
+                name="mainbar2"
+                height="20"
+                border="0" /></a
+            ><a
+              onMouseOver="MM_swapImage('mainbar3','','img/tc_f2.gif',1)"
+              onMouseOut="MM_swapImgRestore()"
+              href="index_tc.html"
+              target="_parent"
+              ><img
+                src="img/tc.gif"
+                name="mainbar3"
+                height="20"
+                border="0" /></a
+            ><a
+              onMouseOver="MM_swapImage('mainbar4','','img/sc_f2.gif',1)"
+              onMouseOut="MM_swapImgRestore()"
+              href="index_sc.html"
+              target="_parent"
+              ><img
+                src="img/sc.gif"
+                border="0"
+                name="mainbar4"
+                height="20" /></a
+            ><img src="img/last.gif" border="0" />
+          </div>
+          <div class="col-auto">
+            <!-- <a
+              style="font-size: 12px; text-decoration: none"
+              id="fontSizeM"
+              onclick="javascript:changeFontSize('0');window.location.reload();"
+              ><div id="smallfont">A</div></a
+            > -->
+            <a style="font-size: 12px; text-decoration: none">A</a>
+            <a style="font-size: 16px; text-decoration: none">A</a>
+            <a style="font-size: 20px; text-decoration: none">A</a>
+            <!-- <a
+              style="font-size: 16px; text-decoration: none"
+              id="fontSizeL"
+              onclick="javascript:changeFontSize('1');window.location.reload();"
+              ><div id="middlefont">A</div></a
+            >
+            <a
+              style="font-size: 20px; text-decoration: none"
+              id="fontSizeXL"
+              onclick="javascript:changeFontSize('2');window.location.reload();"
+              ><div id="largestfont">A</div></a
+            > -->
+          </div>
+        </div>
+      </header>
+
+      <!-- Navigation Bar -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light m-0"
+        style="background-color: #e5f9ed"
+      >
+        <button
+          class="navbar-toggler collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarsExample10"
+          aria-controls="navbarsExample10"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarsExample10">
+          <ul class="nav navbar-nav nav-pills">
+            <li class="nav-item p-1">
+              <a class="nav-link p-2 active" data-bs-toggle="pill" href="#home"
+                >Introduction</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu1"
+                >Search for Voter Registration Information</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu2"
+                >Disclaimer</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu3"
+                >Technical Configuration</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu4"
+                >Personal Information Collection Statement</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu5"
+                >Eligibility Requirements for Electors</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu6"
+                >Voter Registration</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu7"
+                >Forms for Voter Registration</a
+              >
+            </li>
+            <li class="nav-item p-1">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu8"
+                >Contact Us</a
+              >
+            </li>
+            <li class="nav-item p-1" style="display: none">
+              <a class="nav-link p-2" data-bs-toggle="pill" href="#searchFrame"
+                >searchFrame</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <div class="tab-content">
+          <!-- Tab0 -->
+          <div id="home" class="tab-pane fade active show">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">Introduction</h1>
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    The Final Register of Electors for Rural Representative
+                    Election is published in October every year. If you are
+                    eligible for registration as an elector and wish to have
+                    your registration particulars included in this year’s
+                    Register, you should submit your application for
+                    registration on or before 16 July of this year. If the
+                    application form reaches the Home Affairs Department
+                    (HAD)/Electoral Registration Officer (ERO) after 16 July of
+                    this year, information provided therein will be processed
+                    when the provisional registers of the following year are
+                    compiled.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    You may perform a search on this “Rural Representative
+                    Election Voter Registration Information Enquiry System” (the
+                    System) to see if you have been registered as an elector.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    If you are a registered elector, you may perform a search on
+                    the System to enquire about the Rural Committee and
+                    Village/Market Town for which you have been registered as an
+                    elector in the 2020 Final Register of Electors.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    If you have submitted the Application for New Voter
+                    Registration, you may also perform a search on the System to
+                    enquire about the status of your application.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    Please be reminded that the System is provided for electors
+                    to check their own registered particulars only. Anyone who
+                    checks another elector’s registered particulars through the
+                    System without the latter’s prior written consent may
+                    contravene the relevant provisions of the Personal Data
+                    (Privacy) Ordinance (Cap. 486).
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    A registered elector of Indigenous Inhabitant Representative
+                    Election who wishes to report on change of his/her principal
+                    particulars (i.e. name) contained in the Final Register of
+                    Electors should submit his/her application on or before 16
+                    June of this year. As for the request for change of other
+                    particulars (including principal residential address,
+                    correspondence address and the Indigenous Village/Composite
+                    Indigenous Village as registered), the application should be
+                    submitted on or before 16 July of this year.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    A registered elector of Resident Representative
+                    Election/Kaifong Representative Election who wishes to
+                    report on change of his/her principal particulars (i.e. name
+                    or principal residential address) contained in the Final
+                    Register of Electors should submit his/her application on or
+                    before 16 June of this year. Please note that a registered
+                    elector of Resident Representative Election/Kaifong
+                    Representative Election applying for change of principal
+                    residential address (regardless of whether the principal
+                    residential address is still within the boundary of the
+                    Existing Village/Market Town as registered) must submit
+                    together with the application form the required proof of
+                    principal residential address. For details, please refer to
+                    the Guidance Notes attached to the application form.
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    An elector who wishes to report on change of his or her
+                    registered particulars should complete and sign the
+                    <a href="../remis/ESubmissionPlatform.jsp" target="_blank"
+                      >Application for Change of Registered Particulars</a
+                    >
+                    and submit the form to the HAD/ERO by the following means:
+                    <ol class="parenthesized-roman-counter">
+                      <li>
+                        <font face="Arial" class="card-text"
+                          >by post (Address: Home Affairs Department, 30/F,
+                          Southorn Centre, 130 Hennessy Road, Wan Chai, Hong
+                          Kong);</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="card-text"
+                          >by fax (Fax no.: 2591 6392);</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="card-text"
+                          >in person or by a representative to the HAD
+                          Headquarters or Home Affairs Enquiry Centres of
+                          District Offices;</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="card-text"
+                          >by email (Email address: rre@had.gov.hk), with the
+                          signed application form scanned and attached as an
+                          email attachment; or</font
+                        >
+                      </li>
+                      <!-- <li><font face="Arial" class="autosize">by using the <a href="../remis/ESubmissionPlatform.jsp" target="_blank">electronic form</a> and uploading the completed and signed form to the dedicated website of HAD.</font></li> -->
+                    </ol></font
+                  >
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    Applications received by the HAD/ERO after the above
+                    deadlines will be processed when the provisional registers
+                    of the following year are compiled.
+                  </font>
+                </p>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    onClick="btnSearch_Click('menu1')"
+                  >
+                    Enquiry on Application Status of New Voter Registration
+                  </button>
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    onClick="btnSearch_Click('menu1')"
+                  >
+                    Search for Voter Registration Information
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tab1 -->
+          <div id="menu1" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">
+                  Voter Registration Information Enquiry System
+                </h1>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize"
+                    >Regulations to be observed in using the system:
+                  </font>
+                </p>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize">
+                    Under section 32(3) of the Electoral Affairs Commission
+                    (Registration of Electors) Regulation (Cap. 541K), a person
+                    who -
+                  </font>
+                </p>
+                <ol
+                  class="parenthesized-counter"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <li>
+                    <font face="Arial" class="autosize"
+                      >reproduces or permits another person to reproduce in any
+                      form any particular contained in an entry in a register or
+                      in an extract from a register;</font
+                    >
+                  </li>
+                  <li>
+                    <font face="Arial" class="autosize"
+                      >uses or permits another person to use any information
+                      relating to a person contained in an entry in a register
+                      or in an extract from a register; or</font
+                    >
+                  </li>
+                  <li>
+                    <font face="Arial" class="autosize"
+                      >imparts to any other person any information referred to
+                      in paragraph (a) and (b) above,</font
+                    >
+                  </li>
+                </ol>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize">
+                    for a purpose other than a purpose related to an election,
+                    commits an offence and is liable to a fine at level 2 and to
+                    imprisonment for 6 months.
+                  </font>
+                </p>
+
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize">
+                    “Voter Registration Information Enquiry System” (System)
+                    only allows an elector to check his or her own registered
+                    particulars. Anyone who checks another elector’s registered
+                    particulars through the System without the latter’s prior
+                    written consent may contravene the relevant provisions of
+                    the Personal Data (Privacy) Ordinance (Cap. 486).
+                  </font>
+                </p>
+
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    style="display: table-cell"
+                    onchange="cbxdisclaimer_change(this)"
+                  />
+                  <p
+                    style="
+                      display: table-cell;
+                      text-align: justify;
+                      text-justify: inter-ideograph;
+                    "
+                    class="autosize"
+                  >
+                    <font face="Arial" class="autosize"
+                      >I have read and understood the above regulation(s) and
+                      realize that the information obtained by me through this
+                      website must not be used for commercial purposes or any
+                      other purposes not related to an election.</font
+                    >
+                  </p>
+                </div>
+
+                <p class="autosize">
+                  <font face="Arial" class="autosize"
+                    >In the event of any inconsistency between the English
+                    version and the Chinese version of this Notice, the English
+                    version shall prevail.</font
+                  >
+                </p>
+
+                <div class="row justify-content-md-center">
+                  <div class="col-auto">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      onClick="btnSearch_Click('home')"
+                    >
+                      Back to Main Page
+                    </button>
+                  </div>
+                  <div class="col-auto">
+                    <button
+                      id="btnAgree"
+                      class="btn btn-secondary"
+                      type="button"
+                      onClick=""
+                    >
+                      Next
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tab2  -->
+          <div id="menu2" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">Disclaimer</h1>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >The information of registered electors for the Rural
+                    Representative Elections on this website is compiled by the
+                    Home Affairs Department (HAD) of the Hong Kong Special
+                    Administrative Region Government for general reference only.
+                  </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >HAD shall keep the information on this website as accurate
+                    as possible, but it may not reflect the most updated
+                    situation in some individual cases. No express or implied
+                    warranty is given by HAD as to the accuracy of the
+                    information. The Hong Kong Special Administrative Region
+                    Government and HAD shall not be responsible for any loss or
+                    damage whatsoever arising out of or in connection with any
+                    such information.
+                  </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >Communication over the Internet may be subject to
+                    interruption or delay due to Internet traffic or incorrect
+                    data transmission. The Hong Kong Special Administrative
+                    Region Government does not guarantee that messages sent over
+                    the Internet are secure and does not accept any
+                    responsibility for any damages incurred if you send a
+                    message to us, or if we send a message to you at your
+                    request, over the Internet.
+                  </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >The Hong Kong Special Administrative Region Government is
+                    entitled to delete, suspend or edit all information on this
+                    website at any time at its absolute discretion without
+                    giving any reason. Users are responsible for making their
+                    own assessments of all information contained in or obtained
+                    in connection with this website and are advised to verify
+                    such information by making reference to its original
+                    publication and obtain independent advice before acting on
+                    it.
+                  </font>
+                </p>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" size="3"> </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <u><font face="Arial">Copyright Notice </font> </u>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >The content available on this website, including but not
+                    limited to all text, graphics, drawings, diagrams,
+                    photographs and compilation of data or other materials, are
+                    protected by copyright. The Hong Kong Special Administrative
+                    Region Government is the owner of all copyright works
+                    contained in this website. Any reproduction, adaptation,
+                    distribution, dissemination or making available of such
+                    copyright works to the public is strictly prohibited unless
+                    prior written authorisation is obtained from HAD.
+                  </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >Most pages of the Simplified Chinese version of this
+                    website are generated from the Traditional Chinese version
+                    by an online translation software. If there is any
+                    discrepancy between the two versions, the Traditional
+                    Chinese version should take precedence.
+                  </font>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Tab3 -->
+          <div id="menu3" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">Technical Configuration</h1>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    ><span
+                      style="
+                        mso-fareast-font-family: �s�ө���;
+                        mso-ansi-language: EN-US;
+                        mso-fareast-language: ZH-TW;
+                        mso-bidi-language: AR-SA;
+                      "
+                      >This website is best viewed in 800x600 resolution with
+                      Microsoft Internet Explorer 9 (or above).</span
+                    ></font
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    ><span
+                      style="
+                        mso-fareast-font-family: �s�ө���;
+                        mso-ansi-language: EN-US;
+                        mso-fareast-language: ZH-TW;
+                        mso-bidi-language: AR-SA;
+                      "
+                      >All pages of this website are in Unicode (UTF-8)
+                      encoding. In case the browser cannot recognise the
+                      encoding automatically (thus making the text illegible),
+                      appropriate encoding should be selected to display the
+                      text : point the mouse to the window/frame in question and
+                      select Unicode (UTF-8) from the browser menu (usually in
+                      the View-Encoding sub-menu).</span
+                    ></font
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    ><span
+                      style="
+                        mso-fareast-font-family: �s�ө���;
+                        mso-ansi-language: EN-US;
+                        mso-fareast-language: ZH-TW;
+                        mso-bidi-language: AR-SA;
+                      "
+                      >To view the most updated version of a web page, it is
+                      sometimes necessary to refresh/reload the page in question
+                      (e.g. by selecting View-Refresh from the Internet Explorer
+                      menu or pressing&lt;Ctrl&gt;&lt;F5&gt;). If the above
+                      doesn't work, try clearing the cache (e.g. by selecting
+                      Tools-Internet Options from the Internet Explorer menu,
+                      click the Temporary Internet files-Delete files button on
+                      the General tab in the pop-up dialogue box, and restart
+                      Internet Explorer).</span
+                    ></font
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    ><span style="mso-font-kerning: 0pt"
+                      >&quot;<a
+                        href="http://www.had.gov.hk/rre/chi/download/remis_font.zip"
+                        target="_blank"
+                        ><span
+                          style="
+                            mso-field-code: HYPERLINK \0022http\:\/\/www\.had\.gov\.hk\/
+                              vre\/chi\/download\/remis_font\.zip\0022;
+                            color: windowtext;
+                            mso-font-kerning: 1pt;
+                            text-decoration: none;
+                            text-underline: none;
+                          "
+                          ><u
+                            ><span style="color: blue"
+                              >Special Chinese Characters</span
+                            ></u
+                          ></span
+                        ></a
+                      ><span
+                        style="
+                          font-family: 'Times New Roman';
+                          color: windowtext;
+                          text-decoration: none;
+                          text-underline: none;
+                        "
+                        >&quot; </span
+                      ><span
+                        style="
+                          color: windowtext;
+                          text-decoration: none;
+                          text-underline: none;
+                        "
+                        >and </span
+                      >&quot;</span
+                    ><span
+                      style="
+                        mso-font-kerning: 0pt;
+                        color: windowtext;
+                        mso-field-code: HYPERLINK \0022http\:\/\/www\.had\.gov\.hk\/
+                          vre\/chi\/download\/remis_font\.zip\0022;
+                        text-decoration: none;
+                        text-underline: none;
+                      "
+                      ><a
+                        href="https://www.ogcio.gov.hk/en/business/tech_promotion/ccli/hkscs/"
+                        target="_blank"
+                        ><u>Hong Kong Supplementary Character Set</u></a
+                      ></span
+                    ><span style="mso-font-kerning: 0pt"
+                      ><a
+                        href="http://www.had.gov.hk/rre/chi/download/remis_font.zip"
+                        target="_blank"
+                      ></a
+                      ><span
+                        style="
+                          font-family: 'Times New Roman';
+                          color: windowtext;
+                          text-decoration: none;
+                          text-underline: none;
+                        "
+                        >&quot; </span
+                      >are required for viewing some of the Chinese
+                      characters.<o:p> </o:p> <o:p> </o:p><br /> </span></font
+                  ><font face="Arial"
+                    ><span
+                      style="
+                        mso-fareast-font-family: �s�ө���;
+                        mso-ansi-language: EN-US;
+                        mso-fareast-language: ZH-TW;
+                        mso-bidi-language: AR-SA;
+                      "
+                      >(Please unzip the file and follow the instructions from
+                      &quot;readme.exe&quot; to install the software after
+                      downloading.)</span
+                    ></font
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span style="mso-font-kerning: 0pt; layout-grid-mode: line"
+                    ><font face="Arial" size="3">&nbsp;<o:p> </o:p> </font>
+                  </span>
+                </p>
+              </div>
+              <div id="searchFrame" class="tab-pane fade">
+                <h3>Voter Registration Information Enquiry System</h3>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize"
+                    >Regulations to be observed in using the system:
+                  </font>
+                </p>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize">
+                    Under section 32(3) of the Electoral Affairs Commission
+                    (Registration of Electors) Regulation (Cap. 541K), a person
+                    who -
+                  </font>
+                </p>
+                <ol
+                  class="parenthesized-counter"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <li>
+                    <font face="Arial" class="autosize"
+                      >reproduces or permits another person to reproduce in any
+                      form any particular contained in an entry in a register or
+                      in an extract from a register;</font
+                    >
+                  </li>
+                  <li>
+                    <font face="Arial" class="autosize"
+                      >uses or permits another person to use any information
+                      relating to a person contained in an entry in a register
+                      or in an extract from a register; or</font
+                    >
+                  </li>
+                  <li>
+                    <font face="Arial" class="autosize"
+                      >imparts to any other person any information referred to
+                      in paragraph (a) and (b) above,</font
+                    >
+                  </li>
+                </ol>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize">
+                    for a purpose other than a purpose related to an election,
+                    commits an offence and is liable to a fine at level 2 and to
+                    imprisonment for 6 months.
+                  </font>
+                </p>
+
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize">
+                    “Voter Registration Information Enquiry System” (System)
+                    only allows an elector to check his or her own registered
+                    particulars. Anyone who checks another elector’s registered
+                    particulars through the System without the latter’s prior
+                    written consent may contravene the relevant provisions of
+                    the Personal Data (Privacy) Ordinance (Cap. 486).
+                  </font>
+                </p>
+
+                <div style="display:table;padding=0;margin=0;">
+                  <input
+                    type="checkbox"
+                    style="display: table-cell"
+                    onchange="cbxdisclaimer_change(this)"
+                  />
+                  <p
+                    style="
+                      display: table-cell;
+                      text-align: justify;
+                      text-justify: inter-ideograph;
+                    "
+                    class="autosize"
+                  >
+                    <font face="Arial" class="autosize"
+                      >I have read and understood the above regulation(s) and
+                      realize that the information obtained by me through this
+                      website must not be used for commercial purposes or any
+                      other purposes not related to an election.</font
+                    >
+                  </p>
+                </div>
+
+                <p class="autosize">
+                  <font face="Arial" class="autosize"
+                    >In the event of any inconsistency between the English
+                    version and the Chinese version of this Notice, the English
+                    version shall prevail.</font
+                  >
+                </p>
+
+                <table
+                  align="center"
+                  height="0"
+                  width="500"
+                  border="0"
+                  cellspacing="0"
+                  cellpadding="0"
+                >
+                  <tr>
+                    <td align="center" width="30">
+                      <!-- <a href="intro.html" target="_parent">Disagree</a> -->
+                      <input
+                        id="btnDisagree"
+                        type="button"
+                        value="Back to Main Page"
+                        onclick="cookieCurPage('intro.html');btnDisagree_Click();"
+                        style="width: 210px"
+                        class="autosize"
+                      />
+                    </td>
+                    <td align="center" width="200">
+                      <!-- <a id="aAgree" href="javascript:poptastic('appFrame.html');">Agree</a> -->
+                      <!-- <a id="aAgree" href="javascript:void(0);" style="color:grey">Agree</a> -->
+                      <input
+                        id="btnAgree"
+                        type="button"
+                        value="Next"
+                        onclick="btnAgree_Click();"
+                        style="width: 90px"
+                        disabled
+                        class="autosize"
+                      />
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Tab4 -->
+          <div id="menu4" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">Card Title</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <script language="JavaScript">
+          footer();
+        </script>
+      </div>
+    </footer>
+  </body>
 </html>
