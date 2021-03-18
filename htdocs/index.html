@@ -29,6 +29,25 @@
         color: #fff;
         background-color: #20c997;
       }
+      ol.parenthesized-roman-counter {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: table;
+      }
+
+      ol.parenthesized-roman-counter li {
+        counter-increment: step-counter;
+        display: table-row;
+      }
+
+      ol.parenthesized-roman-counter li::before {
+        content: "(" counter(step-counter, lower-roman) ")";
+        margin-right: 5px;
+        width: 2em;
+        text-align: left;
+        display: table-cell;
+      }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -151,7 +170,7 @@
       document.writeln("			<tr>");
       document.writeln(
         '				<td class="footer">2021©' +
-          ' | <a href="javascript:MM_openBrWindow(\'disclaimer.html\', \'popup1\', \'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300\')" class="notices">' +
+          " | <a href=\"javascript:MM_openBrWindow('disclaimer.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
           arFooter[langNo][1] +
           "</a> | <a href=\"javascript:MM_openBrWindow('private.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
           arFooter[langNo][4] +
@@ -189,78 +208,110 @@
   <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0 mb-3">
       <!-- Header -->
-      <header>
-        <!-- Banner -->
-        <div class="row" style="background: url('img/bkgdtexture.gif')">
-          <div class="col-auto me-auto">
-            <a href="http://www.had.gov.hk/rre/" target="_parent"
-              ><img src="img/branding.gif" border="0" width="484" height="66"
-            /></a>
+      <div class="container-fluid">
+        <header>
+          <!-- Banner -->
+          <div class="row" style="background: url('img/bkgdtexture.gif')">
+            <div class="col-auto me-auto">
+              <div class="m-1">
+                <div class="row g-0">
+                  <div
+                    class="col-md-auto m-2"
+                    style="display: flex; align-items: center"
+                  >
+                    <a href="http://www.had.gov.hk/rre/" target="_parent"
+                      ><img
+                        src="img/branding.png"
+                        border="0"
+                        width="60"
+                        height="33"
+                    /></a>
+                  </div>
+                  <div class="col-md">
+                    <div class="row">
+                      <font size="2" face="sans-serif"
+                        ><b
+                          >Rural Representative Election Voter Registration
+                          Information Enquiry System</b
+                        ></font
+                      >
+                    </div>
+                    <div class="row">
+                      <font size="1" face="sans-serif"
+                        ><b>Home Affairs Department</b></font
+                      >
+                    </div>
+                    <div class="row">
+                      <font size="1" face="sans-serif">
+                        The Government of the Hong Kong Special Administrative
+                        Region
+                      </font>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <a
+                href="https://www.brandhk.gov.hk/brandhk/eindex.htm"
+                target="_parent"
+                ><img src="img/brandhk.gif" border="0"
+              /></a>
+            </div>
           </div>
-          <div class="col-auto">
-            <a
-              href="https://www.brandhk.gov.hk/brandhk/eindex.htm"
-              target="_parent"
-              ><img src="img/brandhk.gif" border="0"
-            /></a>
-          </div>
-        </div>
-        <!-- Language Switcher -->
-        <div class="row" style="background: url('img/bkgdtexture.gif')">
-          <div class="col-auto me-auto">
-            <a
-              onMouseOver="MM_swapImage('mainbar1','','img/mainbar1_f2.gif',1)"
-              onMouseOut="MM_swapImgRestore()"
-              href="https://www.gov.hk/en/residents/"
-              target="_parent"
-              ><img
-                src="img/mainbar1.gif"
-                name="mainbar1"
-                height="20"
-                border="0" /></a
-            ><a
-              onMouseOver="MM_swapImage('mainbar2','','img/eng_textonly_f2.gif',1)"
-              onMouseOut="MM_swapImgRestore()"
-              href="index_text.html"
-              target="_parent"
-              ><img
-                src="img/eng_textonly.gif"
-                name="mainbar2"
-                height="20"
-                border="0" /></a
-            ><a
-              onMouseOver="MM_swapImage('mainbar3','','img/tc_f2.gif',1)"
-              onMouseOut="MM_swapImgRestore()"
-              href="index_tc.html"
-              target="_parent"
-              ><img
-                src="img/tc.gif"
-                name="mainbar3"
-                height="20"
-                border="0" /></a
-            ><a
-              onMouseOver="MM_swapImage('mainbar4','','img/sc_f2.gif',1)"
-              onMouseOut="MM_swapImgRestore()"
-              href="index_sc.html"
-              target="_parent"
-              ><img
-                src="img/sc.gif"
-                border="0"
-                name="mainbar4"
-                height="20" /></a
-            ><img src="img/last.gif" border="0" />
-          </div>
-          <div class="col-auto">
-            <!-- <a
+          <!-- Language Switcher -->
+          <div class="row" style="background: url('img/bkgdtexture.gif')">
+            <div class="col-auto me-auto">
+              <a
+                onMouseOver="MM_swapImage('mainbar1','','img/mainbar1_f2.gif',1)"
+                onMouseOut="MM_swapImgRestore()"
+                href="https://www.gov.hk/en/residents/"
+                target="_parent"
+                ><img
+                  src="img/mainbar1.gif"
+                  name="mainbar1"
+                  height="20"
+                  border="0" /></a
+              ><a
+                onMouseOver="MM_swapImage('mainbar2','','img/eng_textonly_f2.gif',1)"
+                onMouseOut="MM_swapImgRestore()"
+                href="index_text.html"
+                target="_parent"
+                ><img
+                  src="img/eng_textonly.gif"
+                  name="mainbar2"
+                  height="20"
+                  border="0" /></a
+              ><a
+                onMouseOver="MM_swapImage('mainbar3','','img/tc_f2.gif',1)"
+                onMouseOut="MM_swapImgRestore()"
+                href="index_tc.html"
+                target="_parent"
+                ><img
+                  src="img/tc.gif"
+                  name="mainbar3"
+                  height="20"
+                  border="0" /></a
+              ><a
+                onMouseOver="MM_swapImage('mainbar4','','img/sc_f2.gif',1)"
+                onMouseOut="MM_swapImgRestore()"
+                href="index_sc.html"
+                target="_parent"
+                ><img src="img/sc.gif" border="0" name="mainbar4" height="20"
+              /></a>
+              <!-- <img src="img/last.gif" border="0" /> -->
+            </div>
+            <div class="col-auto">
+              <!-- <a
               style="font-size: 12px; text-decoration: none"
               id="fontSizeM"
               onclick="javascript:changeFontSize('0');window.location.reload();"
               ><div id="smallfont">A</div></a
             > -->
-            <a style="font-size: 12px; text-decoration: none">A</a>
+              <!-- <a style="font-size: 12px; text-decoration: none">A</a>
             <a style="font-size: 16px; text-decoration: none">A</a>
-            <a style="font-size: 20px; text-decoration: none">A</a>
-            <!-- <a
+            <a style="font-size: 20px; text-decoration: none">A</a> -->
+              <!-- <a
               style="font-size: 16px; text-decoration: none"
               id="fontSizeL"
               onclick="javascript:changeFontSize('1');window.location.reload();"
@@ -272,83 +323,124 @@
               onclick="javascript:changeFontSize('2');window.location.reload();"
               ><div id="largestfont">A</div></a
             > -->
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <!-- Navigation Bar -->
-      <nav
-        class="navbar navbar-expand-lg navbar-light m-0"
-        style="background-color: #e5f9ed"
-      >
-        <button
-          class="navbar-toggler collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarsExample10"
-          aria-controls="navbarsExample10"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+        <!-- Navigation Bar -->
+        <nav
+          class="navbar navbar-expand-md navbar-light m-0"
+          style="background-color: #e5f9ed"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse" id="navbarsExample10">
-          <ul class="nav navbar-nav nav-pills">
-            <li class="nav-item p-1">
-              <a class="nav-link p-2 active" data-bs-toggle="pill" href="#home"
-                >Introduction</a
+          <button
+            class="navbar-toggler collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample10"
+            aria-controls="navbarsExample10"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarsExample10">
+            <ul class="nav navbar-nav nav-pills">
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
               >
-            </li>
-            <li class="nav-item p-1">
-              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu1"
-                >Search for Voter Registration Information</a
+                <a
+                  class="nav-link p-2 active"
+                  data-bs-toggle="pill"
+                  href="#home"
+                  >Introduction</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
               >
-            </li>
-            <li class="nav-item p-1">
-              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu2"
-                >Disclaimer</a
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu1"
+                  >Search for Voter Registration Information</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
               >
-            </li>
-            <li class="nav-item p-1">
-              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu3"
-                >Technical Configuration</a
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu2"
+                  >Disclaimer</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
               >
-            </li>
-            <li class="nav-item p-1">
-              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu4"
-                >Personal Information Collection Statement</a
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu3"
+                  >Technical Configuration</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
               >
-            </li>
-            <li class="nav-item p-1">
-              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu5"
-                >Eligibility Requirements for Electors</a
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu4"
+                  >Personal Information Collection Statement</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
               >
-            </li>
-            <li class="nav-item p-1">
-              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu6"
-                >Voter Registration</a
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu5"
+                  >Eligibility Requirements for Electors</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
               >
-            </li>
-            <li class="nav-item p-1">
-              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu7"
-                >Forms for Voter Registration</a
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu6"
+                  >Voter Registration</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
               >
-            </li>
-            <li class="nav-item p-1">
-              <a class="nav-link p-2" data-bs-toggle="pill" href="#menu8"
-                >Contact Us</a
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu7"
+                  >Forms for Voter Registration</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
               >
-            </li>
-            <li class="nav-item p-1" style="display: none">
-              <a class="nav-link p-2" data-bs-toggle="pill" href="#searchFrame"
-                >searchFrame</a
-              >
-            </li>
-          </ul>
-        </div>
-      </nav>
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu8"
+                  >Contact Us</a
+                >
+              </li>
+              <li class="nav-item p-1" style="display: none">
+                <a
+                  class="nav-link p-2"
+                  data-bs-toggle="pill"
+                  href="#searchFrame"
+                  >searchFrame</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-      <div class="container-fluid">
         <div class="tab-content">
           <!-- Tab0 -->
           <div id="home" class="tab-pane fade active show">
@@ -474,32 +566,43 @@
                     and submit the form to the HAD/ERO by the following means:
                     <ol class="parenthesized-roman-counter">
                       <li>
-                        <font face="Arial" class="card-text"
+                        <font face="Arial" class="autosize"
                           >by post (Address: Home Affairs Department, 30/F,
                           Southorn Centre, 130 Hennessy Road, Wan Chai, Hong
                           Kong);</font
                         >
                       </li>
                       <li>
-                        <font face="Arial" class="card-text"
+                        <font face="Arial" class="autosize"
                           >by fax (Fax no.: 2591 6392);</font
                         >
                       </li>
                       <li>
-                        <font face="Arial" class="card-text"
+                        <font face="Arial" class="autosize"
                           >in person or by a representative to the HAD
                           Headquarters or Home Affairs Enquiry Centres of
                           District Offices;</font
                         >
                       </li>
                       <li>
-                        <font face="Arial" class="card-text"
+                        <font face="Arial" class="autosize"
                           >by email (Email address: rre@had.gov.hk), with the
                           signed application form scanned and attached as an
                           email attachment; or</font
                         >
                       </li>
-                      <!-- <li><font face="Arial" class="autosize">by using the <a href="../remis/ESubmissionPlatform.jsp" target="_blank">electronic form</a> and uploading the completed and signed form to the dedicated website of HAD.</font></li> -->
+                      <li>
+                        <font face="Arial" class="autosize"
+                          >by using the
+                          <a
+                            href="../remis/ESubmissionPlatform.jsp"
+                            target="_blank"
+                            >electronic form</a
+                          >
+                          and uploading the completed and signed form to the
+                          dedicated website of HAD.</font
+                        >
+                      </li>
                     </ol></font
                   >
                 </p>
