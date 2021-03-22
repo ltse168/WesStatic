@@ -1,0 +1,56 @@
+<html>
+
+<head>
+<title>HAD RRE Web-based Enquiry System</title>
+</head>
+<script type="text/javascript">
+function LoadPage() {
+	var redirectPage = "tc/intro.html";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(';');
+	//alert("index_tch:"+ca);
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		var pos1 = c.indexOf("=");
+		if (pos1 > 0) {
+			var ckName = c.substring(0,pos1);
+			ckName = ckName.trim();
+			var ckValue = c.substring(pos1+1,c.length);
+			ckValue = ckValue.trim();
+			if (ckName == "WESCurPage") {
+				if (ckValue.indexOf("/") < 0) {
+					ckValue = "tc/" + ckValue;
+				}
+				else {
+					ckValue = ckValue.replace("/eng/","/chi/");
+					ckValue = ckValue.replace("/chs/","/chi/");
+					ckValue = ckValue.replace("=sc","=tc");
+				}
+				redirectPage = ckValue;
+			}
+		}
+	}
+	//alert("index_tch redirect:"+redirectPage);
+	document.getElementById('mainContent').src = redirectPage;
+}
+</script>
+<frameset rows="120,*" framespacing="0" border="0" frameborder="0">
+  <frame name="banner" scrolling="no" noresize target="contents" src="tc/remisBanner.html">
+  <frameset cols="160,600,*" frameborder="0">
+    <frame name="contents" noresize target="main" src="tc/menu.html">
+	<frameset rows="*,50" frameborder="0" onload="LoadPage();">
+	    <frame name="main" id="mainContent" noresize src="tc/intro.html">
+	    <frame name="notice" scrolling="no" noresize src="tc/footer.html">    
+	</frameset>
+    <frame name="empty" noresize src="empty.html">
+  </frameset>
+  <noframes>
+  <body>
+
+  <p>This page uses frames, but your browser doesn't support them.</p>
+
+  </body>
+  </noframes> 	
+</frameset>
+
+</html>
