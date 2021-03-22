@@ -1,0 +1,76 @@
+<script>
+  function footerS() {
+    if (revisionDate == "" || revisionDate == "MM/DD/YYYY")
+      revisionDate = "06/11/2004";
+
+    var reDate = new Date(Date.parse(revisionDate));
+    var showDate1 =
+      reDate.getDate() +
+      " " +
+      monthArray[reDate.getMonth()] +
+      " " +
+      reDate.getFullYear();
+    var showDate2 =
+      reDate.getFullYear() +
+      " 年 " +
+      cMonthArray[reDate.getMonth()] +
+      " 月 " +
+      reDate.getDate() +
+      " 日";
+    document.writeln(
+      "2021©" +
+        " | <a href=\"javascript:MM_openBrWindow('disclaimer.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
+        arFooter[langNo][1] +
+        "</a> | <a href=\"javascript:MM_openBrWindow('private.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
+        arFooter[langNo][4] +
+        "</a>"
+    );
+  }
+
+  function footerE() {
+    if (revisionDate == "" || revisionDate == "MM/DD/YYYY")
+      revisionDate = "06/11/2004";
+
+    var reDate = new Date(Date.parse(revisionDate));
+    var showDate1 =
+      reDate.getDate() +
+      " " +
+      monthArray[reDate.getMonth()] +
+      " " +
+      reDate.getFullYear();
+    var showDate2 =
+      reDate.getFullYear() +
+      " 年 " +
+      cMonthArray[reDate.getMonth()] +
+      " 月 " +
+      reDate.getDate() +
+      " 日";
+
+    if (langNo == 1)
+      document.writeln(
+        '				<td align=right class="reDate">' + arFooter[1][2] + showDate1 + "</td>"
+      );
+    else
+      document.writeln(
+        '				<td align=right class="reDate">' + arFooter[2][2] + showDate2 + "</td>"
+      );
+  }
+</script>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-auto m-2">
+        <script language="JavaScript">
+          footerS();
+        </script>
+      </div>
+      <div class="col-auto ms-md-auto m-2">
+        <script language="JavaScript">
+          footerE();
+        </script>
+      </div>
+    </div>
+  </div>
+</footer>

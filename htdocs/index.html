@@ -124,136 +124,42 @@
     arFooter[2][4] = "私 隱 政 策";
     /********************* End of Variable defined for generate footer menu*********************/
 
+    var monthArray = new Array();
+    monthArray[0] = "January";
+    monthArray[1] = "February";
+    monthArray[2] = "March";
+    monthArray[3] = "April";
+    monthArray[4] = "May";
+    monthArray[5] = "June";
+    monthArray[6] = "July";
+    monthArray[7] = "August";
+    monthArray[8] = "September";
+    monthArray[9] = "October";
+    monthArray[10] = "November";
+    monthArray[11] = "December";
+
+    var cMonthArray = new Array();
+    cMonthArray[0] = "1";
+    cMonthArray[1] = "2";
+    cMonthArray[2] = "3";
+    cMonthArray[3] = "4";
+    cMonthArray[4] = "5";
+    cMonthArray[5] = "6";
+    cMonthArray[6] = "7";
+    cMonthArray[7] = "8";
+    cMonthArray[8] = "9";
+    cMonthArray[9] = "10";
+    cMonthArray[10] = "11";
+    cMonthArray[11] = "12";
+
     function MM_openBrWindow(theURL, winName, features) {
       //v2.0
       window.open(theURL, winName, features);
     }
 
-    /********************* Function for generate the footer*********************/
-    function footer() {
-      if (revisionDate == "" || revisionDate == "MM/DD/YYYY")
-        revisionDate = "06/11/2004";
-
-      var monthArray = new Array();
-      monthArray[0] = "January";
-      monthArray[1] = "February";
-      monthArray[2] = "March";
-      monthArray[3] = "April";
-      monthArray[4] = "May";
-      monthArray[5] = "June";
-      monthArray[6] = "July";
-      monthArray[7] = "August";
-      monthArray[8] = "September";
-      monthArray[9] = "October";
-      monthArray[10] = "November";
-      monthArray[11] = "December";
-
-      var cMonthArray = new Array();
-      cMonthArray[0] = "1";
-      cMonthArray[1] = "2";
-      cMonthArray[2] = "3";
-      cMonthArray[3] = "4";
-      cMonthArray[4] = "5";
-      cMonthArray[5] = "6";
-      cMonthArray[6] = "7";
-      cMonthArray[7] = "8";
-      cMonthArray[8] = "9";
-      cMonthArray[9] = "10";
-      cMonthArray[10] = "11";
-      cMonthArray[11] = "12";
-
-      var reDate = new Date(Date.parse(revisionDate));
-      var showDate1 =
-        reDate.getDate() +
-        " " +
-        monthArray[reDate.getMonth()] +
-        " " +
-        reDate.getFullYear();
-      var showDate2 =
-        reDate.getFullYear() +
-        " 年 " +
-        cMonthArray[reDate.getMonth()] +
-        " 月 " +
-        reDate.getDate() +
-        " 日";
-
-      document.writeln(
-        '	  <table width="100%" border="0" cellspacing="0" cellpadding="0">'
-      );
-      document.writeln('        <tr align="left" valign="top"> ');
-      document.writeln('          <td width="100%">');
-      document.writeln(
-        '		  <table border=0 cellpadding=0 celspacing=0 width="100%">'
-      );
-      document.writeln("			<tr>");
-      document.writeln("			</tr>");
-      document.writeln("			<tr>");
-      document.writeln(
-        '				<td class="footer">2021©' +
-          " | <a href=\"javascript:MM_openBrWindow('disclaimer.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
-          arFooter[langNo][1] +
-          "</a> | <a href=\"javascript:MM_openBrWindow('private.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
-          arFooter[langNo][4] +
-          "</a></td>"
-      );
-      if (langNo == 1)
-        document.writeln(
-          '				<td align=right class="reDate">' +
-            arFooter[1][2] +
-            showDate1 +
-            "</td>"
-        );
-      else
-        document.writeln(
-          '				<td align=right class="reDate">' +
-            arFooter[2][2] +
-            showDate2 +
-            "</td>"
-        );
-      document.writeln("			</tr>");
-      document.writeln("			</table>");
-      document.writeln("		  </td>");
-      document.writeln(
-        '		  <td><img src="' +
-          upOneLevelLink +
-          imagePath +
-          '/spacer.gif" width="10" height="1" alt=""></td>'
-      );
-      document.writeln("        </tr>");
-      document.writeln("      </table>");
-    }
-    /********************* End of Function for generate the footer*********************/
     function footerS() {
       if (revisionDate == "" || revisionDate == "MM/DD/YYYY")
         revisionDate = "06/11/2004";
-
-      var monthArray = new Array();
-      monthArray[0] = "January";
-      monthArray[1] = "February";
-      monthArray[2] = "March";
-      monthArray[3] = "April";
-      monthArray[4] = "May";
-      monthArray[5] = "June";
-      monthArray[6] = "July";
-      monthArray[7] = "August";
-      monthArray[8] = "September";
-      monthArray[9] = "October";
-      monthArray[10] = "November";
-      monthArray[11] = "December";
-
-      var cMonthArray = new Array();
-      cMonthArray[0] = "1";
-      cMonthArray[1] = "2";
-      cMonthArray[2] = "3";
-      cMonthArray[3] = "4";
-      cMonthArray[4] = "5";
-      cMonthArray[5] = "6";
-      cMonthArray[6] = "7";
-      cMonthArray[7] = "8";
-      cMonthArray[8] = "9";
-      cMonthArray[9] = "10";
-      cMonthArray[10] = "11";
-      cMonthArray[11] = "12";
 
       var reDate = new Date(Date.parse(revisionDate));
       var showDate1 =
@@ -282,34 +188,6 @@
     function footerE() {
       if (revisionDate == "" || revisionDate == "MM/DD/YYYY")
         revisionDate = "06/11/2004";
-
-      var monthArray = new Array();
-      monthArray[0] = "January";
-      monthArray[1] = "February";
-      monthArray[2] = "March";
-      monthArray[3] = "April";
-      monthArray[4] = "May";
-      monthArray[5] = "June";
-      monthArray[6] = "July";
-      monthArray[7] = "August";
-      monthArray[8] = "September";
-      monthArray[9] = "October";
-      monthArray[10] = "November";
-      monthArray[11] = "December";
-
-      var cMonthArray = new Array();
-      cMonthArray[0] = "1";
-      cMonthArray[1] = "2";
-      cMonthArray[2] = "3";
-      cMonthArray[3] = "4";
-      cMonthArray[4] = "5";
-      cMonthArray[5] = "6";
-      cMonthArray[6] = "7";
-      cMonthArray[7] = "8";
-      cMonthArray[8] = "9";
-      cMonthArray[9] = "10";
-      cMonthArray[10] = "11";
-      cMonthArray[11] = "12";
 
       var reDate = new Date(Date.parse(revisionDate));
       var showDate1 =
@@ -531,30 +409,27 @@
                   >Personal Information Collection Statement</a
                 >
               </li>
-              <li
-                class="nav-item p-1"
-                data-bs-toggle="collapse"
-                data-bs-target=".navbar-collapse.show"
-              >
-                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu5"
+              <li class="nav-item p-1">
+                <a
+                  class="nav-link p-2"
+                  href="http://www.had.gov.hk/rre/eng/electors/qualifications.html"
+                  target="_blank"
                   >Eligibility Requirements for Electors</a
                 >
               </li>
-              <li
-                class="nav-item p-1"
-                data-bs-toggle="collapse"
-                data-bs-target=".navbar-collapse.show"
-              >
-                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu6"
+              <li class="nav-item p-1">
+                <a
+                  class="nav-link p-2"
+                  href="http://www.had.gov.hk/rre/eng/electors/index.html"
+                  target="_blank"
                   >Voter Registration</a
                 >
               </li>
-              <li
-                class="nav-item p-1"
-                data-bs-toggle="collapse"
-                data-bs-target=".navbar-collapse.show"
-              >
-                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu7"
+              <li class="nav-item p-1">
+                <a
+                  class="nav-link p-2"
+                  href="../remis/ESubmissionPlatform.jsp"
+                  target="_blank"
                   >Forms for Voter Registration</a
                 >
               </li>
@@ -563,7 +438,7 @@
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
               >
-                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu8"
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu5"
                   >Contact Us</a
                 >
               </li>
@@ -1131,8 +1006,8 @@
                           text-underline: none;
                         "
                         >&quot; </span
-                      >are required for viewing some of the Chinese
-                      characters.<o:p> </o:p> <o:p> </o:p><br /> </span></font
+                      >are required for viewing some of the Chinese characters.
+                      <br /> </span></font
                   ><font face="Arial"
                     ><span
                       style="
@@ -1152,7 +1027,7 @@
                   style="text-align: justify; text-justify: inter-ideograph"
                 >
                   <span style="mso-font-kerning: 0pt; layout-grid-mode: line"
-                    ><font face="Arial" size="3">&nbsp;<o:p> </o:p> </font>
+                    ><font face="Arial" size="3">&nbsp; </font>
                   </span>
                 </p>
               </div>
@@ -1287,7 +1162,240 @@
           <div id="menu4" class="tab-pane fade">
             <div class="card">
               <div class="card-body">
-                <h1 class="card-title">Card Title</h1>
+                <h1 class="card-title">
+                  Personal Information Collection Statement
+                </h1>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <u><font face="Arial">Purpose of Collection</font></u>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                    "
+                    ><font face="Arial"
+                      >Personal data provided by you will be used by HAD only
+                      for the purpose of handling your enquiry.</font
+                    ></span
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                    "
+                    ><font face="Arial"
+                      >Your enquiry may also be used for the compilation of
+                      statistics on the number and nature of enquiries received
+                      by HAD. The outcome of the resulting statistics will not
+                      be in a form that will identify your enquiry and any of
+                      your personal data.</font
+                    ></span
+                  ><font face="Arial"
+                    ><span style="mso-font-kerning: 0pt"> </span
+                  ></font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                    "
+                    ><font face="Arial"
+                      >The provision of your personal data is voluntary. If you
+                      do not provide sufficient information, HAD may not be able
+                      to process your enquiries.</font
+                    ></span
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="
+                    mso-margin-top-alt: auto;
+                    margin-bottom: 12pt;
+                    mso-pagination: widow-orphan;
+                  "
+                >
+                  <span style="mso-font-kerning: 0pt"
+                    ><font face="Arial">&nbsp; </font>
+                  </span>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <u><font face="Arial">Classes of Transferees</font></u>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                      layout-grid-mode: line;
+                    "
+                    ><font face="Arial"
+                      >Where necessary, the particulars submitted by you may be
+                      provided to other departments/organisations/persons for
+                      the purposes of voter registration and election under
+                      relevant Ordinances and /or subsidiary legislation and all
+                      purposes related thereto.</font
+                    ></span
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span style="mso-font-kerning: 0pt; layout-grid-mode: line"
+                    ><font face="Arial">&nbsp; </font>
+                  </span>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <u
+                    ><span style="mso-font-kerning: 0pt"
+                      ><font face="Arial">Access to Personal Data</font></span
+                    ><font size="3"
+                      ><font face="Arial"
+                        ><span style="mso-font-kerning: 0pt">
+                        </span></font></font
+                  ></u>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                    "
+                    ><font face="Arial"
+                      >You have a right to request access to, and to request the
+                      correction of, your personal data and other related
+                      information you provided for the purpose of voter
+                      registration in accordance with the provisions of the
+                      Personal Data (Privacy) Ordinance.
+                      <span style="mso-spacerun: yes">&nbsp;</span>Such requests
+                      should be made in writing to the Electoral Registration
+                      Officer at 30/F, Southorn Centre, 130 Hennessy Road,
+                      Wanchai, Hong Kong.</font
+                    ></span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Tab5 -->
+          <div id="menu5" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">Contact Us</h1>
+                <p
+                  class="autosize"
+                  style="
+                    mso-margin-top-alt: auto;
+                    mso-margin-bottom-alt: auto;
+                    text-align: justify;
+                    text-justify: inter-ideograph;
+                    mso-pagination: widow-orphan;
+                  "
+                >
+                  <font face="Arial"
+                    ><span style="mso-font-kerning: 0pt"
+                      >Should you have any enquiries on voter registration of
+                      Rural Representative Elections, please call our hotline
+                      (852)2152 1521.<span
+                        style="color: black; mso-font-kerning: 0pt"
+                      >
+                        <o:p> </o:p> </span></span
+                  ></font>
+                </p>
+                <table
+                  align="left"
+                  height="0"
+                  border="0"
+                  cellspacing="0"
+                  cellpadding="0"
+                >
+                  <tr>
+                    <td align="left" width="120" class="autosize">Address</td>
+                    <td align="left" width="9" class="autosize">:</td>
+                    <td align="left" class="autosize">
+                      Home Affairs Department
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" width="120"></td>
+                    <td align="left" width="9"></td>
+                    <td align="left" class="autosize">
+                      30/F, Southorn Centre, 130 Hennessy Road, Wan Chai, Hong
+                      Kong
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" width="120" class="autosize">Tel</td>
+                    <td align="left" width="9" class="autosize">:</td>
+                    <td align="left" width="180" class="autosize">
+                      (852) 2152 1521
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" width="120" class="autosize">Fax</td>
+                    <td align="left" width="9" class="autosize">:</td>
+                    <td align="left" width="180" class="autosize">
+                      (852) 2591 6392
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" width="120" class="autosize">Web Site</td>
+                    <td align="left" width="9" class="autosize">:</td>
+                    <td align="left" width="180" class="autosize">
+                      <a href="http://www.had.gov.hk/rre" target="_blank"
+                        >http://www.had.gov.hk/rre</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="left" width="120" class="autosize">
+                      E-mail Address
+                    </td>
+                    <td align="left" width="9" class="autosize">:</td>
+                    <td align="left" width="180" class="autosize">
+                      <a href="mailto:rre@had.gov.hk">rre@had.gov.hk</a
+                      ><o:p> </o:p>
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
