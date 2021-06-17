@@ -1,56 +1,1129 @@
-<html>
+<!DOCTYPE html>
+<html class="h-100" lang="tc">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HAD RRE Web-based Enquiry System</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="bootstrap-5.0.0-beta2-dist/css/bootstrap.css"
+    />
+    <script
+      type="text/javascript"
+      src="bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script language="JavaScript" src="js/swapimage.js"></script>
+    <script language="JavaScript" src="js/jquery-1.12.4.min.js"></script>
+    <script language="JavaScript" src="js/fontSize.js"></script>
+    <style>
+      .nav-pills .nav-link {
+        background: #d7e9e8;
+        color: #000;
+        border: 1px solid transparent;
+        border-color: #20c997;
+        border-radius: 0.25rem;
+      }
+      .nav-pills .nav-link.active,
+      .nav-pills .show > .nav-link,
+      .navbar-toggler {
+        color: #fff;
+        background-color: #20c997;
+      }
+      ol.parenthesized-roman-counter {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: table;
+      }
 
-<head>
-<title>HAD RRE Web-based Enquiry System</title>
-</head>
-<script type="text/javascript">
-function LoadPage() {
-	var redirectPage = "tc/intro.html";
-	var decodedCookie = decodeURIComponent(document.cookie);
-	var ca = decodedCookie.split(';');
-	//alert("index_tch:"+ca);
-	for (var i = 0; i < ca.length; i++) {
-		var c = ca[i];
-		var pos1 = c.indexOf("=");
-		if (pos1 > 0) {
-			var ckName = c.substring(0,pos1);
-			ckName = ckName.trim();
-			var ckValue = c.substring(pos1+1,c.length);
-			ckValue = ckValue.trim();
-			if (ckName == "WESCurPage") {
-				if (ckValue.indexOf("/") < 0) {
-					ckValue = "tc/" + ckValue;
-				}
-				else {
-					ckValue = ckValue.replace("/eng/","/chi/");
-					ckValue = ckValue.replace("/chs/","/chi/");
-					ckValue = ckValue.replace("=sc","=tc");
-				}
-				redirectPage = ckValue;
-			}
-		}
-	}
-	//alert("index_tch redirect:"+redirectPage);
-	document.getElementById('mainContent').src = redirectPage;
-}
-</script>
-<frameset rows="120,*" framespacing="0" border="0" frameborder="0">
-  <frame name="banner" scrolling="no" noresize target="contents" src="tc/remisBanner.html">
-  <frameset cols="160,600,*" frameborder="0">
-    <frame name="contents" noresize target="main" src="tc/menu.html">
-	<frameset rows="*,50" frameborder="0" onload="LoadPage();">
-	    <frame name="main" id="mainContent" noresize src="tc/intro.html">
-	    <frame name="notice" scrolling="no" noresize src="tc/footer.html">    
-	</frameset>
-    <frame name="empty" noresize src="empty.html">
-  </frameset>
-  <noframes>
-  <body>
+      ol.parenthesized-roman-counter li {
+        counter-increment: step-counter;
+        display: table-row;
+      }
 
-  <p>This page uses frames, but your browser doesn't support them.</p>
+      ol.parenthesized-roman-counter li::before {
+        content: "(" counter(step-counter, lower-roman) ")";
+        margin-right: 5px;
+        width: 2em;
+        text-align: left;
+        display: table-cell;
+      }
 
+      ol.parenthesized-counter {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: table;
+      }
+
+      ol.parenthesized-counter li {
+        counter-increment: step-counter;
+        display: table-row;
+      }
+
+      ol.parenthesized-counter li::before {
+        content: "(" counter(step-counter, lower-latin) ")";
+        margin-right: 5px;
+        width: 2em;
+        text-align: left;
+        display: table-cell;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <script language="javascript">
+    function initForm() {
+      document.bannerForm.target = "banner";
+      document.bannerForm.action = "remisBanner.html?title=Introduction";
+      document.bannerForm.submit();
+    }
+
+    function btnSearch_Click(tab) {
+      // window.location = "../tc/searchFrame.html";
+      $('.nav-pills a[href="#' + tab + '"]').tab("show");
+    }
+
+    function btnSearchStatus_Click() {
+      window.location = "../tc/searchStatusFrame.html";
+    }
+
+    function cookieCurPage(pageName) {
+      var d = new Date();
+      d.setTime(d.getTime() + 2 * 24 * 60 * 60 * 1000);
+      var expires = "expires=" + d.toUTCString();
+      //document.cookie = "WESCurPage" + "=" + pageName + ";" + expires + ";path=/";
+      document.cookie = "WESCurPage" + "=" + pageName + ";path=/";
+      //alert("tc cookie saved:"+document.cookie);
+    }
+
+    function cbxdisclaimer_change(cbx) {
+      if (cbx.checked) {
+        document.getElementById("btnAgree").classList.remove("disabled");
+      } else {
+        document.getElementById("btnAgree").classList.add("disabled");
+      }
+    }
+  </script>
+  <script language="JavaScript">
+    var langNo = 2;
+    var revisionDate = "10/11/2021";
+    var upOneLevelLink = "../";
+    var imagePath = "img";
+    /********************* Variable defined for generate footer menu*********************/
+    var arFooter = new Array();
+    arFooter[1] = new Array();
+    arFooter[1][1] = "Important Notices";
+    arFooter[1][2] = "Last revision date: ";
+    arFooter[1][3] = "Back To Top";
+    arFooter[1][4] = "Privacy Policy";
+
+    arFooter[2] = new Array();
+    arFooter[2][1] = "重 要 告 示";
+    arFooter[2][2] = "最 近 修 訂 日 期 : ";
+    arFooter[2][3] = "返 回 首 頁";
+    arFooter[2][4] = "私 隱 政 策";
+    /********************* End of Variable defined for generate footer menu*********************/
+
+    var monthArray = new Array();
+    monthArray[0] = "January";
+    monthArray[1] = "February";
+    monthArray[2] = "March";
+    monthArray[3] = "April";
+    monthArray[4] = "May";
+    monthArray[5] = "June";
+    monthArray[6] = "July";
+    monthArray[7] = "August";
+    monthArray[8] = "September";
+    monthArray[9] = "October";
+    monthArray[10] = "November";
+    monthArray[11] = "December";
+
+    var cMonthArray = new Array();
+    cMonthArray[0] = "1";
+    cMonthArray[1] = "2";
+    cMonthArray[2] = "3";
+    cMonthArray[3] = "4";
+    cMonthArray[4] = "5";
+    cMonthArray[5] = "6";
+    cMonthArray[6] = "7";
+    cMonthArray[7] = "8";
+    cMonthArray[8] = "9";
+    cMonthArray[9] = "10";
+    cMonthArray[10] = "11";
+    cMonthArray[11] = "12";
+
+    function MM_openBrWindow(theURL, winName, features) {
+      //v2.0
+      window.open(theURL, winName, features);
+    }
+
+    function footerS() {
+      if (revisionDate == "" || revisionDate == "MM/DD/YYYY")
+        revisionDate = "06/11/2004";
+
+      var reDate = new Date(Date.parse(revisionDate));
+      var showDate1 =
+        reDate.getDate() +
+        " " +
+        monthArray[reDate.getMonth()] +
+        " " +
+        reDate.getFullYear();
+      var showDate2 =
+        reDate.getFullYear() +
+        " 年 " +
+        cMonthArray[reDate.getMonth()] +
+        " 月 " +
+        reDate.getDate() +
+        " 日";
+      document.writeln(
+        "2021©" +
+          " | <a href=\"javascript:MM_openBrWindow('tc/disclaimer.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
+          arFooter[langNo][1] +
+          "</a> | <a href=\"javascript:MM_openBrWindow('tc/private.html', 'popup1', 'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300')\" class=\"notices\">" +
+          arFooter[langNo][4] +
+          "</a>"
+      );
+    }
+
+    function footerE() {
+      if (revisionDate == "" || revisionDate == "MM/DD/YYYY")
+        revisionDate = "06/11/2004";
+
+      var reDate = new Date(Date.parse(revisionDate));
+      var showDate1 =
+        reDate.getDate() +
+        " " +
+        monthArray[reDate.getMonth()] +
+        " " +
+        reDate.getFullYear();
+      var showDate2 =
+        reDate.getFullYear() +
+        " 年 " +
+        cMonthArray[reDate.getMonth()] +
+        " 月 " +
+        reDate.getDate() +
+        " 日";
+
+      if (langNo == 1)
+        document.writeln(
+          '				<td align=right class="reDate">' +
+            arFooter[1][2] +
+            showDate1 +
+            "</td>"
+        );
+      else
+        document.writeln(
+          '				<td align=right class="reDate">' +
+            arFooter[2][2] +
+            showDate2 +
+            "</td>"
+        );
+    }
+  </script>
+
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0 mb-3">
+      <!-- Header -->
+      <div class="container-fluid">
+        <header>
+          <!-- Banner -->
+          <div class="row" style="background: url('img/bkgdtexture.gif')">
+            <div class="col-auto me-auto">
+              <div class="m-1">
+                <div class="row g-0">
+                  <div
+                    class="col-md-auto m-2"
+                    style="display: flex; align-items: center"
+                  >
+                    <a href="http://www.had.gov.hk/rre/" target="_parent"
+                      ><img
+                        src="img/branding.png"
+                        border="0"
+                        width="60"
+                        height="33"
+                    /></a>
+                  </div>
+                  <div class="col-md">
+                    <div class="row">
+                      <font size="3" face="sans-serif"
+                        ><b>鄉郊代表選舉選民登記資料查閱系統</b></font
+                      >
+                    </div>
+                    <div class="row">
+                      <font size="2" face="sans-serif"
+                        ><b>民政事務總署</b></font
+                      >
+                    </div>
+                    <div class="row">
+                      <font size="2" face="sans-serif">
+                        香港特別行政區政府
+                      </font>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto m-2">
+              <a
+                href="https://www.brandhk.gov.hk/brandhk/eindex.htm"
+                target="_parent"
+                ><img src="img/brandhk.gif" border="0"
+              /></a>
+            </div>
+          </div>
+          <!-- Language Switcher -->
+          <div class="row" style="background: url('img/bkgdtexture.gif')">
+            <div class="col-auto me-auto">
+              <a
+                onMouseOver="MM_swapImage('mainbar1','','img/mainbar1_f2.gif',1)"
+                onMouseOut="MM_swapImgRestore()"
+                href="https://www.gov.hk/sc/residents/"
+                target="_parent"
+                ><img
+                  src="img/mainbar1.gif"
+                  name="mainbar1"
+                  height="20"
+                  border="0" /></a
+              ><a
+                onMouseOver="MM_swapImage('mainbar2','','img/tc_textonly_f2.gif',1)"
+                onMouseOut="MM_swapImgRestore()"
+                href="index_tc_text.html"
+                target="_parent"
+                ><img
+                  src="img/tc_textonly.gif"
+                  name="mainbar2"
+                  height="20"
+                  border="0" /></a
+              ><a
+                onMouseOver="MM_swapImage('mainbar3','','img/sc_f2.gif',1)"
+                onMouseOut="MM_swapImgRestore()"
+                href="./index_sc.html"
+                target="_parent"
+                ><img
+                  src="img/sc.gif"
+                  name="mainbar3"
+                  height="20"
+                  border="0" /></a
+              ><a
+                onMouseOver="MM_swapImage('mainbar4','','img/eng_f2.gif',1)"
+                onMouseOut="MM_swapImgRestore()"
+                href="./index_en.html"
+                target="_parent"
+                ><img src="img/eng.gif" border="0" name="mainbar4" height="20"
+              /></a>
+            </div>
+            <div class="col-auto"></div>
+          </div>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav
+          class="navbar navbar-expand-md navbar-light m-0"
+          style="background-color: #e5f9ed"
+        >
+          <button
+            class="navbar-toggler collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample10"
+            aria-controls="navbarsExample10"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarsExample10">
+            <ul class="nav navbar-nav nav-pills">
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+              >
+                <a
+                  class="nav-link p-2 active"
+                  data-bs-toggle="pill"
+                  href="#home"
+                  >簡介</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+              >
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu1"
+                  >查詢選民登記資料</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+              >
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu2"
+                  >免責聲明</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+              >
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu3"
+                  >技術設定</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+              >
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu4"
+                  >收集個人資料聲明</a
+                >
+              </li>
+              <li class="nav-item p-1">
+                <a
+                  class="nav-link p-2"
+                  href="http://www.had.gov.hk/rre/chi/electors/qualifications.html"
+                  target="_blank"
+                  >選民資格</a
+                >
+              </li>
+              <li class="nav-item p-1">
+                <a
+                  class="nav-link p-2"
+                  href="http://www.had.gov.hk/rre/chi/electors/index.html"
+                  target="_blank"
+                  >選民登記</a
+                >
+              </li>
+              <li class="nav-item p-1">
+                <a
+                  class="nav-link p-2"
+                  href="../remis/ESubmissionPlatform.jsp?lang=tc"
+                  target="_blank"
+                  >選民登記表格</a
+                >
+              </li>
+              <li
+                class="nav-item p-1"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+              >
+                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu5"
+                  >聯絡我們</a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="tab-content">
+          <!-- Tab0 -->
+          <div id="home" class="tab-pane fade active show">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">簡介</h1>
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    鄉郊代表選舉的正式選民登記冊在每年10月發表。如果你符合選民登記資格，並希望你的資料獲納入本年度的選民登記冊，請在本年7月16日或之前登記為選民。如你在本年7月16日後才遞交申請，你的資料會在編制下年度的臨時選民登記冊時處理。
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    你可透過“鄉郊代表選舉選民登記資料查閱系統”(“系統”)查閱是否已登記為鄉郊代表選舉的選民。
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    如你是已登記選民，你可透過“系統”查閱刊載於本年度的正式選民登記冊上有關你所屬鄉事委員會及鄉村或墟鎮的登記資料。
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    如你已遞交選民新登記申請表，你亦可透過“系統”查閱選民新登記申請狀況。
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    請註意，“系統”只供選民查閱自己的登記資料。任何人透過“系統”查閱另一名選民的登記資料而未事先徵得當事人的書面同意，即有可能違反《個人資料(私隱)條例》(第486章)的有關規定。
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    原居民代表選舉的已登記選民，如欲更改其載於正式選民登記冊上的主要詳情(即姓名)，須於本年6月16日或之前提出申請；至於更改其他詳情(包括主要住址、通訊地址和所登記的原居鄉村／共有代表鄉村)的申請，則須於本年7月16日或之前提出。
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    居民代表選舉或街坊代表選舉的已登記選民，如欲更改其載於正式選民登記冊上的主要詳情(即姓名或主要住址)，須於本年6月16日或之前提出申請。請註意，居民代表選舉或街坊代表選舉的已登記選民提交更改主要住址的申請時(不論該主要住址是否仍在已登記的現有鄉村／墟鎮範圍內)，必須隨表格夾附所需的住址證明。詳情請參閱隨申請表夾附的填表須知。
+                  </font>
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    選民如欲更改登記資料，必須填妥及簽署更改登記資料
+                    <a
+                      href="../remis/ESubmissionPlatform.jsp?lang=tc"
+                      target="_blank"
+                      >申請表</a
+                    >
+                    ，並透過以下方式送交民政事務總署／選舉登記主任：
+                    <ol class="parenthesized-roman-counter">
+                      <li>
+                        <font face="Arial" class="autosize"
+                          >郵寄(地址：香港灣仔軒尼詩道130號修頓中心30樓民政事務總署)；</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="autosize"
+                          >傳真(傳真號碼：2591 6392)；</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="autosize"
+                          >親自或由專人遞交民政事務總署總部或各區民政事務處的民政咨詢中心；</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="autosize"
+                          >將已簽署的申請表格掃描為電郵附件，然後以電郵傳送(電郵地址：rre@had.gov.hk)；或</font
+                        >
+                      </li>
+                      <li>
+                        <font face="Arial" class="autosize"
+                          >將已填妥並簽署的
+                          <a
+                            href="../remis/ESubmissionPlatform.jsp?lang=tc"
+                            target="_blank"
+                            >電子申請表格</a
+                          >
+                          上傳至民政事務總署的專用網站。</font
+                        >
+                      </li>
+                    </ol></font
+                  >
+                </p>
+
+                <p
+                  class="card-text"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial">
+                    民政事務總署／選舉登記主任會在編制下年度的臨時選民登記冊時，處理在上述截止日期後所收到的申請。
+                  </font>
+                </p>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    onClick="btnSearch_Click('menu1')"
+                  >
+                    查詢選民新登記申請狀況
+                  </button>
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    onClick="btnSearch_Click('menu1')"
+                  >
+                    查詢選民登記資料
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tab1 -->
+          <div id="menu1" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">選民登記資料查閱系統</h1>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize"
+                    >使用者須遵守的相關規例：
+                  </font>
+                </p>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize">
+                    根據《選舉管理委員會(選民登記)(鄉郊代表選舉)規例》(第541K章)第32(3)條，任何人為與選舉有關的目的以外的目的—
+                  </font>
+                </p>
+                <ol
+                  class="parenthesized-counter"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <li>
+                    <font face="Arial" class="autosize"
+                      >以任何形式重現或復制或準許另一人以任何形式重現或復制載錄於選民登記冊內的任何記項中的任何詳情或載錄於選民登記冊的任何摘錄中的任何詳情；</font
+                    >
+                  </li>
+                  <li>
+                    <font face="Arial" class="autosize"
+                      >使用或準許另一人使用任何載錄於選民登記冊內或其摘錄中並與任何人有關的資料；或</font
+                    >
+                  </li>
+                  <li>
+                    <font face="Arial" class="autosize"
+                      >將(a)及(b)段提述的任何資料傳給任何其他人，</font
+                    >
+                  </li>
+                </ol>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize">
+                    即屬犯罪，可處第2級罰款及監禁6個月。
+                  </font>
+                </p>
+
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" class="autosize">
+                    「選民登記資料查閱系統」(「系統」)只供選民查閱自己的登記資料。任何人士透過「系統」查閱另一名選民的登記資料而未事先徵得當事人書面同意，即有可能違反《個人資料(私隱)條例》(第486章)
+                    的有關條款。
+                  </font>
+                </p>
+
+                <div class="form-check">
+                  <input
+                    id="disclaimerChange"
+                    name="disclaimerChange"
+                    type="checkbox"
+                    class="form-check-input"
+                    style="display: table-cell"
+                    onchange="cbxdisclaimer_change(this)"
+                  />
+                  <label
+                    for="disclaimerChange"
+                    style="
+                      display: table-cell;
+                      text-align: justify;
+                      text-justify: inter-ideograph;
+                    "
+                    class="autosize"
+                  >
+                    <font face="Arial" class="autosize"
+                      >我已閱讀及明白上述規例，並得悉我在本網站獲得的信息不得用作商業用途或與選舉無關的其他用途。
+                    </font>
+                  </label>
+                </div>
+
+                <p class="autosize">
+                  <font face="Arial" class="autosize"
+                    >如此告示的英文版本與中文版本有任何歧異，一概以英文版本為準。</font
+                  >
+                </p>
+
+                <div class="row justify-content-center">
+                  <div class="col-auto">
+                    <button
+                      class="btn btn-secondary"
+                      type="button"
+                      onClick="btnSearch_Click('home')"
+                    >
+                      返回主頁
+                    </button>
+                  </div>
+                  <div class="col-auto">
+                    <a
+                      id="btnAgree"
+                      href="../remis/RREenquireVoter.jsp?lang=tc"
+                      target="_blank"
+                      class="btn btn-secondary disabled"
+                      tabindex="-1"
+                      role="button"
+                    >
+                      下一步
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tab2  -->
+          <div id="menu2" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">免責聲明</h1>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >香港特別行政區政府民政事務總署（下稱"本署"）在本網頁提供的鄉郊代表選舉登記選民的資料，只供一般參考之用。
+                  </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >本署會盡力確保本網站上的資料準確無誤，但在個別情況下，有關的資料仍可能與最新的情況有所不同。本署並不對該等資料的準確性作出任何明示或隱含的保證。對於由本網站所提供的資料引致的或與其有關連的任何損失或損害，香港特別行政區政府及本署概不負責。
+                  </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >網際網路通訊可能會因網上交通流量或數據傳送失誤而導致信息中斷或傳送延誤。香港特別行政區政府並不保證網際網路通訊的安全性。對於你通過網際網路向本署傳送訊息（或本署應你的要求通過網際網路把訊息傳送給你）而引致的任何損失，香港特別行政區政府概不負責。
+                  </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >香港特別行政區政府有絕對酌情權隨時刪除丶暫時停載或編輯本網站上的各項資料，而無須給予任何理由。使用者須負責自行評估本網站所載或通過本網站所取得的各項資料。使用者應先參考原本發布的文本以核實該等資料，並徵詢獨立意見，然後才根據該等資料行事。
+                  </font>
+                </p>
+                <p style="text-align: justify; text-justify: inter-ideograph">
+                  <font face="Arial" size="3"> </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <u><font face="Arial">版權公告</font> </u>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >本網頁的內容，包括但不限於所有文本丶平面圖像丶圖畫丶圖片丶照片以及數據或其他資料的匯編，均受版權保障。香港特別行政區政府是本網頁內所有版權作品的擁有人，除非預先得到本署的書面授權，否則嚴禁復制丶改編丶分發丶發布或向公眾提供該等版權作品。
+                  </font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    >本網站簡體中文版本的大部分網頁經網上翻譯軟體根據繁體版本翻譯。如簡體版本與原文有差異，概以繁體版本為準。
+                  </font>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Tab3 -->
+          <div id="menu3" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">技術設定</h1>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    ><span
+                      style="
+                        mso-fareast-font-family: 細明體;
+                        mso-ansi-language: EN-US;
+                        mso-fareast-language: ZH-TW;
+                        mso-bidi-language: AR-SA;
+                      "
+                      >本網站以800 x 600解像度瀏覽效果最佳，並應以Internet
+                      Explorer 9或以上瀏覽器閱讀。</span
+                    ></font
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    ><span
+                      style="
+                        mso-fareast-font-family: 細明體;
+                        mso-ansi-language: EN-US;
+                        mso-fareast-language: ZH-TW;
+                        mso-bidi-language: AR-SA;
+                      "
+                      >本網站的所有網頁均以統一碼（UTF-8）為編碼。如瀏覽器未能自動選擇正確的編碼（以致出現亂碼），應依循以下步驟更改編碼的設定：把滑鼠指標移至出現亂碼的視窗內，用瀏覽器選單(通常為“檢視”-“編碼”)選取Unicode(UTF-8)編碼。</span
+                    ></font
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <font face="Arial"
+                    ><span
+                      style="
+                        mso-fareast-font-family: 細明體;
+                        mso-ansi-language: EN-US;
+                        mso-fareast-language: ZH-TW;
+                        mso-bidi-language: AR-SA;
+                      "
+                      >網頁的最新版本有時需要通過更新有關的網頁才可看到，以Internet
+                      Explorer為例，方法是按Internet Explorer
+                      的“檢視”-“重新整理”或
+                      &lt;Ctrl&gt;&lt;F5&gt;。如上述方法無效，則必須清除所有離線內容。例如：在Internet
+                      Explorer上選取“工具”-“網際網路選項”，並在對話方塊“一般”分頁上的Temporary
+                      Internet files欄內按“刪除檔案”，然後重新啟動Internet
+                      Explorer。</span
+                    ></font
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-ascii-font-family: Times New Roman;
+                      mso-hansi-font-family: Times New Roman;
+                      mso-font-kerning: 0pt;
+                      layout-grid-mode: line;
+                    "
+                    lang="ZH-TW"
+                    ><font>部份中文字元需下載</font></span
+                  ><a
+                    href="http://www.had.gov.hk/rre/chi/download/remis_font.zip"
+                    target="_blank"
+                    ><font
+                      ><span
+                        style="
+                          font-family: 新細明體;
+                          mso-ascii-font-family: 'Times New Roman';
+                          mso-hansi-font-family: 'Times New Roman';
+                          color: windowtext;
+                          text-decoration: none;
+                          text-underline: none;
+                        "
+                        lang="ZH-TW"
+                        >「</span
+                      ></font
+                    ><span
+                      style="
+                        mso-ascii-font-family: Times New Roman;
+                        mso-hansi-font-family: Times New Roman;
+                        color: blue;
+                        mso-field-code: HYPERLINK \0022http\:\/\/www\.had\.gov\.hk\/
+                          vre\/chi\/download\/remis_font\.zip\0022;
+                        mso-font-kerning: 0pt;
+                        layout-grid-mode: line;
+                        text-decoration: none;
+                        text-underline: none;
+                      "
+                      lang="ZH-TW"
+                      ><font face="新細明體">香港特有中文字</font></span
+                    ><span
+                      style="
+                        font-size: 13pt;
+                        mso-font-kerning: 0pt;
+                        layout-grid-mode: line;
+                      "
+                      ><font face="細明體"
+                        ><span
+                          style="
+                            mso-ascii-font-family: Times New Roman;
+                            mso-hansi-font-family: Times New Roman;
+                            color: windowtext;
+                            mso-font-kerning: 1pt;
+                            layout-grid-mode: both;
+                            text-decoration: none;
+                            text-underline: none;
+                          "
+                          lang="ZH-TW"
+                          >」</span
+                        ></font
+                      ></span
+                    ></a
+                  ><span
+                    style="
+                      font-size: 13pt;
+                      mso-font-kerning: 0pt;
+                      layout-grid-mode: line;
+                    "
+                    ><a
+                      href="http://www.had.gov.hk/vre/chi/download/remis_font.zip"
+                      target="_blank"
+                    ></a
+                  ></span>
+                  <font>(壓縮檔案)及</font>
+                  <span
+                      style="
+                        mso-font-kerning: 0pt;
+                        color: windowtext;
+                        mso-field-code: HYPERLINK \0022http\:\/\/www\.had\.gov\.hk\/
+                          vre\/chi\/download\/remis_font\.zip\0022;
+                        text-decoration: none;
+                        text-underline: none;
+                      "
+                      ><a
+                        href="https://www.ogcio.gov.hk/sc/business/tech_promotion/ccli/hkscs/"
+                        target="_blank"
+                        ><u>「香港增補字元集」</u></a
+                      ></span
+                    ><span style="mso-font-kerning: 0pt"
+                      ><a
+                        href="http://www.had.gov.hk/rre/chi/download/remis_font.zip"
+                        target="_blank"
+                      ></a
+                      ><span
+                        style="
+                          font-family: 'Times New Roman';
+                          color: windowtext;
+                          text-decoration: none;
+                          text-underline: none;
+                        "
+                        >&quot; </span
+                      >，才可以顯示。 <br /> </span></font
+                  ><font face="Arial"
+                    ><span
+                      style="
+                        mso-fareast-font-family: 細明體;
+                        mso-ansi-language: EN-US;
+                        mso-fareast-language: ZH-TW;
+                        mso-bidi-language: AR-SA;
+                      "
+                      >(將檔案解壓 (unzip)後，請根據“安裝方法 (readme.exe)”，以安裝“香港特有中文字”。)</span
+                    ></font
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span style="mso-font-kerning: 0pt; layout-grid-mode: line"
+                    ><font face="Arial" size="3">&nbsp; </font>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Tab4 -->
+          <div id="menu4" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">
+                  收集個人資料聲明
+                </h1>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <u><font face="Arial">收集的目的</font></u>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                    "
+                    ><font face="Arial"
+                      >關於你提供的個人資料，本署只會用作處理你的查詢。</font
+                    ></span
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                    "
+                    ><font face="Arial"
+                      >你的查詢也可能會供本署作編制有關查詢宗數及查詢性質的統計資料之用，但統計結果的形式不會個別地顯示你的查詢及任何你的個人資料。</font
+                    ></span
+                  ><font face="Arial"
+                    ><span style="mso-font-kerning: 0pt"> </span
+                  ></font>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                    "
+                    ><font face="Arial"
+                      >提供個人資料與否，純屬自願。如果你提供的資料不足夠，本署可能無法處理你的查詢。</font
+                    ></span
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="
+                    mso-margin-top-alt: auto;
+                    margin-bottom: 12pt;
+                    mso-pagination: widow-orphan;
+                  "
+                >
+                  <span style="mso-font-kerning: 0pt"
+                    ><font face="Arial">&nbsp; </font>
+                  </span>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <u><font face="Arial">資料轉介</font></u>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                      layout-grid-mode: line;
+                    "
+                    ><font face="Arial"
+                      >如有需要，本署可能會把你提供的資料交給其他部門 ／ 機構 ／ 人士，以便按有關的條例及／或附屬法例作選民登記丶選舉及所有相關的用途。</font
+                    ></span
+                  >
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span style="mso-font-kerning: 0pt; layout-grid-mode: line"
+                    ><font face="Arial">&nbsp; </font>
+                  </span>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <u
+                    ><span style="mso-font-kerning: 0pt"
+                      ><font face="Arial">索閱個人資料</font></span
+                    ><font size="3"
+                      ><font face="Arial"
+                        ><span style="mso-font-kerning: 0pt">
+                        </span></font></font
+                  ></u>
+                </p>
+                <p
+                  class="autosize"
+                  style="text-align: justify; text-justify: inter-ideograph"
+                >
+                  <span
+                    style="
+                      mso-fareast-font-family: 新細明體;
+                      mso-ansi-language: EN-US;
+                      mso-fareast-language: ZH-TW;
+                      mso-bidi-language: AR-SA;
+                    "
+                    ><font face="Arial"
+                      >根據《個人資料(私隱)條例》，你有權要求索閱及修訂就選民登記事宜所提供的個人及其他有關的資料。有關的要求應以書面向選舉登記主任提出，地址是香港灣仔軒尼詩道130號修頓中心30樓。</font
+                    ></span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Tab5 -->
+          <div id="menu5" class="tab-pane fade">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title">聯絡我們</h1>
+                <p
+                  class="autosize"
+                  style="
+                    mso-margin-top-alt: auto;
+                    mso-margin-bottom-alt: auto;
+                    text-align: justify;
+                    text-justify: inter-ideograph;
+                    mso-pagination: widow-orphan;
+                  "
+                >
+                  <font face="Arial"
+                    ><span style="mso-font-kerning: 0pt"
+                      >如對鄉郊代表選舉的選民登記有任何查詢，可致電本署熱線 (852)2152 1521。 <span
+                        style="color: black; mso-font-kerning: 0pt"
+                      >
+                        <o:p> </o:p> </span></span
+                  ></font>
+                </p>
+                <p class="autosize" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+                mso-pagination:widow-orphan"><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"><font face="細明體">民政事務總署</font></span></p>
+                <p class="autosize" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+                mso-pagination:widow-orphan"><font><span style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"><font face="細明體">地 
+                址 ：<span lang="ZH-TW" style="font-family:新細明體;mso-ascii-font-family:sөũ;
+                mso-hansi-font-family:sөũ;mso-bidi-font-family:新細明體;color:black;mso-font-kerning:
+                0pt">香港灣仔軒尼詩道</span>130<span lang="ZH-TW" style="font-family:
+                新細明體;mso-ascii-font-family:sөũ;mso-hansi-font-family:sөũ;mso-bidi-font-family:
+                新細明體;color:black;mso-font-kerning:0pt">號修頓中心</span>30<span lang="ZH-TW" style="font-family:新細明體;mso-ascii-font-family:sөũ;mso-hansi-font-family:
+                sөũ;mso-bidi-font-family:新細明體;color:black;mso-font-kerning:0pt">樓</span></font></span><font face="細明體"><br>
+                <span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">電</span><span lang="ZH-TW" style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"> </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">話</span><span lang="ZH-TW" style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"> </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">：</span><span style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">(852) 2152 1521<br> 
+                </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">傳</span><span lang="ZH-TW" style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"> </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">真</span><span lang="ZH-TW" style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"> </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">：</span><span style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">(852) 2591 6392<br> 
+                </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">網</span><span lang="ZH-TW" style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"> </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">址</span><span lang="ZH-TW" style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"> </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">：</span><span style="font-family:sөũ;mso-bidi-font-family:新細明體;color:black;mso-font-kerning:
+                  0pt"><a href="http://www.had.gov.hk/rre" target="_blank">http://www.had.gov.hk/rre</a><o:p>
+                &nbsp;<br> 
+                      </o:p><o:p></o:p><o:p></span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">電</span><span lang="ZH-TW" style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"> </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">郵</span><span lang="ZH-TW" style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt"> </span><span lang="ZH-TW" style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">：</span><span style="font-family:sөũ;mso-bidi-font-family:新細明體;color:black;mso-font-kerning:
+                  0pt"><a href="mailto:rre@had.gov.hk">rre@had.gov.hk</a><o:p>
+                      </o:p>   
+                      </span></font></font></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-auto m-2">
+            <script language="JavaScript">
+              footerS();
+            </script>
+          </div>
+          <div class="col-auto ms-md-auto m-2">
+            <script language="JavaScript">
+              footerE();
+            </script>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
-  </noframes> 	
-</frameset>
-
 </html>
