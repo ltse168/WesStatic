@@ -1,10 +1,10 @@
-body {
+/* body {
   color: black;
 	font-family: Arial, PMingLiU;
   font-size: 10pt;
   background-color: white;
 }
-
+ */
 .bannerHeader1{
   FONT-WEIGHT: bold;
   FONT-SIZE: 14pt;
@@ -369,9 +369,9 @@ A:visited
 {
     COLOR: blue
 }
-
+/* 
 p, td, ul, li
-{color: #000000; font-family:  Verdana, Arial; font-size: 8pt;}
+{color: #000000; font-family:  Verdana, Arial; font-size: 8pt;} */
 
 .TSheetCalendarHeader {
 	FONT-SIZE: 12pt; COLOR: black; FONT-WEIGHT:bold; VERTICAL-ALIGN:middle; TEXT-ALIGN:CENTER

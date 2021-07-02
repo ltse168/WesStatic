@@ -1,57 +1,505 @@
 <html>
-
-<head>
-<title>HAD RRE Web-based Enquiry System</title>
-</head>
-<script type="text/javascript">
-function LoadPage() {
-	var redirectPage = "sc/intro_text.html";
-	var decodedCookie = decodeURIComponent(document.cookie);
-	var ca = decodedCookie.split(';');
-	//alert("index_tch:"+ca);
-	for (var i = 0; i < ca.length; i++) {
-		var c = ca[i];
-		var pos1 = c.indexOf("=");
-		if (pos1 > 0) {
-			var ckName = c.substring(0,pos1);
-			ckName = ckName.trim();
-			var ckValue = c.substring(pos1+1,c.length);
-			ckValue = ckValue.trim();
-			var pos2 = ckValue.lastIndexOf(".html");
-			if (pos2 > 0)
-			{
-				ckValue = ckValue.substring(0,pos2) + "_text" + ckValue.substring(pos2,ckValue.length); 
-			}
-			if (ckName == "WESCurPage") {
-				if (ckValue.indexOf("/") < 0) {
-					ckValue = "sc/" + ckValue;
-				}
-				else {
-					ckValue = ckValue.replace("/eng/","/chs/");
-					ckValue = ckValue.replace("/chi/","/chs/");
-					ckValue = ckValue.replace("=tc","=sc");
-				}
-				redirectPage = ckValue;
+  <head>
+    <title>HAD RRE Web-based Enquiry System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/common_text.css" />
+    <base target="contents" />
+  </head>
+  <style>
+	ol.parenthesized-roman-counter {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		display: table;
+	}
+	
+	ol.parenthesized-roman-counter li{
+		counter-increment: step-counter;
+		display: table-row;
+	}
+	
+	ol.parenthesized-roman-counter li::before {
+		content: "(" counter(step-counter,lower-roman) ")";
+		margin-right: 5px;
+		width: 2em;
+		text-align: left;
+		display: table-cell;
+	}
+	</style>
+  <script type="text/javascript">
+    function LoadPage() {
+      var redirectPage = "en/intro_text.html";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(";");
+      //alert("index_tch:"+ca);
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        var pos1 = c.indexOf("=");
+        if (pos1 > 0) {
+          var ckName = c.substring(0, pos1);
+          ckName = ckName.trim();
+          var ckValue = c.substring(pos1 + 1, c.length);
+          ckValue = ckValue.trim();
+          var pos2 = ckValue.lastIndexOf(".html");
+          if (pos2 > 0) {
+            ckValue =
+              ckValue.substring(0, pos2) +
+              "_text" +
+              ckValue.substring(pos2, ckValue.length);
+          }
+          if (ckName == "WESCurPage") {
+            if (ckValue.indexOf("/") < 0) {
+              ckValue = "en/" + ckValue;
+            } else {
+              ckValue = ckValue.replace("/eng/", "/chs/");
+              ckValue = ckValue.replace("/chi/", "/chs/");
+              ckValue = ckValue.replace("=tc", "=sc");
+            }
+            redirectPage = ckValue;
+          }
+        }
+      }
+      //alert("index_tch redirect:"+redirectPage);
+      document.getElementById("mainContent").src = redirectPage;
+    }
+  </script>
+  <script language="javascript">
+	var newwindow;
+		function poptastic(url)
+		{
+	//	  newwindow = window.showModalDialog(url, "", "dialogWidth=810px;dialogHeight=600px;scrollbars=yes;center=yes;border=thin;help=no;status=yes;");  
+		  newwindow = window.open(url,'webapp','height=1200,width=1100,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=yes');
+		  if (window.focus) {newwindow.focus()}
+		}
+		
+		function cbxdisclaimer_change(cbx){
+			if (cbx.checked){
+				var link = document.getElementById("aAgree");
+				link.style.color = "blue";
+			} else {
+				var link = document.getElementById("aAgree");
+				link.style.color = "grey";
 			}
 		}
-	}
-	//alert("index_tch redirect:"+redirectPage);
-	document.getElementById('mainContent').src = redirectPage;
+	</script>
+  <script language="JavaScript">
+    var langNo = 2;
+//if (lang=="eng"){langNo=1}else{langNo=2}	// 1= Eng, 2 = TC or SC
+var revisionDate='10/16/2020';
+var upOneLevelLink='../';
+var imagePath='img';
+/********************* Variable defined for generate footer menu*********************/	
+var arFooter = new Array()
+	arFooter[1] = new Array()
+	arFooter[1][1] = "Important Notices";
+	arFooter[1][2] = "Last revision date: ";
+//	arFooter[1][3] = " ";
+//	arFooter[1][4] = " ";
+//	arFooter[1][5] = " ";
+	arFooter[1][3] = "Back To Top";
+	arFooter[1][4] = "Privacy Policy";
+	
+	arFooter[2] = new Array()
+	arFooter[2][1] = "­重 要 告 示";
+	arFooter[2][2] = "最 近 修 订 日 期 : ";
+//	arFooter[2][3] = "年";
+//	arFooter[2][4] = "月";
+//	arFooter[2][5] = "日";
+	arFooter[2][3] = "返 回 首 页";	
+	arFooter[2][4] = "私 隐 政 策";
+/********************* End of Variable defined for generate footer menu*********************/		
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
 }
-</script>
 
-<frameset rows="75,100,*,50" framespacing="0" border="1" frameborder="1" onload="LoadPage();">
-  <frame name="banner" scrolling="no" noresize src="sc/remisBanner_text.html" target="contents">
-  <frame name="menu" scrolling="no" noresize src="sc/menu_text.html" target="contents">
-  <frame name="main" id="mainContent" scrolling="yes" noresize src="sc/intro_text.html">
-  <frame name="notice" scrolling="no" border="0" frameborder="0" noresize src="sc/footer.html">    
-  <noframes>
-  <body>
+/********************* Function for generate the footer*********************/	
+function footer()
+{
 
-  <p>This page uses frames, but your browser doesn't support them.</p>
+	if (revisionDate==''||revisionDate=='MM/DD/YYYY') revisionDate='06/11/2004';
 
+	var monthArray=new Array();
+	monthArray[0]='January';
+	monthArray[1]='February';
+	monthArray[2]='March';
+	monthArray[3]='April';
+	monthArray[4]='May';
+	monthArray[5]='June';
+	monthArray[6]='July';
+	monthArray[7]='August';
+	monthArray[8]='September';
+	monthArray[9]='October';
+	monthArray[10]='November';
+	monthArray[11]='December';
+
+	var cMonthArray=new Array();
+	cMonthArray[0]='1';
+	cMonthArray[1]='2';
+	cMonthArray[2]='3';
+	cMonthArray[3]='4';
+	cMonthArray[4]='5';
+	cMonthArray[5]='6';
+	cMonthArray[6]='7';
+	cMonthArray[7]='8';
+	cMonthArray[8]='9';
+	cMonthArray[9]='10';
+	cMonthArray[10]='11';
+	cMonthArray[11]='12';
+
+	var reDate=new Date(Date.parse(revisionDate))
+	var showDate1=reDate.getDate()+' '+monthArray[reDate.getMonth()]+' '+reDate.getFullYear();
+	var showDate2=reDate.getFullYear()+' 年 '+cMonthArray[reDate.getMonth()]+' 月 '+reDate.getDate()+' 日';
+
+	
+	document.writeln('<font face="新細明體" size=0>');
+	document.writeln('	  <table width="100%" border="0" cellspacing="0" cellpadding="0">');
+	document.writeln('        <tr align="left" valign="top"> ');
+//	document.writeln('          <td><img src="'+upOneLevelLink+imagePath+'/spacer.gif" width="20" height="20" alt=""></td>');
+	document.writeln('          <td width="100%">');
+	document.writeln('		  <table border=0 cellpadding=0 celspacing=0 width="100%">');
+	document.writeln('			<tr>');
+//	document.writeln('				<td colspan=2><img src="'+upOneLevelLink+imagePath+'/spacer.gif" width="20" height="20" alt=""></td>');
+	document.writeln('			</tr>');
+/*	document.writeln('			<tr>');
+	document.writeln('				<td colspan=2><p align="right"><img src="'+upOneLevelLink+imagePath+'/spacer.gif" alt="'+arFooter[langNo][3]+'" border="0" name="backtotopspacer" height="26" width="26"></p></td>');
+	document.writeln('			</tr>');
+	document.writeln('			<tr>');
+	document.writeln('				<td colspan=2><img src="'+upOneLevelLink+imagePath+'/spacer.gif" width="20" height="20" alt=""></td>');
+	document.writeln('			</tr>');*/
+	document.writeln('			<tr>');
+	document.writeln('				<td colspan=2 background="'+upOneLevelLink+imagePath+'/botdot.jpg"><img src="'+upOneLevelLink+imagePath+'/botdot.jpg" alt="" border=0></td>');
+	document.writeln('			</tr>');
+	document.writeln('			<tr>');
+	// document.writeln('				<td class="footer">2020<img src="'+upOneLevelLink+imagePath+'/copy.gif" alt="" border=0> | <a href="javascript:MM_openBrWindow(\'disclaimer.html\', \'popup1\', \'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300\')" class="notices">'+arFooter[langNo][1]+'</a> | <a href="javascript:MM_openBrWindow(\'private.html\', \'popup1\', \'menubar=no,toolbar=no,scrollbars=yes,width=400,height=300\')" class="notices">'+arFooter[langNo][4]+'</a></td>');
+	document.writeln(
+          '				<td class="footer">2020<img src="' +
+            upOneLevelLink +
+            imagePath +
+            '/copy.gif" alt="" border=0> | <a href="http://www.had.gov.hk/rre/chs/notice.html" class="notices">' +
+            arFooter[langNo][1] +
+            '</a> | <a href="http://www.had.gov.hk/rre/chs/private.html" class="notices">' +
+            arFooter[langNo][4] +
+            "</a></td>"
+        );
+	if (langNo==1)
+		document.writeln('				<td align=right class="reDate">'+arFooter[1][2]+showDate1+'</td>');
+	else
+		document.writeln('				<td align=right class="reDate">'+arFooter[2][2]+showDate2+'</td>');
+//	document.writeln('				<td align=right class="reDate">'+arFooter[langNo][2]+showDate1+'</td>');
+	document.writeln('			</tr>');
+	document.writeln('			</table>');
+	document.writeln('		  </td>');
+	document.writeln('		  <td><img src="'+upOneLevelLink+imagePath+'/spacer.gif" width="10" height="1" alt=""></td>');
+	document.writeln('        </tr>');
+	document.writeln('      </table>');
+	document.writeln('</font>');
+}
+/********************* End of Function for generate the footer*********************/
+  </script>
+  <script>
+	  function showDiv(link){
+		document.getElementById('intro_text').style.display = "none";
+		document.getElementById('searchFrame_text').style.display = "none";
+		document.getElementById('disclaimer').style.display = "none";
+		document.getElementById('private').style.display = "none";
+		document.getElementById('techconfig').style.display = "none";
+		document.getElementById('personcollect').style.display = "none";
+		document.getElementById('contact').style.display = "none";
+		document.getElementById(link).style.display = "block";
+	  }
+  </script>
+
+  <body leftMargin="0" topMargin="0" marginwidth="0" marginheight="0">
+    <table height="50" width="780" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="750" valign=top>
+			<br>&nbsp;&nbsp;<font class="bannerHeader1">乡郊代表选举选民登记资料查阅系统</font>          
+		  </td>
+        <td align="right"></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+			<br>&nbsp;&nbsp;[<a href="index_text.html" target="_parent">Text Only</a>]&nbsp;&nbsp;[<a href="index_tc_text.html" target="_parent">繁體純文字</a>]&nbsp;&nbsp;[<a href="index_sc.html" target="_parent">简体版</a>]    
+        </td>
+      </tr>
+    </table>
+    <hr />
+    <table height="50" width="780" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+          <br />&nbsp;&nbsp;[<a
+		  	onClick="showDiv('intro_text')"
+            href="#"
+            target="_self"
+            >简介</a
+          >] &nbsp;&nbsp;[<a
+            onClick="showDiv('searchFrame_text')"
+            href="#"
+            target="_self"
+            >查询选民登记资料</a
+          >] &nbsp;&nbsp;[<a
+            onClick="showDiv('disclaimer')"
+            href="#"
+            target="_self"
+            >免责声明</a
+          >] &nbsp;&nbsp;[<a
+            onClick="showDiv('private')"
+            href="#"
+            target="_self"
+            >私隐政策</a
+          >] &nbsp;&nbsp;[<a
+			onClick="showDiv('techconfig')"
+			href="#"
+			target="_self"
+            >技术设定</a
+          >] <br /><br />&nbsp;&nbsp;[<a
+			onClick="showDiv('personcollect')"
+			href="#"
+			target="_self"
+            >收集个人资料声明</a
+          >] &nbsp;&nbsp;[<a
+            href="http://www.had.gov.hk/rre/text/chs/electors/qualifications.html"
+            target="_blank"
+            >选民资格</a
+          >] &nbsp;&nbsp;[<a
+            href="http://www.had.gov.hk/rre/text/chs/electors/index.html"
+            target="_blank"
+            >选民登记</a
+          >] <br /><br />&nbsp;&nbsp;[<a
+            href="../remis/ESubmissionPlatform.jsp?lang=sc"
+            target="_blank"
+            >选民登记表格</a
+          >] &nbsp;&nbsp;[<a
+			onClick="showDiv('contact')"
+			href="#"
+			target="_self"
+            >联络我们</a
+          >]
+        </td>
+      </tr>
+    </table>
+    <hr />
+	<div style="margin: 8px;">
+		<div id="intro_text">
+			<p align="center"><u><b><font size="3" face="細明體"> 简介</font></b></u>
+	
+			<p> 乡郊代表选举的正式选民登记册在每年10月发表。如果你符合选民登记资格，并希望你的资料获纳入本年度的选民登记册，请在本年7月16日或之前登记为选民。如你在本年7月16日后才递交申请，你的资料会在编制下年度的临时选民登记册时处理。
+			</p>
+		
+			<p> 你可透过“乡郊代表选举选民登记资料查阅系统”(“系统”)查阅是否已登记为乡郊代表选举的选民。
+			<!--PR Period Only-->
+			<!--而2020年临时选民登记册已于2020年8月21日发表，你可于2020年8月21日至9月9日期间同时查阅你的登记资料是否已被纳入在该临时选民登记册。-->
+			<!--PR Period Only-->
+			</p>
+		
+			<p> 
+			如你是已登记选民，你可透过“系统”查阅刊载于本年度的正式选民登记册上有关你所属乡事委员会及乡村或墟镇的登记资料。
+			</p>
+		
+			<p class="autosize" style="text-align:justify;text-justify:inter-ideograph"> 
+			如你已递交选民新登记申请表，你亦可透过“系统”查阅选民新登记申请状况。
+			</p>
+		
+			<p> 请注意，“系统”只供选民查阅自己的登记资料。任何人透过“系统”查阅另一名选民的登记资料而未事先征得当事人的书面同意，即有可能违反《个人资料(私隐)条例》(第486章)的有关规定。
+			</p>
+		
+			<p> 原居民代表选举的已登记选民，如欲更改其载于正式选民登记册上的主要详情(即姓名)，须于本年6月16日或之前提出申请；至于更改其他详情(包括主要住址、通讯地址和所登记的原居乡村／共有代表乡村)的申请，则须于本年7月16日或之前提出。
+			</p>
+			
+			<p>	居民代表选举或街坊代表选举的已登记选民，如欲更改其载于正式选民登记册上的主要详情(即姓名或主要住址)，须于本年6月16日或之前提出申请。请注意，居民代表选举或街坊代表选举的已登记选民提交更改主要住址的申请时(不论该主要住址是否仍在已登记的现有乡村／墟镇范围内)，必须随表格夹附所需的住址证明。详情请参阅随申请表夹附的填表须知。
+			</p>
+			
+			<p>
+			选民如欲更改登记资料，必须填妥及签署更改登记资料<a href="../remis/ESubmissionPlatform.jsp?lang=sc" target="_blank">申请表</a>，并透过以下方式送交民政事务总署／选举登记主任：
+			<ol class="parenthesized-roman-counter">
+				<li>邮寄(地址：香港湾仔轩尼诗道130号修顿中心30楼民政事务总署)；</li>
+				<li>传真(传真号码：2591 6392)；</li>
+				<li>亲自或由专人递交民政事务总署总部或各区民政事务处的民政咨询中心；</li>
+				<li>将已签署的申请表格扫描为电邮附件，然后以电邮传送(电邮地址：rre@had.gov.hk)；或</li>
+				<li>将已填妥并签署的<a href="../remis/ESubmissionPlatform.jsp?lang=sc" target="_blank">电子申请表格</a>上传至民政事务总署的专用网站。</li>
+			</ol>
+			</p>
+		
+			<p>
+			民政事务总署／选举登记主任会在编制下年度的临时选民登记册时，处理在上述截止日期后所收到的申请。
+			</p>
+			
+			<p align="center">
+				<font face="Arial" size="3"><br>
+				<a onClick="showDiv('searchFrame_text'); document.getElementById('aAgree').href='../remis/RREenquireStatus.jsp?lang=sc';" href="#" target="_self">
+					查询选民新登记申请状况
+				</a></font>
+			</p>
+			
+			<p align="center">
+				<font face="Arial" size="3"><br>
+				<a onClick="showDiv('searchFrame_text'); document.getElementById('aAgree').href='../remis/RREenquireVoter.jsp?lang=sc';" href="#" target="_self">
+					查询选民登记资料
+				</a></font>
+			</p>
+		</div>
+		<div id="searchFrame_text" style="display:none;">
+			<p>使用者须遵守的相关规例：</p>
+
+			<p>
+			根据《选举管理委员会(选民登记)(乡郊代表选举)规例》(第541K章)第32(3)条，任何人为与选举有关的目的以外的目的—
+
+			<ol class="parenthesized-counter">
+			<li>以任何形式重现或复制或准许另一人以任何形式重现或复制载录于选民登记册内的任何记项中的任何详情或载录于选民登记册的任何摘录中的任何详情；</li>
+			<li>使用或准许另一人使用任何载录于选民登记册内或其摘录中并与任何人有关的资料；或</li>
+			<li>将(a)及(b)段提述的任何资料传给任何其他人，</li>
+			</ol>
+			即属犯罪，可处第2级罚款及监禁6个月。
+			</p>
+
+			<p>
+			「选民登记资料查阅系统」(「系统」)只供选民查阅自己的登记资料。任何人士透过「系统」查阅另一名选民的登记资料而未事先征得当事人书面同意，即有可能违反《个人资料(私隐)条例》(第486章) 的有关条款。
+			</p>
+
+			<br/>
+			<div style="display:table;padding=0;margin=0;">
+			<input type="checkbox" style="display:table-cell;" onchange="cbxdisclaimer_change(this)"/>
+			<p style="display:table-cell;">我已阅读及明白上述规例，并得悉我在本网站获得的信息不得用作商业用途或与选举无关的其他用途。 </p>
+			</div>
+
+			<p>如此告示的英文版本与中文版本有任何歧异，一概以英文版本为准。 </p>
+
+			<table align="center" height="50" width="500" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="center" width="200">
+					<a onClick="showDiv('intro_text')" href="#" target="_self">返回主页</a>
+				</td>
+				<td align="center" width="200">
+					<a id="aAgree" href="../remis/RREenquireVoter.jsp?lang=sc" style="color:grey">下一步</a>
+				</td>
+			</tr>
+			</table>
+		</div>
+		<div id="disclaimer" style="display:none;">
+			<p>使用者须遵守的相关规例：</p>
+
+			<p>
+			根据《选举管理委员会(选民登记)(乡郊代表选举)规例》(第541K章)第32(3)条，任何人为与选举有关的目的以外的目的—
+
+			<ol class="parenthesized-counter">
+			<li>以任何形式重现或复制或准许另一人以任何形式重现或复制载录于选民登记册内的任何记项中的任何详情或载录于选民登记册的任何摘录中的任何详情；</li>
+			<li>使用或准许另一人使用任何载录于选民登记册内或其摘录中并与任何人有关的资料；或</li>
+			<li>将(a)及(b)段提述的任何资料传给任何其他人，</li>
+			</ol>
+			即属犯罪，可处第2级罚款及监禁6个月。
+			</p>
+
+			<p>
+			「选民登记资料查阅系统」(「系统」)只供选民查阅自己的登记资料。任何人士透过「系统」查阅另一名选民的登记资料而未事先征得当事人书面同意，即有可能违反《个人资料(私隐)条例》(第486章) 的有关条款。
+			</p>
+		</div>
+		<div id="private" style="display:none;">
+			<p style="text-align:justify;text-justify:inter-ideograph"><u><font face="細明體" size="3">私 隐 政 策</font></u></p>
+
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體">民 政 事 务 总 署 ( 下 称 「 民 政 署 」 ) 会 确 保 所 有 透 过 本 署 网 站 递 交 的 个 人 资 料 ， 均 按 照 <a href="https://www.pcpd.org.hk/chinese/ordinance/ordfull.html" target="_blank">《 个 人 资 料 ( 私 隐 ) 条 例  》</a>  的 有 关 条 文 处 理 。</font></span><font face="細明體"><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+			</o:p>
+			</span></font></font></p>
+
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體">民 政 署 会 记 录 使 用 者 浏 览 本 署 网 站 的 次 数 ， 但 并 不 会 收 集 任 何 足 以 辨 识 使 用 者 身 分 的 资 料 。 所 收 集 的 浏 览 次 数 纪 录 只 会 用 于 制 作 统 计 报 告 及 调 查 电 脑 系 统 问 题 ， 以 助 政 府 改 善 本 署 网 站 的 服 务 。</font></span><font face="細明體"><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+			</o:p>
+			</span></font></font></p>
+
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體">使 用 者 在 透 过 民 政 署 「 村 代 表 选 举 」 网 站 查 询 村 代 表 选 举 的 选 民 登 记 资 料 时 ， 需 要 输 入 个 人 资 料 。 此 等 资 料 包 括 姓 名 及 身 份 证 明 文 件 号 码 。 民 政 署 在 有 关 网 站 内 会 列 明 收 集 资 料 的 目 的 和 用 途 ， 并 会 告 知 你 如 何 要 求 查 阅 或 修 正 就 选 民 登 记 事 宜 所 提 供 的 个 人 资 料 。</font></span><font face="細明體"><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+			</o:p>
+			</span></font></font></p>
+
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體">「 查 询 村 代 表 选 举 的 选 民 登 记 资 料 」 网 站 使 用 SSL 通 讯 协 定 传 送 网 上 提 供 的 资 料 ， 以 确 保 你 的 个 人 资 料 得 到 保 护 。 民 政 署 会 将 你 在 网 上 提 供 的 个 人 资 料 保 密 ， 只 有 获 得 授 权 的 人 士 才 可 查 阅 。</font></span><font face="細明體"><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+			</o:p>
+			</span></font></font></p>
+
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體">民 政 署 网 站 的 搜 寻 服 务 是 由 雅 虎 香 港 有 限 公 司 ( 下 称 「 Yahoo! 」 ) 提 供 。 Yahoo! 通 知 我 们 该 公 司 于 本 署 网 站 提 供 搜 寻 结 果 时 ， 不 会 收 集 可 识 别 个 人 身 分 的 资 料 。 但 Yahoo! 会 将 你 一 些 经 由 使 用 搜 寻 服 务 所 得 的 匿 名 资 料 交 予 政 府 ， 作 政 府 网 站 流 量 分 析 之 用 。 政 府 不 会 将 从 任 何 上 述 搜 寻 活 动 收 集 到 的 数 据 ， 跟 任 何 可 能 由 政 府 持 有 的 个 人 身 分 资 料 配 对 。</font></span><font face="細明體"><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+			</o:p>
+			</span></font></font></p>
+
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體">此 中 文 私 隐 政 策 为 英 文 版 本 译 本 ， 如 中 、 英 文 两 个 版 本 有 任 何 抵 触 或 不 相 符 之 处 ， 应 以 英 文 版 本 为 准 。 </font></span><font face="細明體"><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+			</o:p>
+			</span></font></font></p>
+
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體">二 零 零 八 年 六 月</font></span><font face="細明體"><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><o:p>
+			</o:p>
+			</span></font></font></p>
+		</div>
+		<div id="techconfig" style="display:none;">
+			<p class="MsoNormal" align="center" style="text-align:center"><u><b style="mso-bidi-font-weight: normal; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-bidi-font-family: Arial; mso-font-kerning: 0pt"><span lang="ZH-TW" style="mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-bidi-font-family: Arial; mso-font-kerning: 0pt"><font size="3" face="細明體">技术设定</font></span></b></u></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt"><font face="細明體" size="3">本网站以800 x 600解像度浏览效果最佳，并应以Internet Explorer 9或以上浏览器阅读。</font></span></p>    
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體" size="3">本网站的所有网页均以统一码（UTF-8）为编码。如浏览器未能自动选择正确的编码（以致出现乱码），应依循以下步骤更改编码的设定：把滑鼠指标移至出现乱码的视窗内，用浏览器选单(通常为“检视”-“编码”)选取Unicode(UTF-8)编码。</font></span></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體" size="3">网页的最新版本有时需要通过更新有关的网页才可看到，以Internet Explorer为例，方法是按Internet Explorer 的“检视”-“重新整理”或&lt;Ctrl>&lt;F5>。如上述方法无效，则必须清除所有离线内容。例如：在Internet Explorer上选取“工具”-“网际网路选项”，并在对话方块“一般”分页上的Temporary Internet files栏内按“删除档案”，然後重新启动Internet Explorer。</font></span></p>    
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font face="細明體"><span style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; mso-font-kerning: 0pt; layout-grid-mode: line" lang="ZH-TW"><font size="3">部份中文字符需下载</font></span><a href="http://www.had.gov.hk/rre/chi/download/remis_font.zip" target="_blank"><font size="3"><span lang="ZH-TW" style="font-family:新細明體;mso-ascii-font-family:&quot;Times New Roman&quot;;
+			mso-hansi-font-family:&quot;Times New Roman&quot;;color:windowtext;text-decoration:none;
+			text-underline:none">「</span></font><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; color: blue; mso-field-code: HYPERLINK \0022http\:\/\/www\.had\.gov\.hk\/vre\/chi\/download\/remis_font\.zip\0022; mso-font-kerning: 0pt; layout-grid-mode: line; text-decoration: none; text-underline: none"><font face="新細明體" size="3">香港特有中文字</font></span><span style="font-size:13.0pt;mso-font-kerning:0pt;
+			layout-grid-mode:line"><font face="細明體" size="3"><span lang="ZH-TW" style="font-size: 12.0pt; mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; color: windowtext; mso-font-kerning: 1.0pt; layout-grid-mode: both; text-decoration: none; text-underline: none">」</span></font></span></a><span style="font-size:13.0pt;mso-font-kerning:0pt;
+			layout-grid-mode:line"><a href="http://www.had.gov.hk/rre/chi/download/remis_font.zip" target="_blank"><span style="color: windowtext; mso-font-kerning: 1.0pt; layout-grid-mode: both; text-decoration: none; text-underline: none"><font size="3">(</font></span><font face="細明體" size="3"><span style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; color: windowtext; text-decoration: none; text-underline: none" lang="ZH-TW">压缩档案</span><span style="color: windowtext; mso-font-kerning: 1.0pt; layout-grid-mode: both; text-decoration: none; text-underline: none">)</span></font></a></span><span style="font-size: 13.0pt; mso-font-kerning: 0pt; layout-grid-mode: line" lang="ZH-TW"><font size="3">及</font></span><font size="3"><a href="https://www.ogcio.gov.hk/sc/business/tech_promotion/ccli/hkscs/" target="_blank"><span lang="ZH-TW" style="font-family:新細明體;mso-ascii-font-family:&quot;Times New Roman&quot;;
+			mso-hansi-font-family:&quot;Times New Roman&quot;;color:windowtext;text-decoration:none;
+			text-underline:none">「</span></a></font><a href="https://www.ogcio.gov.hk/sc/business/tech_promotion/ccli/hkscs/" target="_blank"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; color: blue; mso-field-code: HYPERLINK \0022http\:\/\/www\.had\.gov\.hk\/vre\/chi\/download\/remis_font\.zip\0022; mso-font-kerning: 0pt; layout-grid-mode: line; text-decoration: none; text-underline: none"><font face="新細明體" size="3">香港增补字符集</font></span><span style="font-size:13.0pt;mso-font-kerning:0pt;
+			layout-grid-mode:line"><font face="細明體" size="3"><span lang="ZH-TW" style="font-size: 12.0pt; mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; color: windowtext; mso-font-kerning: 1.0pt; layout-grid-mode: both; text-decoration: none; text-underline: none">」</span></font></span></a><span style="font-size:13.0pt;mso-font-kerning:0pt;
+			layout-grid-mode:line"><a href="http://www.ogcio.gov.hk/ccli/chs/hkscs/download.html" target="_blank"><font face="細明體" size="3"><span lang="ZH-TW" style="mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman; color: windowtext; mso-font-kerning: 1.0pt; layout-grid-mode: both; text-decoration: none; text-underline: none">，</span></font></a><font face="細明體" size="3"><span lang="ZH-TW">才可以显示。</span><o:p> 
+			</o:p>     
+			<o:p>     
+			</o:p><br> 
+			</font></span><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><font face="細明體" size="3">(将档案解压 (unzip)後，请根据“安装方法 (readme.exe)”，以安装“香港特有中文字”。)</font></span></font></p>  
+
+		</div>
+		<div id="personcollect" style="display:none;">
+			<p class="MsoNormal" align="center" style="text-align:center"><u><b style="mso-bidi-font-weight: normal; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-bidi-font-family: Arial; mso-font-kerning: 0pt"><span lang="ZH-TW" style="mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-bidi-font-family: Arial; mso-font-kerning: 0pt"><font size="3" face="細明體">收集个人资料声明</font></span></b></u></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><u><span style="mso-font-kerning: 0pt"><font size="3" face="細明體">收集的目的</font></span></u></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt"><font face="細明體" size="3">关於你提供的个人资料，本署只会用作处理你的查询。</font></span></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt"><font face="細明體" size="3">你的查询也可能会供本署作编制有关查询宗数及查询性质的统计资料之用，但统计结果的形式不会个别地显示你的查询及任何你的个人资料。</font></span></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt"><font face="細明體" size="3">提供个人资料与否，纯属自愿。如果你提供的资料不足够, 本署可能无法处理你的查询。</font></span></p>  
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt"><font face="細明體" size="3">&nbsp;<o:p>
+			</o:p>   
+			</font>  
+			</span></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><u><span style="mso-font-kerning: 0pt"><font size="3" face="細明體">资料转介</font></span></u></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt"><font face="細明體" size="3">如有需要，本署可能会把你提供的资料交给其他部门 ／ 机构 ／ 人士，以便按有关的条例及／或附属法例作选民登记丶选举及所有相关的用途。</font></span></p> 
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt"><font face="細明體" size="3">&nbsp;<o:p>
+			</o:p>   
+			</font>  
+			</span></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><u><span style="mso-font-kerning: 0pt"><font size="3" face="細明體">索阅个人资料</font></span></u></p>
+			<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><span style="mso-font-kerning: 0pt"><font face="細明體" size="3">根据《个人资料(私隐)条例》，你有权要求索阅及修订就选民登记事宜所提供的个人及其他有关的资料。有关的要求应以书面向选举登记主任提出，地址是香港湾仔轩尼诗道130号修顿中心30楼。</font></span></p>
+		</div>
+		<div id="contact" style="display:none;">
+			<p class="MsoNormal" align="center" style="text-align:center"><u><b style="mso-bidi-font-weight: normal; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-bidi-font-family: Arial; mso-font-kerning: 0pt"><span lang="ZH-TW" style="mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-bidi-font-family: Arial; mso-font-kerning: 0pt"><font size="3" face="細明體">联络我们</font></span></b></u></p>
+			<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+			mso-pagination:widow-orphan"><font size="3" face="細明體"><span style="mso-bidi-font-family: 新細明體; color: black">如对乡郊代表选举的程序和安排有任何查询，可致电本署的电话热线 (852)2152 1521。&nbsp;</span></font></p> 
+			<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+			mso-pagination:widow-orphan"><span style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt" lang="ZH-TW"><font size="3"><font face="細明體">民政事务总署<br>
+			</font></font></span><font size="3"><font face="細明體"><span style="font-family:sөũ;
+			mso-bidi-font-family:新細明體;color:black;mso-font-kerning:0pt"><br>
+			地 址 ：香港湾仔轩尼诗道130号修顿中心30楼<br>  
+			</span><span style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt" lang="ZH-TW">查 询 
+			</span><span lang="ZH-TW" style="font-family:新細明體;mso-ascii-font-family:
+			sөũ;mso-hansi-font-family:sөũ;mso-bidi-font-family:新細明體;color:black;
+			mso-font-kerning:0pt">：</span><span style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">(852) 2152 1521<br>   
+				</span><span style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt" lang="ZH-TW">传 真  
+			</span><span lang="ZH-TW" style="font-family:新細明體;mso-ascii-font-family:
+			sөũ;mso-hansi-font-family:sөũ;mso-bidi-font-family:新細明體;color:black;
+			mso-font-kerning:0pt">：</span><span style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt">(852) 2591 6392<br>   
+				</span><span style="mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt" lang="ZH-TW">网 址  
+			</span><span lang="ZH-TW" style="font-family:新細明體;mso-ascii-font-family:
+			sөũ;mso-hansi-font-family:sөũ;mso-bidi-font-family:新細明體;color:black;
+			mso-font-kerning:0pt">：</span><span style="font-family:sөũ;mso-bidi-font-family:新細明體;color:black;mso-font-kerning:
+			0pt"><a href="http://www.had.gov.hk/rre" target="_blank">http://www.had.gov.hk/rre</a><o:p>
+				</o:p>     
+				</span><br>
+			<span style="mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt" lang="ZH-TW">电</span> 
+				<span style="font-family: 新細明體; mso-ascii-font-family: sөũ; mso-hansi-font-family: sөũ; mso-bidi-font-family: 新細明體; color: black; mso-font-kerning: 0pt" lang="ZH-TW">邮</span><span lang="ZH-TW" style="font-family:sөũ;mso-bidi-font-family:新細明體;color:black;mso-font-kerning:  
+			0pt"> </span><span lang="ZH-TW" style="font-family:新細明體;mso-ascii-font-family:
+			sөũ;mso-hansi-font-family:sөũ;mso-bidi-font-family:新細明體;color:black;
+			mso-font-kerning:0pt">：</span><span style="font-family:sөũ;mso-bidi-font-family:新細明體;color:black;mso-font-kerning:
+			0pt"><a href="mailto:rre@had.gov.hk">rre@had.gov.hk</a><o:p>
+				</span></font></font></p>
+		</div>
+	</div>
+    <hr />
+    <script language="JavaScript">
+      footer();
+    </script>
   </body>
-  </noframes>
-</frameset>
-
 </html>

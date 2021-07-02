@@ -13,6 +13,14 @@
     <script>
       (function () {
         if (!!window.MSInputMethodContext && !!document.documentMode) {
+          /*@cc_on
+            if (/^10/.test(@_jscript_version)) {
+              alert("isIE10");
+            }
+          @*/
+          if (navigator.appVersion.indexOf("MSIE 10") !== -1) {
+            window.alert("This is IE 10");
+          }
           // alert("IE 10");
           document.write(
             '<script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"><\/script>'
@@ -41,6 +49,12 @@
         }
       })();
     </script>
+
+    <!--[if IE 9]>
+      <script>
+        window.alert("This is IE 9");
+      </script>
+    <![endif]-->
 
     <!-- Customize -->
     <script language="JavaScript" src="js/swapimage.js"></script>
@@ -697,7 +711,7 @@
                     <button
                       class="btn btn-secondary m-2"
                       type="button"
-                      onClick="btnSearch_Click('menu1')"
+                      onClick="btnSearch_Click('menu1'); $('#btnAgree').attr('href', '../remis/RREenquireStatus.jsp?lang=en');"
                     >
                       Enquiry on Application Status of New Voter Registration
                     </button>
@@ -706,7 +720,7 @@
                     <button
                       class="btn btn-secondary m-2"
                       type="button"
-                      onClick="btnSearch_Click('menu1')"
+                      onClick="btnSearch_Click('menu1'); $('#btnAgree').attr('href', '../remis/RREenquireVoter.jsp?lang=en');"
                     >
                       Search for Voter Registration Information
                     </button>
@@ -816,7 +830,7 @@
                 <div class="row justify-content-center">
                   <div class="col-auto">
                     <button
-                      class="btn btn-secondary"
+                      class="btn btn-secondary m-2"
                       type="button"
                       onClick="btnSearch_Click('home')"
                     >
@@ -828,7 +842,7 @@
                       id="btnAgree"
                       href="../remis/RREenquireVoter.jsp?lang=en"
                       target="_blank"
-                      class="btn btn-secondary disabled"
+                      class="btn btn-secondary m-2 disabled"
                       tabindex="-1"
                       role="button"
                     >

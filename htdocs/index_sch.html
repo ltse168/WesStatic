@@ -8,13 +8,43 @@
       type="text/css"
       href="bootstrap-5.0.0-beta2-dist/css/bootstrap.css"
     />
-    <script
-      type="text/javascript"
-      src="bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.min.js"
-    ></script>
+
+    <script>
+      (function () {
+        if (!!window.MSInputMethodContext && !!document.documentMode) {
+          // alert("IE 10");
+          document.write(
+            '<script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"><\/script>'
+          );
+          document.write(
+            '<script type="text/javascript" src="js/popper.min.js"><\/script>'
+          );
+          document.write(
+            '<script type="text/javascript" src="bootstrap-4.1.3-dist/js/bootstrap.bundle.min.js"><\/script>'
+          );
+        } else {
+          // alert("Not IE 10");
+          document.write(
+            '<script type="text/javascript" src="bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.min.js"><\/script>'
+          );
+
+          document.write(
+            '<script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"><\/script>'
+          );
+        }
+
+        function setAttributes(el, attrs) {
+          for (var key in attrs) {
+            el.setAttribute(key, attrs[key]);
+          }
+        }
+      })();
+    </script>
+
+    <!-- Customize -->
     <script language="JavaScript" src="js/swapimage.js"></script>
-    <script language="JavaScript" src="js/jquery-1.12.4.min.js"></script>
     <script language="JavaScript" src="js/fontSize.js"></script>
+
     <style>
       .nav-pills .nav-link {
         background: #d7e9e8;
@@ -230,7 +260,7 @@
           <div class="row" style="background: url('img/bkgdtexture.gif')">
             <div class="col-auto me-auto">
               <div class="m-1">
-                <div class="row g-0">
+                <div class="row justify-content-between g-0">
                   <div
                     class="col-md-auto m-2"
                     style="display: flex; align-items: center"
@@ -243,7 +273,7 @@
                         height="33"
                     /></a>
                   </div>
-                  <div class="col-md">
+                  <div class="col-md-auto">
                     <div class="row">
                       <font size="3" face="sans-serif"
                         ><b>乡郊代表选举选民登记资料查阅系统</b></font
@@ -341,6 +371,7 @@
               >
                 <a
                   class="nav-link p-2 active"
+                  data-toggle="pill"
                   data-bs-toggle="pill"
                   href="#home"
                   >简介</a
@@ -351,7 +382,8 @@
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
               >
-                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu1"
+                <a class="nav-link p-2" data-toggle="pill"
+                  data-bs-toggle="pill" href="#menu1"
                   >查询选民登记资料</a
                 >
               </li>
@@ -360,7 +392,8 @@
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
               >
-                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu2"
+                <a class="nav-link p-2" data-toggle="pill"
+                  data-bs-toggle="pill" href="#menu2"
                   >免责声明</a
                 >
               </li>
@@ -369,7 +402,8 @@
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
               >
-                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu3"
+                <a class="nav-link p-2" data-toggle="pill"
+                  data-bs-toggle="pill" href="#menu3"
                   >技术设定</a
                 >
               </li>
@@ -378,7 +412,8 @@
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
               >
-                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu4"
+                <a class="nav-link p-2" data-toggle="pill"
+                  data-bs-toggle="pill" href="#menu4"
                   >收集个人资料声明</a
                 >
               </li>
@@ -411,7 +446,8 @@
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
               >
-                <a class="nav-link p-2" data-bs-toggle="pill" href="#menu5"
+                <a class="nav-link p-2" data-toggle="pill"
+                  data-bs-toggle="pill" href="#menu5"
                   >联络我们</a
                 >
               </li>
@@ -545,22 +581,26 @@
                   </font>
                 </p>
 
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button
-                    class="btn btn-secondary"
-                    type="button"
-                    onClick="btnSearch_Click('menu1')"
-                  >
+                <div class="row justify-content-center g-2">
+                  <div class="col-auto">
+                    <button
+                      class="btn btn-secondary m-2"
+                      type="button"
+                      onClick="btnSearch_Click('menu1'); $('#btnAgree').attr('href', '../remis/RREenquireStatus.jsp?lang=sc');"
+                    >
                     查询选民新登记申请状况
-                  </button>
-                  <button
-                    class="btn btn-secondary"
-                    type="button"
-                    onClick="btnSearch_Click('menu1')"
-                  >
+                    </button>
+                  </div>
+                  <div class="col-auto">
+                    <button
+                      class="btn btn-secondary m-2"
+                      type="button"
+                      onClick="btnSearch_Click('menu1'); $('#btnAgree').attr('href', '../remis/RREenquireVoter.jsp?lang=sc');"
+                    >
                     查询选民登记资料
-                  </button>
-                </div>
+                    </button>
+                  </div>
+              </div>
               </div>
             </div>
           </div>
@@ -645,11 +685,11 @@
                 <div class="row justify-content-center">
                   <div class="col-auto">
                     <button
-                      class="btn btn-secondary"
+                      class="btn btn-secondary m-2"
                       type="button"
                       onClick="btnSearch_Click('home')"
                     >
-                      返回主页
+                    返回主页
                     </button>
                   </div>
                   <div class="col-auto">
@@ -657,11 +697,11 @@
                       id="btnAgree"
                       href="../remis/RREenquireVoter.jsp?lang=sc"
                       target="_blank"
-                      class="btn btn-secondary disabled"
+                      class="btn btn-secondary m-2 disabled"
                       tabindex="-1"
                       role="button"
                     >
-                      下一步
+                    下一步
                     </a>
                   </div>
                 </div>
@@ -1111,13 +1151,13 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-between">
           <div class="col-auto m-2">
             <script language="JavaScript">
               footerS();
             </script>
           </div>
-          <div class="col-auto ms-md-auto m-2">
+          <div class="col-auto m-2">
             <script language="JavaScript">
               footerE();
             </script>
