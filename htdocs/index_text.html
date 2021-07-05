@@ -75,9 +75,15 @@
 		function cbxdisclaimer_change(cbx){
 			if (cbx.checked){
 				var link = document.getElementById("aAgree");
+				link.href="../remis/RREenquireVoter.jsp?lang=en"
+				link.onclick="return true;"
+				link.target="_blank"
 				link.style.color = "blue";
 			} else {
 				var link = document.getElementById("aAgree");
+				link.href = "#";
+				link.onclick="return false;"
+				link.target="_self"
 				link.style.color = "grey";
 			}
 		}
@@ -425,7 +431,7 @@
 					<a onClick="showDiv('intro_text')" href="#" target="_self">Back to Main Page</a>
 				</td>
 				<td align="center" width="200">
-					<a id="aAgree" href="../remis/RREenquireVoter.jsp?lang=en" style="color:grey">Next</a>
+					<a id="aAgree" href="javascript:void(0);" onclick="return false;" style="color:grey">Next</a>
 				</td>
 			</tr>
 			</table>
@@ -482,8 +488,7 @@
 				normal"><u><span style="mso-font-kerning: 0pt; layout-grid-mode: line"><font face="Arial" size="3">Technical Configuration<o:p>  
 				</font> 
 				</span></u></b></p>
-				<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font face="Arial" size="3"><span style="mso-fareast-font-family: �s�ө���; mso-ansi-language: EN-US; mso-fareast-language: ZH-TW; mso-bidi-language: AR-SA">This 
-				website is best viewed in 800x600 resolution with Microsoft Internet Explorer 9 (or above).</span></font></p>
+				<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font face="Arial" size="3"><span style="mso-fareast-font-family: �s�ө���; mso-ansi-language: EN-US; mso-fareast-language: ZH-TW; mso-bidi-language: AR-SA">This website is best viewed with Google Chrome or Microsoft Internet Explorer 11 (or above).</span></font></p>
 				<p class="MsoNormal" style="text-align:justify;text-justify:inter-ideograph"><font face="Arial" size="3"><span style="mso-fareast-font-family: �s�ө���; mso-ansi-language: EN-US; mso-fareast-language: ZH-TW; mso-bidi-language: AR-SA">All 
 				pages of this website are in Unicode (UTF-8) encoding. In case the browser 
 				cannot recognise the encoding automatically (thus making the text illegible), 
